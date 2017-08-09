@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Working with Transactions (EF6 Onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 0d0f1824-d781-4cb3-8fda-b7eaefced1cd
 caps.latest.revision: 3
@@ -29,7 +29,7 @@ Entity Framework does not wrap queries in a transaction.
   
 This default functionality is suitable for a lot of users and if so there is no need to do anything different in EF6; just write the code as you always did.  
   
-However some users require greater control over their transactions – this is covered in the following sections.  
+However some users require greater control over their transactions ? this is covered in the following sections.  
   
 ## How the APIs work  
   
@@ -39,14 +39,14 @@ Prior to EF6 Entity Framework insisted on opening the database connection itself
   
 Starting with EF6 the framework now provides:  
   
-1. **Database.BeginTransaction()** : An easier method for a user to start and complete transactions themselves within an existing DbContext – allowing several operations to be combined within the same transaction and hence either all committed or all rolled back as one. It also allows the user to more easily specify the isolation level for the transaction.  
+1. **Database.BeginTransaction()** : An easier method for a user to start and complete transactions themselves within an existing DbContext ? allowing several operations to be combined within the same transaction and hence either all committed or all rolled back as one. It also allows the user to more easily specify the isolation level for the transaction.  
 2. **Database.UseTransaction()** : which allows the DbContext to use a transaction which was started outside of the Entity Framework.  
   
 ### Combining several operations into one transaction within the same context  
   
-**Database.BeginTransaction()** has two overrides – one which takes an explicit [IsolationLevel](https://msdn.microsoft.com/library/system.data.isolationlevel.aspx) and one which takes no arguments and uses the default IsolationLevel from the underlying database provider. Both overrides return a **DbContextTransaction** object which provides **Commit()** and **Rollback()** methods which perform commit and rollback on the underlying store transaction.  
+**Database.BeginTransaction()** has two overrides ? one which takes an explicit [IsolationLevel](https://msdn.microsoft.com/library/system.data.isolationlevel.aspx) and one which takes no arguments and uses the default IsolationLevel from the underlying database provider. Both overrides return a **DbContextTransaction** object which provides **Commit()** and **Rollback()** methods which perform commit and rollback on the underlying store transaction.  
   
-The **DbContextTransaction** is meant to be disposed once it has been committed or rolled back. One easy way to accomplish this is the **using(…) {…}** syntax which will automatically call **Dispose()** when the using block completes:  
+The **DbContextTransaction** is meant to be disposed once it has been committed or rolled back. One easy way to accomplish this is the **using(?) {?}** syntax which will automatically call **Dispose()** when the using block completes:  
   
 ```  
 using System; 
@@ -176,12 +176,12 @@ namespace TransactionsExamples
   
 **Notes**:  
   
-- You can pass null to Database.UseTransaction() to clear Entity Framework’s knowledge of the current transaction. Entity Framework will neither commit nor rollback the existing transaction when you do this, so use with care and only if you’re sure this is what you want to do.  
+- You can pass null to Database.UseTransaction() to clear Entity Framework?s knowledge of the current transaction. Entity Framework will neither commit nor rollback the existing transaction when you do this, so use with care and only if you?re sure this is what you want to do.  
 - You will see an exception from Database.UseTransaction() if you pass a transaction:  
     - When the Entity Framework already has an existing transaction  
     - When Entity Framework is already operating within a TransactionScope  
-    - Whose connection object is null (i.e. one which has no connection – usually this is a sign that that transaction has already completed)  
-    - Whose connection object does not match the Entity Framework’s connection.  
+    - Whose connection object is null (i.e. one which has no connection ? usually this is a sign that that transaction has already completed)  
+    - Whose connection object does not match the Entity Framework?s connection.  
   
 ## Using transactions with other features  
   
@@ -197,7 +197,7 @@ The new Connection Resiliency feature does not work with user-initiated transact
   
 ### Asynchronous Programming  
   
-The approach outlined in the previous sections needs no further options or settings to work with the [asynchronous query and save methods](../ef6/entity-framework-async-query-and-save-ef6-onwards.md). But be aware that, depending on what you do within the asynchronous methods, this may result in long-running transactions – which can in turn cause deadlocks or blocking which is bad for the performance of the overall application.  
+The approach outlined in the previous sections needs no further options or settings to work with the [asynchronous query and save methods](../ef6/entity-framework-async-query-and-save-ef6-onwards.md). But be aware that, depending on what you do within the asynchronous methods, this may result in long-running transactions ? which can in turn cause deadlocks or blocking which is bad for the performance of the overall application.  
   
 ### TransactionScope Transactions  
   

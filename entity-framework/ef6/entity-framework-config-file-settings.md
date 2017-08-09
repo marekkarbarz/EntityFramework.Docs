@@ -1,19 +1,19 @@
 ---
 title: "Entity Framework Config File Settings | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 000044c6-1d32-4cf7-ae1f-ea21d86ebf8f
 caps.latest.revision: 3
 ---
 # Entity Framework Config File Settings
-Entity Framework allows a number of settings to be specified from the configuration file. In general EF follows a ‘convention over configuration’ principle. All the settings discussed in this post have a default behavior, you only need to worry about changing the setting when the default no longer satisfies your requirements.  
+Entity Framework allows a number of settings to be specified from the configuration file. In general EF follows a ?convention over configuration? principle. All the settings discussed in this post have a default behavior, you only need to worry about changing the setting when the default no longer satisfies your requirements.  
   
 ## A Code-Based Alternative  
   
@@ -177,9 +177,9 @@ For example, the SqlCeConnectionFactory, that is included in Entity Framework, r
 </entityFramework>
 ```  
   
-If you don’t set a default connection factory, Code First uses the SqlConnectionFactory, pointing to .\SQLEXPRESS. SqlConnectionFactory also has a constructor that allows you to override parts of the connection string. If you want to use a SQL Server instance other than .\SQLEXPRESS you can use this constructor to set the server.  
+If you don?t set a default connection factory, Code First uses the SqlConnectionFactory, pointing to .\SQLEXPRESS. SqlConnectionFactory also has a constructor that allows you to override parts of the connection string. If you want to use a SQL Server instance other than .\SQLEXPRESS you can use this constructor to set the server.  
   
-The following configuration will cause Code First to use **MyDatabaseServer** for contexts that don’t have an explicit connection string set.  
+The following configuration will cause Code First to use **MyDatabaseServer** for contexts that don?t have an explicit connection string set.  
   
 ```  
 <entityFramework> 
@@ -191,7 +191,7 @@ The following configuration will cause Code First to use **MyDatabaseServer** fo
 </entityFramework>
 ```  
   
-By default, it’s assumed that constructor arguments are of type string. You can use the type attribute to change this.  
+By default, it?s assumed that constructor arguments are of type string. You can use the type attribute to change this.  
   
 ```  
 <parameter value="2" type="System.Int32" />

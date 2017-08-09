@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Fluent API - Relationships | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: fd73b4f8-16d5-40f1-9640-885ceafe67a1
 caps.latest.revision: 3
@@ -23,7 +23,7 @@ When configuring a relationship with the fluent API, you start with the EntityTy
   
 You can then configure foreign key properties by using the HasForeignKey method. This method takes a lambda expression that represents the property to be used as the foreign key.  
   
-## Configuring a Required-to-Optional Relationship (One-to–Zero-or-One)  
+## Configuring a Required-to-Optional Relationship (One-to?Zero-or-One)  
   
 The following example configures a one-to-zero-or-one relationship. The OfficeAssignment has the InstructorID property that is a primary key and a foreign key, because the name of the property does not follow the convention the HasKey method is used to configure the primary key.  
   

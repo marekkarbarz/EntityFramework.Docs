@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Relationships and Navigation Properties | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 8a21ae73-6d9b-4b50-838a-ec1fddffcf37
 caps.latest.revision: 3
@@ -15,7 +15,7 @@ caps.latest.revision: 3
 # Entity Framework Relationships and Navigation Properties
 This topic gives an overview of how the Entity Framework manages relationships between the entities. It also gives some guidance on how to map and manipulate relationships.
 
- 
+?
 
 ## Relationships, Navigation Properties, and Foreign Keys
 
@@ -33,28 +33,28 @@ It is recommended to include properties in the model that map to foreign keys in
 
 When foreign key columns are not included in the model, the association information is managed as an independent object. Relationships are tracked through object references instead of foreign key properties. This type of association is called an *independent association*. The most common way to modify an *independent association* is to modify the navigation properties that are generated for each entity that participates in the association.
 
-You can choose to use one or both types of associations in your model. However, if you have a pure many-to-many relationship that is connected by a join table that contains only foreign keys, the EF will use an independent association to manage such many-to-many relationship.   
+You can choose to use one or both types of associations in your model. However, if you have a pure many-to-many relationship that is connected by a join table that contains only foreign keys, the EF will use an independent association to manage such many-to-many relationship. ??
 
 The following image shows a conceptual model that was created with the Entity Framework Designer. The model contains two entities that participate in one-to-many relationship. Both entities have navigation properties. **Course** is the depend entity and has the **DepartmentID** foreign key property defined.
 
 ![RelationshipEFDesigner](../ef6/media/relationshipefdesigner.png)
 
- 
+?
 
 The following image shows the same model that was created with Code First.
 
 ![RelationshipCodeFirst](../ef6/media/relationshipcodefirst.png)
 
- 
+?
 
 ## Configuring/Mapping Relationships
 
 The rest of this page covers how to access and manipulate data using relationships. For information on setting up relationships in your model, see the following pages.
 
--   To configure relationships in Code First, see [Data Annotations](../ef6/entity-framework-code-first-data-annotations.md) and [Fluent API – Relationships](../ef6/entity-framework-fluent-api-relationships.md).
+-   To configure relationships in Code First, see [Data Annotations](../ef6/entity-framework-code-first-data-annotations.md) and [Fluent API ? Relationships](../ef6/entity-framework-fluent-api-relationships.md).
 -   To configure relationships using the Entity Framework Designer, see [Relationships with the EF Designer](../ef6/entity-framework-relationships-ef-designer.md).
 
- 
+?
 
 ## Creating and Modifying Relationships
 
@@ -65,18 +65,18 @@ The following examples show how to use the foreign key properties and navigation
 -   By assigning a new value to a foreign key property, as in the following example.  
     **course.DepartmentID = newCourse.DepartmentID;**
 
- 
+?
 
 -   The following code removes a relationship by setting the foreign key to **null**. Note, that the foreign key property must be nullable.  
     **course.DepartmentID = null;**  
     > **Note**: If the reference is in the added state (in this example, the course object), the reference navigation property will not be synchronized with the key values of a new object until SaveChanges is called. Synchronization does not occur because the object context does not contain permanent keys for added objects until they are saved. If you must have new objects fully synchronized as soon as you set the relationship, use one of the following methods.*
 
- 
+?
 
 -   By assigning a new object to a navigation property. The following code creates a relationship between a course and a **department**. If the objects are attached to the context, the **course** is also added to the **department.Courses** collection, and the corresponding foreign key property on the **course** object is set to the key property value of the department.  
     **course.Department = department;**
 
- 
+?
 
 -   To delete the relationship, set the navigation property to **null**. If you are working with the Entity Framework that is based on .NET 4.0, then the related end needs to be loaded before you set it to null. For example:  
     **context.Entry(course).Reference(c =&gt; c.Department).Load();  
@@ -84,12 +84,12 @@ The following examples show how to use the foreign key properties and navigation
     Starting with the Entity Framework 5.0, that is based on .NET 4.5, you can set the relationship to null without loading the related end. You can also set the current value to null using the following method.  
     **context.Entry(course).Reference(c =&gt; c.Department).CurrentValue = null;**
 
- 
+?
 
 -   By deleting or adding an object in an entity collection. For example, you can add an object of type **Course** to the **department.Courses** collection. This operation creates a relationship between a particular **course** and a particular **department**. If the objects are attached to the context, the department reference and the foreign key property on the **course** object will be set to the appropriate **department**.  
     **department.Courses.Add(newCourse);**
 
- 
+?
 
 - By using the ChangeRelationshipState method to change the state of the specified relationship between two entity objects. This method is most commonly used when working with N-Tier applications and an *independent association* (it cannot be used with a foreign key association). Also, to use this method you must drop down to **ObjectContext**, as shown in the example below.  
 In the following example, there is a many-to-many relationship between Instructors and Courses. Calling the ChangeRelationshipState method and passing the EntityState.Added parameter, lets the SchoolContext know that a relationship has been added between the two objects.  
@@ -106,7 +106,7 @@ In the following example, there is a many-to-many relationship between Instructo
                   ChangeRelationshipState(course, oldInstructor, c => c.Instructor, EntityState.Deleted);
 
 
- 
+?
 
 ## Synchronizing the changes between the FKs and Navigation properties
 
@@ -125,7 +125,7 @@ If you are using POCO entities without proxies, you must make sure that the **De
 -   DbChangeTracker.Entries
 -   Executing a LINQ query against a DbSet
 
- 
+?
 
 ## Loading Related Objects
 
@@ -147,7 +147,7 @@ In Entity Framework you use most commonly use the navigation properties to load 
 
 In an independent association, the related end of a dependent object is queried based on the foreign key value that is currently in the database. However, if the relationship was modified, and the reference property on the dependent object points to a different principal object that is loaded in the object context, the Entity Framework will try to create a relationship as it is defined on the client.
 
- 
+?
 
 ## Managing Concurrency
 
@@ -157,7 +157,7 @@ We recommend that you always use the foreign key association when working with e
 
 For more information, see [Optimistic Concurrency Patterns](../ef6/entity-framework-optimistic-concurrency-patterns.md).
 
- 
+?
 
 ## Working with Overlapping Keys
 

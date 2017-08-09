@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework MSL Specification | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 13ae7bc1-74b4-4ee4-8d73-c337be841467
 caps.latest.revision: 4
@@ -29,9 +29,9 @@ Versions of MSL are differentiated by XML namespaces.
 | MSL v2 | http://schemas.microsoft.com/ado/2008/09/mapping/cs |
 | MSL v3 | http://schemas.microsoft.com/ado/2009/11/mapping/cs |
 
- 
+?
 
- 
+?
 
 ## Alias Element (MSL)
 
@@ -48,7 +48,7 @@ The table below describes the attributes that can be applied to the **Alias** el
 | **Key** | Yes | The alias for the namespace that is specified by the **Value** attribute. |
 | **Value** | Yes | The namespace for which the value of the **Key** element is an alias. |
 
- 
+?
 
 ### Example
 
@@ -84,9 +84,9 @@ The following example shows an **Alias** element that defines an alias, `c`, for
    </EntityContainerMapping> 
  </Mapping> 
 ```
- 
+?
 
- 
+?
 
 ## AssociationEnd Element (MSL)
 
@@ -108,7 +108,7 @@ The following table describes the attributes that are applicable to the **Associ
 | **From** | Yes | The value of the **FromRole** attribute of the navigation property that corresponds to the association being mapped. For more information, see NavigationProperty Element (CSDL). |
 | **To** | Yes | The value of the **ToRole** attribute of the navigation property that corresponds to the association being mapped. For more information, see NavigationProperty Element (CSDL). |
 
- 
+?
 
 ### Example
 
@@ -128,7 +128,7 @@ Consider the following conceptual model entity type:
                        FromRole="Course" ToRole="Department" /> 
  </EntityType> 
 ```
- 
+?
 
 Also consider the following stored procedure:
 
@@ -144,7 +144,7 @@ Also consider the following stored procedure:
                                                               DepartmentID=@DepartmentID 
                                 WHERE CourseID=@CourseID; 
 ```
- 
+?
 
 In order to map the update function of the `Course` entity to this stored procedure, you must supply a value to the **DepartmentID** parameter. The value for `DepartmentID` does not correspond to a property on the entity type; it is contained in an independent association whose mapping is shown here:
 
@@ -160,7 +160,7 @@ In order to map the update function of the `Course` entity to this stored proced
    </EndProperty> 
  </AssociationSetMapping> 
 ```
- 
+?
 
 The following code shows the **AssociationEnd** element used to map the **DepartmentID** property of the **FK\_Course\_Department** association to the **UpdateCourse** stored procedure (to which the update function of the **Course** entity type is mapped):
 
@@ -193,19 +193,19 @@ The following code shows the **AssociationEnd** element used to map the **Depart
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## AssociationSetMapping Element (MSL)
 
 The **AssociationSetMapping** element in mapping specification language (MSL) defines the mapping between an association in the conceptual model and table columns in the underlying database.
 
-Associations in the conceptual model are types whose properties represent primary and foreign key columns in the underlying database. The **AssociationSetMapping** element uses two EndProperty elements to define the mappings between association type properties and columns in the database. You can place conditions on these mappings with the Condition element. Map the insert, update, and delete functions for associations to stored procedures in the database with the ModificationFunctionMapping element. Define read-only mappings between associations and table columns by using an Entity SQL string in a QueryView element.
+Associations in the conceptual model are types whose properties represent primary and foreign key columns in the underlying database. The **AssociationSetMapping** element uses two EndProperty elements to define the mappings between association type properties and columns in the database. You can place conditions on these mappings with the Condition element. Map the insert, update, and delete functions for associations to stored procedures in the database with the ModificationFunctionMapping element. Define read-only mappings between associations and table columns by using an Entity SQL string in a?QueryView?element.
 
 > **Note**: If a referential constraint is defined for an association in the conceptual model, the association does not need to be mapped with an **AssociationSetMapping** element. If an **AssociationSetMapping** element is present for an association that has a referential constraint, the mappings defined in the **AssociationSetMapping** element will be ignored. For more information, see ReferentialConstraint Element (CSDL).
 
- 
+?
 
 The **AssociationSetMapping** element can have the following child elements
 
@@ -224,7 +224,7 @@ The following table describes the attributes that can be applied to the **Associ
 | **TypeName** | No | The namespace-qualified name of the conceptual model association type that is being mapped. |
 | **StoreEntitySet** | No | The name of the table that is being mapped. |
 
- 
+?
 
 ### Example
 
@@ -241,9 +241,9 @@ The following example shows an **AssociationSetMapping** element in which the **
      <ScalarProperty Name="CourseID" ColumnName="CourseID" /> 
    </EndProperty> 
  </AssociationSetMapping> 
-``` 
+```?
 
- 
+?
 
 ## ComplexProperty Element (MSL)
 
@@ -265,7 +265,7 @@ The following table describes the attributes that are applicable to the **Comple
 | **Name** | Yes | The name of the complex property of an entity type in the conceptual model that is being mapped. |
 | **TypeName** | No | The namespace-qualified name of the conceptual model property type. |
 
- 
+?
 
 ### Example
 
@@ -281,7 +281,7 @@ The following example is based on the School model. The following complex type h
              FixedLength="false" Unicode="true" /> 
  </ComplexType> 
 ```
- 
+?
 
 The **LastName** and **FirstName** properties of the **Person** entity type have been replaced with one complex property, **Name**:
 
@@ -297,7 +297,7 @@ The **LastName** and **FirstName** properties of the **Person** entity type have
    <Property Name="Name" Type="SchoolModel.FullName" Nullable="false" /> 
  </EntityType> 
 ```
- 
+?
 
 The following MSL shows the **ComplexProperty** element used to map the **Name** property to columns in the underlying database:
 
@@ -316,9 +316,9 @@ The following MSL shows the **ComplexProperty** element used to map the **Name**
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## ComplexTypeMapping Element (MSL)
 
@@ -341,7 +341,7 @@ The following table describes the attributes that are applicable to the **Comple
 |----------------|-------------|-------|
 | **TypeName** | Yes | The namespace-qualified name of the complex type that is being mapped. |
 
- 
+?
 
 ### Example
 
@@ -358,7 +358,7 @@ Consider the following stored procedure:
                                                FROM dbo.StudentGrade 
              WHERE StudentID = @student_Id 
 ```
- 
+?
 
 Also consider the following conceptual model complex type:
 
@@ -371,7 +371,7 @@ Also consider the following conceptual model complex type:
    <Property Type="Int32" Name="StudentID" Nullable="false" /> 
  </ComplexType> 
 ```
- 
+?
 
 In order to create a function import that returns instances of the previous complex type, the mapping between the columns returned by the stored procedure and the entity type must be defined in a **ComplexTypeMapping** element:
 
@@ -388,9 +388,9 @@ In order to create a function import that returns instances of the previous comp
    </ResultMapping> 
  </FunctionImportMapping> 
 ```
- 
+?
 
- 
+?
 
 ## Condition Element (MSL)
 
@@ -400,7 +400,7 @@ Each condition can apply to either a **Name** (the name of a conceptual model en
 
 > **Note**: When the **Condition** element is used within a FunctionImportMapping element, only the **Name** attribute is not applicable.
 
- 
+?
 
 The **Condition** element can be a child of the following elements:
 
@@ -423,7 +423,7 @@ The following table describes the attributes that are applicable to the **Condit
 | **Value** | No | The value with which the column value is compared. If the values are the same, the condition is true. Otherwise, the condition is false. <br/> The **IsNull** and **Value** attributes cannot be used at the same time. |
 | **Name** | No | The name of the conceptual model entity property whose value is used to evaluate the condition. <br/> This attribute is not applicable if the **Condition** element is used within a FunctionImportMapping element. |
 
- 
+?
 
 ### Example
 
@@ -457,9 +457,9 @@ The following example shows **Condition** elements as children of **MappingFragm
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## DeleteFunction Element (MSL)
 
@@ -467,7 +467,7 @@ The **DeleteFunction** element in mapping specification language (MSL) maps the 
 
 > **Note**: If you do not map all three of the insert, update, or delete operations of a entity type to stored procedures, the unmapped operations will fail if executed at runtime and an UpdateException is thrown.
 
- 
+?
 
 ### DeleteFunction Applied to EntityTypeMapping
 
@@ -488,7 +488,7 @@ The following table describes the attributes that can be applied to the **Delete
 | **FunctionName** | Yes | The namespace-qualified name of the stored procedure to which the delete function is mapped. The stored procedure must be declared in the storage model. |
 | **RowsAffectedParameter** | No | The name of the output parameter that returns the number of rows affected. |
 
- 
+?
 
 #### Example
 
@@ -536,7 +536,7 @@ The following example is based on the School model and shows the **DeleteFunctio
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
 ### DeleteFunction Applied to AssociationSetMapping
 
@@ -555,7 +555,7 @@ The following table describes the attributes that can be applied to the **Delete
 | **FunctionName** | Yes | The namespace-qualified name of the stored procedure to which the delete function is mapped. The stored procedure must be declared in the storage model. |
 | **RowsAffectedParameter** | No | The name of the output parameter that returns the number of rows affected. |
 
- 
+?
 
 #### Example
 
@@ -591,9 +591,9 @@ The following example is based on the School model and shows the **DeleteFunctio
    </ModificationFunctionMapping> 
  </AssociationSetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## EndProperty Element (MSL)
 
@@ -613,7 +613,7 @@ The following table describes the attributes that are applicable to the **EndPro
 |----------------|-------------|-------|
 | Name | Yes | The name of the association end that is being mapped. |
 
- 
+?
 
 ### Example
 
@@ -631,7 +631,7 @@ The following example shows an **AssociationSetMapping** element in which the **
    </EndProperty> 
  </AssociationSetMapping> 
 ```
- 
+?
 
 ### Example
 
@@ -667,9 +667,9 @@ The following example shows the **EndProperty** element mapping the insert and d
    </ModificationFunctionMapping> 
  </AssociationSetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## EntityContainerMapping Element (MSL)
 
@@ -691,7 +691,7 @@ The following table describes the attributes that can be applied to the **Entity
 | **CdmEntityContainer** | Yes | The name of the conceptual model entity container that is being mapped. |
 | **GenerateUpdateViews** | No | **True** or **False**. If **False**, no update views are generated. This attribute should be set to **False** when you have a read-only mapping that would be invalid because data may not round-trip successfully. <br/> The default value is **True**. |
 
- 
+?
 
 ### Example
 
@@ -723,9 +723,9 @@ The following example shows an **EntityContainerMapping** element that maps the 
    </EntitySetMapping> 
  </EntityContainerMapping> 
 ```
- 
+?
 
- 
+?
 
 ## EntitySetMapping Element (MSL)
 
@@ -748,7 +748,7 @@ The following table describes the attributes that can be applied to the **Entity
 | **StoreEntitySet** **1** | No | The name of the storage model entity set that is being mapped to. |
 | **MakeColumnsDistinct** | No | **True** or **False** depending on whether only distinct rows are returned. <br/> If this attribute is set to **True**, the **GenerateUpdateViews** attribute of the EntityContainerMapping element must be set to **False**. |
 
- 
+?
 
 **1** The **TypeName** and **StoreEntitySet** attributes can be used in place of the EntityTypeMapping and MappingFragment child elements to map a single entity type to a single table.
 
@@ -782,9 +782,9 @@ The following example shows an **EntitySetMapping** element that maps three type
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## EntityTypeMapping Element (MSL)
 
@@ -804,7 +804,7 @@ The **EntityTypeMapping** element can have the following child elements:
 
 > **Note**: The **ScalarProperty** and **Condition** elements can only be child elements of the **EntityTypeMapping** element when it is used within a FunctionImportMapping element.
 
- 
+?
 
 ### Applicable Attributes
 
@@ -814,7 +814,7 @@ The following table describes the attributes that can be applied to the **Entity
 |----------------|-------------|-------|
 | **TypeName** | Yes | The namespace-qualified name of the conceptual model entity type that is being mapped. <br/> If the type is abstract or a derived type, the value must be `IsOfType(Namespace-qualified_type_name)`. |
 
- 
+?
 
 ### Example
 
@@ -849,7 +849,7 @@ The following example shows an EntitySetMapping element with two child **EntityT
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
 ### Example
 
@@ -883,9 +883,9 @@ The next example shows the mapping of a type hierarchy in which the root type is
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## FunctionImportMapping Element (MSL)
 
@@ -893,7 +893,7 @@ The **FunctionImportMapping** element in mapping specification language (MSL) de
 
 > **Note**: By default, if a function import returns a conceptual model entity type or complex type, then the names of the columns returned by the underlying stored procedure must exactly match the names of the properties on the conceptual model type. If the column names do not exactly match the property names, the mapping must be defined in a ResultMapping element.
 
- 
+?
 
 The **FunctionImportMapping** element can have the following child elements:
 
@@ -908,7 +908,7 @@ The following table describes the attributes that are applicable to the **Functi
 | **FunctionImportName** | Yes | The name of the function import in the conceptual model that is being mapped. |
 | **FunctionName** | Yes | The namespace-qualified name of the function in the storage model that is being mapped. |
 
- 
+?
 
 ### Example
 
@@ -922,7 +922,7 @@ The following example is based on the School model. Consider the following funct
    <Parameter Name="StudentID" Type="int" Mode="In" /> 
  </Function> 
 ```
- 
+?
 
 Also consider this function import in the conceptual model:
 
@@ -932,7 +932,7 @@ Also consider this function import in the conceptual model:
    <Parameter Name="StudentID" Mode="In" Type="Int32" /> 
  </FunctionImport> 
 ```
- 
+?
 
 The following example show a **FunctionImportMapping** element used to map the function and function import above to each other:
 
@@ -940,9 +940,9 @@ The following example show a **FunctionImportMapping** element used to map the f
  <FunctionImportMapping FunctionImportName="GetStudentGrades" 
                         FunctionName="SchoolModel.Store.GetStudentGrades" /> 
 ```
- 
+?
 
- 
+?
 
 ## InsertFunction Element (MSL)
 
@@ -950,7 +950,7 @@ The **InsertFunction** element in mapping specification language (MSL) maps the 
 
 > **Note**: If you do not map all three of the insert, update, or delete operations of a entity type to stored procedures, the unmapped operations will fail if executed at runtime and an UpdateException is thrown.
 
- 
+?
 
 The **InsertFunction** element can be a child of the ModificationFunctionMapping element and applied to the EntityTypeMapping element or the AssociationSetMapping element.
 
@@ -974,7 +974,7 @@ The following table describes the attributes that can be applied to the **Insert
 | **FunctionName** | Yes | The namespace-qualified name of the stored procedure to which the insert function is mapped. The stored procedure must be declared in the storage model. |
 | **RowsAffectedParameter** | No | The name of the output parameter that returns the number of affected rows. |
 
- 
+?
 
 #### Example
 
@@ -1010,7 +1010,7 @@ The following example is based on the School model and shows the **InsertFunctio
    </ModificationFunctionMapping> 
  </EntityTypeMapping> 
 ```
- 
+?
 
 ### InsertFunction Applied to AssociationSetMapping
 
@@ -1029,7 +1029,7 @@ The following table describes the attributes that can be applied to the **Insert
 | **FunctionName** | Yes | The namespace-qualified name of the stored procedure to which the insert function is mapped. The stored procedure must be declared in the storage model. |
 | **RowsAffectedParameter** | No | The name of the output parameter that returns the number of rows affected. |
 
- 
+?
 
 #### Example
 
@@ -1065,9 +1065,9 @@ The following example is based on the School model and shows the **InsertFunctio
    </ModificationFunctionMapping> 
  </AssociationSetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## Mapping Element (MSL)
 
@@ -1090,7 +1090,7 @@ The table below describes the attributes that can be applied to the **Mapping** 
 |----------------|-------------|-------|
 | **Space** | Yes | **C-S**. This is a fixed value and cannot be changed. |
 
- 
+?
 
 ### Example
 
@@ -1126,9 +1126,9 @@ The following example shows a **Mapping** element that is based on part of the S
    </EntityContainerMapping> 
  </Mapping> 
 ```
- 
+?
 
- 
+?
 
 ## MappingFragment Element (MSL)
 
@@ -1149,7 +1149,7 @@ The following table describes the attributes that can be applied to the **Mappin
 | **StoreEntitySet** | Yes | The name of the table or view that is being mapped. |
 | **MakeColumnsDistinct** | No | **True** or **False** depending on whether only distinct rows are returned. <br/> If this attribute is set to **True**, the **GenerateUpdateViews** attribute of the EntityContainerMapping element must be set to **False**. |
 
- 
+?
 
 ### Example
 
@@ -1167,7 +1167,7 @@ The following example shows a **MappingFragment** element as the child of an **E
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
 ### Example
 
@@ -1183,9 +1183,9 @@ The following example shows a **MappingFragment** element as the child of an **E
      </MappingFragment> 
  </EntitySetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## ModificationFunctionMapping Element (MSL)
 
@@ -1196,7 +1196,7 @@ The **ModificationFunctionMapping** element in mapping specification language (M
 
 > **Note**: If the modification functions for one entity in an inheritance hierarchy are mapped to stored procedures, then modification functions for all types in the hierarchy must be mapped to stored procedures.
 
- 
+?
 
 The **ModificationFunctionMapping** element can be a child of the EntityTypeMapping element or the AssociationSetMapping element.
 
@@ -1254,7 +1254,7 @@ The following example shows the entity set mapping for the **People** entity set
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
 ### Example
 
@@ -1290,23 +1290,23 @@ The following example shows the association set mapping for the **CourseInstruct
    </ModificationFunctionMapping> 
  </AssociationSetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## QueryView Element (MSL)
 
-The **QueryView** element in mapping specification language (MSL) defines a read-only mapping between an entity type or association in the conceptual model and a table in the underlying database. The mapping is defined with an Entity SQL query that is evaluated against the storage model, and you express the result set in terms of an entity or association in the conceptual model. Because query views are read-only, you cannot use standard update commands to update types that are defined by query views. You can make updates to these types by using modification functions. For more information, see How to: Map Modification Functions to Stored Procedures.
+The **QueryView** element in mapping specification language (MSL) defines a read-only mapping between an entity type or association in the conceptual model and a table in the underlying database. The mapping is defined with an Entity SQL?query that is evaluated against the storage model, and you express the result set in terms of an entity or association in the conceptual model. Because query views are read-only, you cannot use standard update commands to update types that are defined by query views. You can make updates to these types by using modification functions. For more information, see How to: Map Modification Functions to Stored Procedures.
 
 > **Note**: In the **QueryView** element, Entity SQL expressions that contain **GroupBy**, group aggregates, or navigation properties are not supported.
 
- 
+?
 
 The **QueryView** element can be a child of the EntitySetMapping element or the AssociationSetMapping element. In the former case, the query view defines a read-only mapping for an entity in the conceptual model. In the latter case, the query view defines a read-only mapping for an association in the conceptual model.
 
 > **Note**: If the **AssociationSetMapping** element is for an association with a referential constraint, the **AssociationSetMapping** element is ignored. For more information, see ReferentialConstraint Element (CSDL).
 
- 
+?
 
 The **QueryView** element cannot have any child elements.
 
@@ -1318,7 +1318,7 @@ The following table describes the attributes that can be applied to the **QueryV
 |----------------|-------------|-------|
 | **TypeName** | No | The name of the conceptual model type that is being mapped by the query view. |
 
- 
+?
 
 ### Example
 
@@ -1336,7 +1336,7 @@ The following example shows the **QueryView** element as a child of the **Entity
    </QueryView> 
  </EntitySetMapping> 
 ```
- 
+?
 
 Because the query only returns a subset of the members of the **Department** type in the storage model, the **Department** type in the School model has been modified based on this mapping as follows:
 
@@ -1356,7 +1356,7 @@ Because the query only returns a subset of the members of the **Department** typ
                        FromRole="Department" ToRole="Course" /> 
  </EntityType> 
 ```
- 
+?
 
 ### Example
 
@@ -1393,7 +1393,7 @@ The next example shows the **QueryView** element as the child of an **Associatio
    </AssociationSetMapping> 
  </EntityContainerMapping> 
 ```
- 
+?
 
 ### Comments
 
@@ -1421,7 +1421,7 @@ The following considerations apply when you define query views for entities:
 -   When a query view is defined, you cannot specify the **StorageSetName** attribute on the **EntitySetMapping** element.
 -   When a query view is defined, the **EntitySetMapping**element cannot also contain **Property** mappings.
 
- 
+?
 
 ## ResultBinding Element (MSL)
 
@@ -1440,7 +1440,7 @@ The following table describes the attributes that are applicable to the **Result
 | **Name** | Yes | The name of the entity property in the conceptual model that is being mapped. |
 | **ColumnName** | Yes | The name of the column being mapped.                                          |
 
- 
+?
 
 ### Example
 
@@ -1476,7 +1476,7 @@ The following example is based on the School model and shows an **InsertFunction
    </ModificationFunctionMapping> 
  </EntityTypeMapping> 
 ```
- 
+?
 
 The following Transact-SQL describes the **InsertPerson** stored procedure:
 
@@ -1497,9 +1497,9 @@ The following Transact-SQL describes the **InsertPerson** stored procedure:
                                                @EnrollmentDate); 
                                 SELECT SCOPE_IDENTITY() as NewPersonID; 
 ```
- 
+?
 
- 
+?
 
 ## ResultMapping Element (MSL)
 
@@ -1534,7 +1534,7 @@ Consider the following stored procedure:
                                                FROM dbo.StudentGrade 
              WHERE StudentID = @student_Id 
 ```
- 
+?
 
 Also consider the following conceptual model entity type:
 
@@ -1550,7 +1550,7 @@ Also consider the following conceptual model entity type:
    <Property Name="Grade" Type="Decimal" Precision="3" Scale="2" /> 
  </EntityType> 
 ```
- 
+?
 
 In order to create a function import that returns instances of the previous entity type, the mapping between the columns returned by the stored procedure and the entity type must be defined in a **ResultMapping** element:
 
@@ -1567,9 +1567,9 @@ In order to create a function import that returns instances of the previous enti
    </ResultMapping> 
  </FunctionImportMapping> 
 ```
- 
+?
 
- 
+?
 
 ## ScalarProperty Element (MSL)
 
@@ -1577,7 +1577,7 @@ The **ScalarProperty** element in mapping specification language (MSL) maps a pr
 
 > **Note**: Stored procedures to which modification functions are mapped must be declared in the storage model. For more information, see Function Element (SSDL).
 
- 
+?
 
 The **ScalarProperty** element can be a child of the following elements:
 
@@ -1604,7 +1604,7 @@ The following table describes the attributes that are applicable when the **Scal
 | **Name** | Yes | The name of the conceptual model property that is being mapped. |
 | **ColumnName** | Yes | The name of the table column that is being mapped.              |
 
- 
+?
 
 The following table describes the attributes that are applicable to the **ScalarProperty** element when it is used to map a conceptual model property to a stored procedure parameter:
 
@@ -1614,7 +1614,7 @@ The following table describes the attributes that are applicable to the **Scalar
 | **ParameterName** | Yes | The name of the parameter that is being mapped. |
 | **Version** | No | **Current** or **Original** depending on whether the current value or the original value of the property should be used for concurrency checks. |
 
- 
+?
 
 ### Example
 
@@ -1665,7 +1665,7 @@ The following example shows the **ScalarProperty** element used in two ways:
    </EntityTypeMapping> 
  </EntitySetMapping> 
 ```
- 
+?
 
 ### Example
 
@@ -1701,9 +1701,9 @@ The next example shows the **ScalarProperty** element used to map the insert and
    </ModificationFunctionMapping> 
  </AssociationSetMapping> 
 ```
- 
+?
 
- 
+?
 
 ## UpdateFunction Element (MSL)
 
@@ -1711,7 +1711,7 @@ The **UpdateFunction** element in mapping specification language (MSL) maps the 
 
 > **Note**:  If you do not map all three of the insert, update, or delete operations of a entity type to stored procedures, the unmapped operations will fail if executed at runtime and an UpdateException is thrown.
 
- 
+?
 
 The **UpdateFunction** element can be a child of the ModificationFunctionMapping element and applied to the EntityTypeMapping element.
 
@@ -1731,7 +1731,7 @@ The following table describes the attributes that can be applied to the **Update
 | **FunctionName** | Yes | The namespace-qualified name of the stored procedure to which the update function is mapped. The stored procedure must be declared in the storage model. |
 | **RowsAffectedParameter** | No | The name of the output parameter that returns the number of rows affected. |
 
- 
+?
 
 ### Example
 

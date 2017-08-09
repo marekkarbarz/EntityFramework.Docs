@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Raw SQL Queries | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 9e1ee76e-2499-408c-81e8-9b6c5d1945a0
 caps.latest.revision: 3
@@ -26,7 +26,7 @@ using (var context = new BloggingContext())
 }
 ```  
   
-Note that, just as for LINQ queries, the query is not executed until the results are enumerated—in the example above this is done with the call to ToList.  
+Note that, just as for LINQ queries, the query is not executed until the results are enumerated?in the example above this is done with the call to ToList.  
   
 Care should be taken whenever raw SQL queries are written for two reasons. First, the query should be written to ensure that it only returns entities that are really of the requested type. For example, when using features such as inheritance it is easy to write a query that will create entities that are of the wrong CLR type.  
   

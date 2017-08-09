@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Provider Support for Spatial Types | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 1097cb00-15f5-453d-90ed-bff9403d23e3
 caps.latest.revision: 3
@@ -34,7 +34,7 @@ The Entity Framework providers for EF5 that we are aware of that support spatial
   
 - Microsoft SQL Server provider  
     - This provider is shipped as part of EF5.  
-    - This provider depends on some additional low-level libraries that may need to be installed—see below for details.  
+    - This provider depends on some additional low-level libraries that may need to be installed?see below for details.  
 - [Devart dotConnect for Oracle](http://www.devart.com/dotconnect/oracle/)  
     - This is a third-party provider from Devart.  
   
@@ -46,7 +46,7 @@ The Entity Framework providers for EF6 that we are aware of that support spatial
   
 - Microsoft SQL Server provider  
     - This provider is shipped as part of EF6.  
-    - This provider depends on some additional low-level libraries that may need to be installed—see below for details.  
+    - This provider depends on some additional low-level libraries that may need to be installed?see below for details.  
 - [Devart dotConnect for Oracle](http://www.devart.com/dotconnect/oracle/)  
     - This is a third-party provider from Devart.  
   

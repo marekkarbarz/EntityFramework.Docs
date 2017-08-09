@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Working with Property Values | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: e3278b4b-9378-4fdb-923d-f64d80aaae70
 caps.latest.revision: 3
@@ -51,7 +51,7 @@ using (var context = new BloggingContext())
   
 Use the OriginalValue property instead of the CurrentValue property to read or set the original value.  
   
-Note that the returned value is typed as “object” when a string is used to specify the property name. On the other hand, the returned value is strongly typed if a lambda expression is used.  
+Note that the returned value is typed as ?object? when a string is used to specify the property name. On the other hand, the returned value is strongly typed if a lambda expression is used.  
   
 Setting the property value like this will only mark the property as modified if the new value is different from the old value.  
   

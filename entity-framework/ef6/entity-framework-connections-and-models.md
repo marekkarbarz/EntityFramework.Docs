@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Connections and Models | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 294bb138-978f-4fe2-8491-fdf3cd3c60c4
 caps.latest.revision: 3
@@ -17,7 +17,7 @@ This topic covers how Entity Framework discovers which database connection to us
   
 Typically an Entity Framework application uses a class derived from DbContext. This derived class will call one of the constructors on the base DbContext class to control:  
   
-- How the context will connect to a database—i.e. how a connection string is found/used  
+- How the context will connect to a database?i.e. how a connection string is found/used  
 - Whether the context will use calculate a model using Code First or load a model created with the EF Designer  
 - Additional advanced options  
   
@@ -40,7 +40,7 @@ namespace Demo.EF
 }
 ```  
   
-In this example DbContext uses the namespace qualified name of your derived context class—Demo.EF.BloggingContext—as the database name and creates a connection string for this database using either SQL Express or LocalDb. If both are installed, SQL Express will be used.  
+In this example DbContext uses the namespace qualified name of your derived context class?Demo.EF.BloggingContext?as the database name and creates a connection string for this database using either SQL Express or LocalDb. If both are installed, SQL Express will be used.  
   
 Visual Studio 2010 includes SQL Express by default and Visual Studio 2012 includes LocalDb. During installation, the EntityFramework NuGet package checks which database server is available. The NuGet package will then update the configuration file by setting the default database server that Code First uses when creating a connection by convention. If SQL Express is running, it will be used. If SQL Express is not available then LocalDb will be registered as the default instead. No changes are made to the configuration file if it already contains a setting for the default connection factory.  
   
@@ -58,7 +58,7 @@ public class BloggingContext : DbContext
 }
 ```  
   
-In this example DbContext uses “BloggingDatabase” as the database name and creates a connection string for this database using either SQL Express (installed with Visual Studio 2010) or LocalDb (installed with Visual Studio 2012). If both are installed, SQL Express will be used.  
+In this example DbContext uses ?BloggingDatabase? as the database name and creates a connection string for this database using either SQL Express (installed with Visual Studio 2010) or LocalDb (installed with Visual Studio 2012). If both are installed, SQL Express will be used.  
   
 ## Use Code First with connection string in app.config/web.config file  
   
@@ -74,7 +74,7 @@ You may choose to put a connection string in your app.config or web.config file.
 </configuration>
 ```  
   
-This is an easy way to tell DbContext to use a database server other than SQL Express or LocalDb — the example above specifies a SQL Server Compact Edition database.  
+This is an easy way to tell DbContext to use a database server other than SQL Express or LocalDb ? the example above specifies a SQL Server Compact Edition database.  
   
 If the name of the connection string matches the name of your context (either with or without namespace qualification) then it will be found by DbContext when the parameterless constructor is used. If the connection string name is different from the name of your context then you can tell DbContext to use this connection in Code First mode by passing the connection string name to the DbContext constructor. For example:  
   
@@ -88,7 +88,7 @@ public class BloggingContext : DbContext
 }
 ```  
   
-Alternatively, you can use the form “name=\<connection string name\>” for the string passed to the DbContext constructor. For example:  
+Alternatively, you can use the form ?name=\<connection string name\>? for the string passed to the DbContext constructor. For example:  
   
 ```  
 public class BloggingContext : DbContext 
@@ -146,6 +146,6 @@ The DbContext class contains other constructors and usage patterns that enable s
   
 - You can use the DbModelBuilder class to build a Code First model without instantiating a DbContext instance. The result of this is a DbModel object. You can then pass this DbModel object to one of the DbContext constructors when you are ready to create your DbContext instance.  
 - You can pass a full connection string to DbContext instead of just the database or connection string name. By default this connection string is used with the System.Data.SqlClient provider; this can be changed by setting a different implementation of IConnectionFactory onto context.Database.DefaultConnectionFactory.  
-- You can use an existing DbConnection object by passing it to a DbContext constructor. If the connection object is an instance of EntityConnection, then the model specified in the connection will be used rather than calculating a model using Code First. If the object is an instance of some other type—for example, SqlConnection—then the context will use it for Code First mode.  
+- You can use an existing DbConnection object by passing it to a DbContext constructor. If the connection object is an instance of EntityConnection, then the model specified in the connection will be used rather than calculating a model using Code First. If the object is an instance of some other type?for example, SqlConnection?then the context will use it for Code First mode.  
 - You can pass an existing ObjectContext to a DbContext constructor to create a DbContext wrapping the existing context. This can be used for existing applications that use ObjectContext but which want to take advantage of DbContext in some parts of the application.  
   

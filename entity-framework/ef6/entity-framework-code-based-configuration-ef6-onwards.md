@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Code-Based Configuration (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 13886d24-2c74-4a00-89eb-aa0dee328d83
 caps.latest.revision: 3
@@ -121,7 +121,7 @@ In the code above MyProviderServices and MyConnectionFactory represent your impl
   
 You can also add additional dependency handlers to get the same effect.  
   
-Note that you could also wrap DbProviderFactory in this way, but doing so will only effect EF and not uses of the DbProviderFactory outside of EF. For this reason you’ll probably want to continue to wrap DbProviderFactory as you have before.  
+Note that you could also wrap DbProviderFactory in this way, but doing so will only effect EF and not uses of the DbProviderFactory outside of EF. For this reason you?ll probably want to continue to wrap DbProviderFactory as you have before.  
   
-You should also keep in mind the services that you run externally to your application - e.g. running migrations from Package Manager console. When you run migrate from the console it will attempt to find your DbConfiguration. However, whether or not it will get the wrapped service depends on where the event handler it registered. If it is registered as part of the construction of your DbConfiguration then the code should execute and the service should get wrapped. Usually this won’t be the case and this means that tooling won’t get the wrapped service.  
+You should also keep in mind the services that you run externally to your application - e.g. running migrations from Package Manager console. When you run migrate from the console it will attempt to find your DbConfiguration. However, whether or not it will get the wrapped service depends on where the event handler it registered. If it is registered as part of the construction of your DbConfiguration then the code should execute and the service should get wrapped. Usually this won?t be the case and this means that tooling won?t get the wrapped service.  
   

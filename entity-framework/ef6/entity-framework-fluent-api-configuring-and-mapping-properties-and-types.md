@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Fluent API - Configuring and Mapping Properties and Types | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 648ed274-c501-4630-88e0-d728ab5c4057
 caps.latest.revision: 3
@@ -26,7 +26,7 @@ The code first fluent API is most commonly accessed by overriding the [OnModelCr
 Starting with EF6 you can use the HasDefaultSchema method on DbModelBuilder to specify the database schema to use for all tables, stored procedures, etc. This default setting will be overridden for any objects that you explicitly configure a different schema for.  
   
 ```  
-modelBuilder.HasDefaultSchema(“sales”);
+modelBuilder.HasDefaultSchema(?sales?);
 ```  
   
 ### Custom Conventions (EF6 onwards)  
@@ -41,8 +41,8 @@ The [Property](https://msdn.microsoft.com/library/system.data.entity.infrastruct
   
 The Entity Framework convention for primary keys is:  
   
-1. Your class defines a property whose name is “ID” or “Id”  
-2. or a class name followed by “ID” or “Id”  
+1. Your class defines a property whose name is ?ID? or ?Id?  
+2. or a class name followed by ?ID? or ?Id?  
   
 To explicitly set a property to be a primary key, you can use the HasKey method. In the following example, the HasKey method is used to configure the InstructorID primary key on the OfficeAssignment type.  
   
@@ -240,7 +240,7 @@ modelBuilder.Entity<Department>()
   
 ### Mapping the Table-Per-Hierarchy (TPH) Inheritance  
   
-In the TPH mapping scenario, all types in an inheritance hierarchy are mapped to a single table. A discriminator column is used to identify the type of each row. When creating your model with Code First, TPH is the default strategy for the types that participate in the inheritance hierarchy. By default, the discriminator column is added to the table with the name “Discriminator” and the CLR type name of each type in the hierarchy is used for the discriminator values. You can modify the default behavior by using the fluent API.  
+In the TPH mapping scenario, all types in an inheritance hierarchy are mapped to a single table. A discriminator column is used to identify the type of each row. When creating your model with Code First, TPH is the default strategy for the types that participate in the inheritance hierarchy. By default, the discriminator column is added to the table with the name ?Discriminator? and the CLR type name of each type in the hierarchy is used for the discriminator values. You can modify the default behavior by using the fluent API.  
   
 ```  
 modelBuilder.Entity<Course>()  

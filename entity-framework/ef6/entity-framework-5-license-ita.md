@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework 5 License (ITA) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 9ccb2adc-a631-4cc8-bd77-43abc2e7f812
 caps.latest.revision: 3
@@ -17,31 +17,31 @@ caps.latest.revision: 3
 
 **ENTITY FRAMEWORK 5.0 PER MICROSOFT WINDOWS OPERATING SYSTEM**
 
-Microsoft Corporation (o, in base al luogo di residenza del licenziatario, una delle sue consociate) concede in licenza al licenziatario il presente supplemento. Qualora il licenziatario sia autorizzato a utilizzare Microsoft Windows Operating System il software (il "software"), potrà usare il presente supplemento. Il licenziatario non potrà utilizzarlo qualora non disponga di una licenza per il software. Il licenziatario potrà utilizzare il presente supplemento con ciascuna copia validamente concessa in licenza del software.
+Microsoft Corporation (o, in base al luogo di residenza del licenziatario, una delle sue consociate) concede in licenza al licenziatario il presente supplemento. Qualora il licenziatario sia autorizzato a utilizzare Microsoft Windows Operating System il software (il "software"), potr? usare il presente supplemento. Il licenziatario non potr? utilizzarlo qualora non disponga di una licenza per il software. Il licenziatario potr? utilizzare il presente supplemento con ciascuna copia validamente concessa in licenza del software.
 
 Nelle condizioni di licenza che seguono sono descritte condizioni di utilizzo aggiuntive per il presente supplemento. Tali condizioni e le condizioni di licenza per il software si applicano all'utilizzo del supplemento da parte del licenziatario. Qualora esista un conflitto tra le predette condizioni di licenza, prevarranno le condizioni di licenza supplementari.
 
-**Utilizzando il presente supplemento, il licenziatario accetta le presenti condizioni. Qualora il licenziatario non le accetti, non potrà utilizzare il supplemento.**
+**Utilizzando il presente supplemento, il licenziatario accetta le presenti condizioni. Qualora il licenziatario non le accetti, non potr? utilizzare il supplemento.**
 
-**Qualora il licenziatario si attenga alle presenti condizioni di licenza, disporrà dei diritti di seguito indicati.**
+**Qualora il licenziatario si attenga alle presenti condizioni di licenza, disporr? dei diritti di seguito indicati.**
 
-**1. CODICE DISTRIBUIBILE.** Il supplemento è costituito dal "Codice Distribuibile". Il "Codice Distribuibile" è codice che il licenziatario potrà distribuire nei programmi che svilupperà, a condizione che si attenga alle condizioni di seguito riportate.
+**1. CODICE DISTRIBUIBILE.** Il supplemento ? costituito dal "Codice Distribuibile". Il "Codice Distribuibile" ? codice che il licenziatario potr? distribuire nei programmi che svilupper?, a condizione che si attenga alle condizioni di seguito riportate.
 
 **a. Diritto di Utilizzo e Distribuzione.**
 
--   Il licenziatario potrà duplicare e distribuire il formato in codice oggetto del supplemento.
--   *Distribuzione a Terzi.* Il licenziatario potrà autorizzare i distributori dei programmi del licenziatario stesso a duplicare e distribuire il Codice Distribuibile come parte di tali programmi.
+-   Il licenziatario potr? duplicare e distribuire il formato in codice oggetto del supplemento.
+-   *Distribuzione a Terzi.* Il licenziatario potr? autorizzare i distributori dei programmi del licenziatario stesso a duplicare e distribuire il Codice Distribuibile come parte di tali programmi.
 
 **b. Requisiti per la Distribuzione. Per distribuire il Codice Distribuibile, il licenziatario deve:**
 
--   aggiungere rilevanti e significative funzionalità al Codice Distribuibile nei programmi del licenziatario;
+-   aggiungere rilevanti e significative funzionalit? al Codice Distribuibile nei programmi del licenziatario;
 -   distribuire, per ogni file del Codice distribuibile con estensione .lib, solo i risultati dell'esecuzione di tale Codice Distribuibile attraverso un linker al programma;
 -   distribuire il Codice Distribuibile incluso in un programma di installazione solo nell'ambito di tale programma e senza alcuna modifica;
 -   far accettare ai distributori e agli utenti finali esterni un contratto con condizioni che garantiscano almeno lo stesso livello di tutela definito nel presente contratto;
 -   visualizzare una valida comunicazione di copyright del licenziatario stesso nei suoi programmi;
 -   indennizzare, manlevare e difendere Microsoft da ogni e qualsiasi domanda o azione giudiziaria, ivi incluse le spese legali, relative all'utilizzo o alla distribuzione dei programmi del licenziatario.
 
-**c. Restrizioni per la Distribuzione. Il licenziatario non potrà**
+**c. Restrizioni per la Distribuzione. Il licenziatario non potr?**
 
 -   modificare le eventuali comunicazioni relative ai copyright, ai marchi o ai brevetti riportati nel Codice Distribuibile;
 -   utilizzare i marchi di Microsoft nei nomi dei programmi del licenziatario stesso o in modo tale da suggerire che tali programmi provengano o siano riconosciuti in qualsiasi modo da Microsoft;

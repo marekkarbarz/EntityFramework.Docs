@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Tools Keyboard Shortcuts | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 3c76cdd5-17c5-4c54-a6a5-cf21b974636b
 caps.latest.revision: 3
@@ -15,7 +15,7 @@ caps.latest.revision: 3
 # Entity Framework Tools Keyboard Shortcuts
 This page provides a list of keyboard shorcuts that are available in the various screens of the Entity Framework Tools for Visual Studio.
 
- 
+?
 
 ## ADO.NET Entity Data Model Wizard
 
@@ -27,9 +27,9 @@ This page provides a list of keyboard shorcuts that are available in the various
 |----------|--------|-------|
 | **Alt+n** | Move to next screen | Not available for all selections of model contents. |
 | **Alt+f** | Finish wizard | Not available for all selections of model contents. |
-| **Alt+w** | Switch focus to the “What should the model contain?” pane. |    |
+| **Alt+w** | Switch focus to the ?What should the model contain?? pane. | ?  |
 
- 
+?
 
 ### Step Two: Choose Your Connection
 
@@ -37,15 +37,15 @@ This page provides a list of keyboard shorcuts that are available in the various
 
 | Shortcut | Action | Notes |
 |----------|--------|-------|
-| **Alt+n** | Move to next screen |   |
-| **Alt+p** | Move to previous screen |   |
-| **Alt+w** | Switch focus to the “What should the model contain?” pane. |   |
-| **Alt+c** | Open the “Connection Properties” window | Allows for the definition of a new database connection. |
-| **Alt+e** | Exclude sensitive data from the connection string |   |
-| **Alt+i** | Include sensitive data in the connection string |   |
-| **Alt+s** | Toggle the “Save connection settings in App.Config” option |   |
+| **Alt+n** | Move to next screen | ? |
+| **Alt+p** | Move to previous screen | ? |
+| **Alt+w** | Switch focus to the ?What should the model contain?? pane. | ? |
+| **Alt+c** | Open the ?Connection Properties? window | Allows for the definition of a new database connection. |
+| **Alt+e** | Exclude sensitive data from the connection string | ? |
+| **Alt+i** | Include sensitive data in the connection string | ? |
+| **Alt+s** | Toggle the ?Save connection settings in App.Config? option | ? |
 
- 
+?
 
 ### Step Three: Choose Your Version
 
@@ -53,11 +53,11 @@ This page provides a list of keyboard shorcuts that are available in the various
 
 | Shortcut | Action | Notes |
 |----------|--------|-------|
-| **Alt+n** | Move to next screen |   |
-| **Alt+p** | Move to previous screen |   |
+| **Alt+n** | Move to next screen | ? |
+| **Alt+p** | Move to previous screen | ? |
 | **Alt+w** | Switch focus to Entity Framework version selection | Allows for specifying a different version of Entity Framework for use in the project. |
 
- 
+?
 
 ### Step Four: Choose Your Database Objects and Settings
 
@@ -65,20 +65,20 @@ This page provides a list of keyboard shorcuts that are available in the various
 
 | Shortcut | Action | Notes |
 |----------|--------|-------|
-| **Alt+f** | Finish wizard |   |
-| **Alt+p** | Move to previous screen |   |
+| **Alt+f** | Finish wizard | ? |
+| **Alt+p** | Move to previous screen | ? |
 | **Alt+w** | Switch focus to database object selection pane | Allows for specifying database objects to be reverse engineered. |
-| **Alt+s** | Toggle the “Pluralize or singularize generated object names” option |   |
-| **Alt+k** | Toggle the “Include foreign key columns in the model” option | Not available for all selections of model contents. |
-| **Alt+i** | Toggle the “Import selected stored procedures and functions into the entity model” option | Not available for all selections of model contents. |
-| **Alt+m** | Switches focus to the “Model Namespace” text field | Not available for all selections of model contents. |
+| **Alt+s** | Toggle the ?Pluralize or singularize generated object names? option | ? |
+| **Alt+k** | Toggle the ?Include foreign key columns in the model? option | Not available for all selections of model contents. |
+| **Alt+i** | Toggle the ?Import selected stored procedures and functions into the entity model? option | Not available for all selections of model contents. |
+| **Alt+m** | Switches focus to the ?Model Namespace? text field | Not available for all selections of model contents. |
 | **Space** | Toggle selection on element | If element has children, all child elements will be toggled as well |
-| **Left** | Collapse child tree |   |
-| **Right** | Expand child tree |   |
-| **Up** | Navigate to previous element in tree |   |
-| **Down** | Navigate to next element in tree |   |
+| **Left** | Collapse child tree | ? |
+| **Right** | Expand child tree | ? |
+| **Up** | Navigate to previous element in tree | ? |
+| **Down** | Navigate to next element in tree | ? |
 
- 
+?
 
 ## EF Designer Surface
 
@@ -109,21 +109,21 @@ This page provides a list of keyboard shorcuts that are available in the various
 | **Ctrl + &gt;** | Descend (focus) | Same as descend command, but moves focus without selection. |
 | **Shift + End** | Follow to connected | From an entity, moves to an entity which this entity is connected to. |
 | **Del** | Delete | Delete an object or connector from the diagram. |
-| **Ins** | Insert | Adds a new property to an entity when either the “Scalar Properties” compartment header or a property itself is selected. |
+| **Ins** | Insert | Adds a new property to an entity when either the ?Scalar Properties? compartment header or a property itself is selected. |
 | **Pg Up** | Scroll diagram up | Scrolls the design surface up, in increments equal to 75% of the height of the currently visible design surface. |
 | **Pg Down** | Scroll diagram down | Scrolls the design surface down. |
 | **Shift + Pg Down** | Scroll diagram right | Scrolls the design surface to the right. |
 | **Shift + Pg Up** | Scroll diagram left | Scrolls the design surface to the left. |
 | **F2** | Enter edit mode | Standard keyboard shortcut for entering edit mode for a text control. |
-| **Shift + F10** | Display shortcut menu | Standard keyboard shortcut for displaying a selected item’s shortcut menu. |
+| **Shift + F10** | Display shortcut menu | Standard keyboard shortcut for displaying a selected item?s shortcut menu. |
 | **Control + Shift + Mouse Left Click**  <br/> **Control + Shift + MouseWheel forward** | Semantic Zoom In | Zooms in on the area of the Diagram View beneath the mouse pointer. |
 | **Control + Shift + Mouse Right Click** <br/> **Control + Shift + MouseWheel backward** | Semantic Zoom Out | Zooms out from the area of the Diagram View beneath the mouse pointer. It re-centers the diagram when you zoom out too far for the current diagram center. |
 | **Control + Shift + '+'** <br/> **Control + MouseWheel forward** | Zoom In | Zooms in on the center of the Diagram View. |
 | **Control + Shift + '-'** <br/> **Control + MouseWheel backward** | Zoom Out | Zooms out from the clicked area of the Diagram View. It re-centers the diagram when you zoom out too far for the current diagram center. |
 | **Control + Shift + Draw a rectangle with the left mouse button down** | Zoom Area | Zooms in centered on the area that you've selected. When you hold down the Control + Shift keys, you'll see that the cursor changes to a magnifying glass, which allows you to define the area to zoom into. |
-| **Context Menu Key + ‘M’** | Open Mapping Details Window | Opens the Mapping Details window to edit mappings for selected entity |
+| **Context Menu Key + ?M?** | Open Mapping Details Window | Opens the Mapping Details window to edit mappings for selected entity |
 
- 
+?
 
 ## Mapping Details Window
 
@@ -138,11 +138,11 @@ This page provides a list of keyboard shorcuts that are available in the various
 | **Enter** | List Select | Selects an element in a drop down list. |
 | **Esc** | List Close | Closes a drop down list. |
 
- 
+?
 
 ## Visual Studio Navigation
 
-Entity Framework also supplies a number of actions that can have custom keyboard shortcuts mapped (no shortcuts are mapped by default). To create these custom shortcuts, click on the Tools menu, then Options.  Under Environment, choose Keyboard.  Scroll down the list in the middle until you can select the desired command, enter the shortcut in the “Press shortcut keys” text box, and click Assign. The possible shortcuts are as follows:
+Entity Framework also supplies a number of actions that can have custom keyboard shortcuts mapped (no shortcuts are mapped by default). To create these custom shortcuts, click on the Tools menu, then Options.? Under Environment, choose Keyboard.? Scroll down the list in the middle until you can select the desired command, enter the shortcut in the ?Press shortcut keys? text box, and click Assign. The possible shortcuts are as follows:
 
 | Shortcut |
 |----------|

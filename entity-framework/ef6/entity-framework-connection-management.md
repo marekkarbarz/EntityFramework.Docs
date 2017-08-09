@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Connection Management | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: ecaa5a27-b19e-4bf9-8142-a3fb00642270
 caps.latest.revision: 3
@@ -165,7 +165,7 @@ namespace ConnectionManagementExamples
                 // Now the underlying store connection is open  
                 // (though ObjectContext.Connection.State will report closed) 
  
-                var blog = new Blog { /* Blog’s properties */ }; 
+                var blog = new Blog { /* Blog?s properties */ }; 
                 context.Blogs.Add(blog); 
                  
                 // The underlying store connection is still open  
@@ -176,7 +176,7 @@ namespace ConnectionManagementExamples
                 // Each SaveChanges() / query etc now opens and immediately closes 
                 // the underlying store connection 
  
-                blog = new Blog { /* Blog’s properties */ }; 
+                blog = new Blog { /* Blog?s properties */ }; 
                 context.Blogs.Add(blog); 
                 context.SaveChanges(); 
             } 
@@ -215,19 +215,19 @@ namespace ConnectionManagementExamples
                 // Now the underlying store connection is open and the 
                 // ObjectContext.Connection.State correctly reports open too 
                  
-                var blog = new Blog { /* Blog’s properties */ }; 
+                var blog = new Blog { /* Blog?s properties */ }; 
                 context.Blogs.Add(blog); 
                 context.SaveChanges(); 
  
                 // The underlying store connection remains open for the next operation  
                     
-                blog = new Blog { /* Blog’s properties */ }; 
+                blog = new Blog { /* Blog?s properties */ }; 
                 context.Blogs.Add(blog); 
                 context.SaveChanges(); 
  
                 // The underlying store connection is still open 
   
-           } // The context is disposed – so now the underlying store connection is closed 
+           } // The context is disposed ? so now the underlying store connection is closed 
         } 
     } 
 }

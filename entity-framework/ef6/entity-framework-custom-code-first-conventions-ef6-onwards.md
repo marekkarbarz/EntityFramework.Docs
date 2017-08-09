@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Custom Code First Conventions (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: dd2bdbd9-ae9e-470a-aeb8-d0ba160499b7
 caps.latest.revision: 3
@@ -24,7 +24,7 @@ Sometimes these default conventions are not ideal for your model, and you have t
 
 This page covers the DbModelBuilder API for custom conventions. This API should be sufficient for authoring most custom conventions. However, there is also the ability to author model-based conventions - conventions that manipulate the final model once it is created - to handle advanced scenarios. For more information, see [Model-Based Conventions (EF6 onwards)](../ef6/entity-framework-model-based-conventions-ef6-onwards.md).
 
- 
+?
 
 ## Our Model
 
@@ -63,11 +63,11 @@ Let's start by defining a simple model that we can use with our conventions. Add
     }
 ```
 
- 
+?
 
 ## Introducing Custom Conventions
 
-Let’s write a convention that configures any property named Key to be the primary key for its entity type.
+Let?s write a convention that configures any property named Key to be the primary key for its entity type.
 
 Conventions are enabled on the model builder, which can be accessed by overriding OnModelCreating in the context. Update the ProductContext class as follows:
 
@@ -125,7 +125,7 @@ Another example of property conventions is to configure all DateTime properties 
                 .Configure(c => c.HasColumnType("datetime2"));
 ```
 
- 
+?
 
 ## Convention Classes
 
@@ -144,7 +144,7 @@ We can create a Convention Class with the datetime2 convention that we showed ea
     }
 ```
 
-To tell EF to use this convention you add it to the Conventions collection in OnModelCreating, which if you’ve been following along with the walkthrough will look like this:
+To tell EF to use this convention you add it to the Conventions collection in OnModelCreating, which if you?ve been following along with the walkthrough will look like this:
 
 ```
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -159,11 +159,11 @@ To tell EF to use this convention you add it to the Conventions collection in On
 
 As you can see we add an instance of our convention to the conventions collection. Inheriting from Convention provides a convenient way of grouping and sharing conventions across teams or projects. You could, for example, have a class library with a common set of conventions that all of your organizations projects use.
 
- 
+?
 
 ## Custom Attributes
 
-Another great use of conventions is to enable new attributes to be used when configuring a model. To illustrate this, let’s create an attribute that we can use to mark String properties as non-Unicode.
+Another great use of conventions is to enable new attributes to be used when configuring a model. To illustrate this, let?s create an attribute that we can use to mark String properties as non-Unicode.
 
 ```
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
@@ -172,7 +172,7 @@ Another great use of conventions is to enable new attributes to be used when con
     }
 ```
 
-Now, let’s create a convention to apply this attribute to our model:
+Now, let?s create a convention to apply this attribute to our model:
 
 ```
     modelBuilder.Properties()
@@ -182,7 +182,7 @@ Now, let’s create a convention to apply this attribute to our model:
 
 With this convention we can add the NonUnicode attribute to any of our string properties, which means the column in the database will be stored as varchar instead of nvarchar.
 
-One thing to note about this convention is that if you put the NonUnicode attribute on anything other than a string property then it will throw an exception. It does this because you cannot configure IsUnicode on any type other than a string. If this happens, then you can make your convention more specific, so that it filters out anything that isn’t a string.
+One thing to note about this convention is that if you put the NonUnicode attribute on anything other than a string property then it will throw an exception. It does this because you cannot configure IsUnicode on any type other than a string. If this happens, then you can make your convention more specific, so that it filters out anything that isn?t a string.
 
 While the above convention works for defining custom attributes there is another API that can be much easier to use, especially when you want to use properties from the attribute class.
 
@@ -219,7 +219,7 @@ This is easy enough, but there is a more succinct way of achieving this by using
 
 Custom attributes are not the only reason to use the Having method, it is useful anywhere that you need to reason about something that you are filtering on when configuring your types or properties.
 
- 
+?
 
 ## Configuring Types
 
@@ -299,7 +299,7 @@ You can avoid this, and maintain the default TPH mapping, in a couple ways:
 1.  Call ToTable with the same table name for each type in the hierarchy.
 2.  Call ToTable only on the base class of the hierarchy, in our example that would be employee.
 
- 
+?
 
 ## Execution Order
 
@@ -318,7 +318,7 @@ Because the convention to set max length to 250 is after the one that sets all s
 
 The Fluent API and Data Annotations can also be used to override a convention in specific cases. In our example above if we had used the Fluent API to set the max length of a property then we could have put it before or after the convention, because the more specific Fluent API will win over the more general Configuration Convention.
 
- 
+?
 
 ## Built-in Conventions
 

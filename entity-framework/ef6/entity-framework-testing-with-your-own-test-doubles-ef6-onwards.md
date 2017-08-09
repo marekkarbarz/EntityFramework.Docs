@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Testing with Your Own Test Doubles (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 16a8b7c0-2d23-47f4-9cc0-e2eb2e738ca3
 caps.latest.revision: 4
@@ -15,14 +15,14 @@ caps.latest.revision: 4
 # Entity Framework Testing with Your Own Test Doubles (EF6 onwards)
 > **EF6 Onwards Only** - The features, APIs, etc. discussed in this page were introduced in Entity Framework 6. If you are using an earlier version, some or all of the information does not apply.  
   
-When writing tests for your application it is often desirable to avoid hitting the database.  Entity Framework allows you to achieve this by creating a context – with behavior defined by your tests – that makes use of in-memory data.  
+When writing tests for your application it is often desirable to avoid hitting the database.  Entity Framework allows you to achieve this by creating a context ? with behavior defined by your tests ? that makes use of in-memory data.  
   
 ## Options for creating test doubles  
   
 There are two different approaches that can be used to create an in-memory version of your context.  
   
-- **Create your own test doubles** – This approach involves writing your own in-memory implementation of your context and DbSets. This gives you a lot of control over how the classes behave but can involve writing and owning a reasonable amount of code.  
-- **Use a mocking framework to create test doubles** – Using a mocking framework (such as Moq) you can have the in-memory implementations of you context and sets created dynamically at runtime for you.  
+- **Create your own test doubles** ? This approach involves writing your own in-memory implementation of your context and DbSets. This gives you a lot of control over how the classes behave but can involve writing and owning a reasonable amount of code.  
+- **Use a mocking framework to create test doubles** ? Using a mocking framework (such as Moq) you can have the in-memory implementations of you context and sets created dynamically at runtime for you.  
   
 This article will deal with creating your own test double. For information on using a mocking framework see [Testing with a Mocking Framework (EF6 onwards)](../ef6/entity-framework-testing-with-a-mocking-framework-ef6-onwards.md).  
   
@@ -32,7 +32,7 @@ The code shown in this article is compatible with EF6. For testing with EF5 and 
   
 ## Limitations of EF in-memory test doubles  
   
-In-memory test doubles can be a good way to provide unit test level coverage of bits of your application that use EF. However, when doing this you are using LINQ to Objects to execute queries against in-memory data. This can result in different behavior than using EF’s LINQ provider (LINQ to Entities) to translate queries into SQL that is run against your database.  
+In-memory test doubles can be a good way to provide unit test level coverage of bits of your application that use EF. However, when doing this you are using LINQ to Objects to execute queries against in-memory data. This can result in different behavior than using EF?s LINQ provider (LINQ to Entities) to translate queries into SQL that is run against your database.  
   
 One example of such a difference is loading related data. If you create a series of Blogs that each have related Posts, then when using in-memory data the related Posts will always be loaded for each Blog. However, when running against a database the data will only be loaded if you use the Include method.  
   
@@ -103,7 +103,7 @@ namespace TestingDemo
   
 Note that our context implements the IBloggingContext interface.  
   
-If you are using Code First then you can edit your context directly to implement the interface. If you are using the EF Designer then you’ll need to edit the T4 template that generates your context. Open up the \<model_name\>.Context.tt file that is nested under you edmx file, find the following fragment of code and add in the interface as shown.  
+If you are using Code First then you can edit your context directly to implement the interface. If you are using the EF Designer then you?ll need to edit the T4 template that generates your context. Open up the \<model_name\>.Context.tt file that is nested under you edmx file, find the following fragment of code and add in the interface as shown.  
   
 ```  
 <#=Accessibility.ForType(container)#> partial class <#=code.Escape(container)#> : DbContext, IBloggingContext
@@ -111,7 +111,7 @@ If you are using Code First then you can edit your context directly to implement
   
 ## Service to be tested  
   
-To demonstrate testing with in-memory test doubles we are going to be writing a couple of tests for a BlogService. The service is capable of creating new blogs (AddBlog) and returning all Blogs ordered by name (GetAllBlogs). In addition to GetAllBlogs, we’ve also provided a method that will asynchronously get all blogs ordered by name (GetAllBlogsAsync).  
+To demonstrate testing with in-memory test doubles we are going to be writing a couple of tests for a BlogService. The service is capable of creating new blogs (AddBlog) and returning all Blogs ordered by name (GetAllBlogs). In addition to GetAllBlogs, we?ve also provided a method that will asynchronously get all blogs ordered by name (GetAllBlogsAsync).  
   
 ```  
 using System.Collections.Generic; 
@@ -395,7 +395,7 @@ namespace TestingDemo
   
 ## Writing some tests  
   
-That’s all we need to do to start testing. The following test creates a TestContext and then a service based on this context. The service is then used to create a new blog – using the AddBlog method. Finally, the test verifies that the service added a new Blog to the context's Blogs property and called SaveChanges on the context.  
+That?s all we need to do to start testing. The following test creates a TestContext and then a service based on this context. The service is then used to create a new blog ? using the AddBlog method. Finally, the test verifies that the service added a new Blog to the context's Blogs property and called SaveChanges on the context.  
   
 This is just an example of the types of things you can test with an in-memory test double and you can adjust the logic of the test doubles and the verification to meet your requirements.  
   

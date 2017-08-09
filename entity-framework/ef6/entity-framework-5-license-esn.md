@@ -1,54 +1,54 @@
 ---
 title: "Entity Framework 5 License (ESN) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 637cccbb-5418-4562-8187-02f644f4c091
 caps.latest.revision: 3
 ---
 # Entity Framework 5 License (ESN)
-**TÉRMINOS SUPLEMENTARIOS A LA LICENCIA DE USO DE SOFTWARE DE MICROSOFT**
+**T?RMINOS SUPLEMENTARIOS A LA LICENCIA DE USO DE SOFTWARE DE MICROSOFT**
 
 **ENTITY FRAMEWORK 5.0 PARA MICROSOFT WINDOWS OPERATING SYSTEM**
 
-Microsoft Corporation (o, en función del lugar en el que usted resida, alguna de las afiliadas de su grupo) le concede a usted la licencia de este suplemento. Si dispone de licencia de uso para el software de Microsoft Windows Operating System (el "software"), podrá utilizar este suplemento. No podrá utilizarlo si no dispone de una licencia del software. Podrá utilizar este complemento con cada copia licenciada válida del software.
+Microsoft Corporation (o, en funci?n del lugar en el que usted resida, alguna de las afiliadas de su grupo) le concede a usted la licencia de este suplemento. Si dispone de licencia de uso para el software de Microsoft Windows Operating System (el "software"), podr? utilizar este suplemento. No podr? utilizarlo si no dispone de una licencia del software. Podr? utilizar este complemento con cada copia licenciada v?lida del software.
 
-Los siguientes términos de licencia describen términos de uso adicionales para este suplemento. Dichos términos y los términos de licencia para el software se aplicarán al uso que haga del suplemento. En caso de conflicto, prevalecerán los presentes términos de la licencia suplementaria.
+Los siguientes t?rminos de licencia describen t?rminos de uso adicionales para este suplemento. Dichos t?rminos y los t?rminos de licencia para el software se aplicar?n al uso que haga del suplemento. En caso de conflicto, prevalecer?n los presentes t?rminos de la licencia suplementaria.
 
-**Al hacer uso del suplemento, se entiende que acepta estos términos. Si usted no los acepta, no use el suplemento.**
+**Al hacer uso del suplemento, se entiende que acepta estos t?rminos. Si usted no los acepta, no use el suplemento.**
 
-**Si cumple usted los presentes términos de esta licencia, dispondrá de los siguientes derechos.**
+**Si cumple usted los presentes t?rminos de esta licencia, dispondr? de los siguientes derechos.**
 
-**1. CÓDIGO DISTRIBUIBLE.** El suplemento se compone de Código Distribuible. El "Código Distribuible" es código que usted está autorizado a distribuir en los programas que desarrolle, siempre y cuando cumpla los términos que se especifican a continuación,
+**1. C?DIGO DISTRIBUIBLE.** El suplemento se compone de C?digo Distribuible. El "C?digo Distribuible" es c?digo que usted est? autorizado a distribuir en los programas que desarrolle, siempre y cuando cumpla los t?rminos que se especifican a continuaci?n,
 
-**a. Derecho de utilización y distribución.**
+**a. Derecho de utilizaci?n y distribuci?n.**
 
--   Podrá copiar y distribuir el código objeto del complemento.
--   *Distribución a terceros.* Podrá permitir a los distribuidores de sus programas copiar y distribuir el Código Distribuible como parte de dichos programas.
+-   Podr? copiar y distribuir el c?digo objeto del complemento.
+-   *Distribuci?n a terceros.* Podr? permitir a los distribuidores de sus programas copiar y distribuir el C?digo Distribuible como parte de dichos programas.
 
-**b. Requisitos de distribución. Para cualquier Código distribuible, deberá:**
+**b. Requisitos de distribuci?n. Para cualquier C?digo distribuible, deber?:**
 
--   añadir al mismo una funcionalidad principal significativa en sus programas;
--   Para cualquier Código Distribuible con extensión de archivo .lib, distribuir únicamente los resultados de la ejecución e dicho Código Distribuible a través de un vinculador con su programa.
--   Distribuir el Código Distribuible que se incluya en un programa de instalación exclusivamente como parte de dicho programa sin modificación alguna.
--   exigir a los distribuidores y usuarios finales externos que acepten proteger el software como mínimo tal y como lo especifica el presente contrato;
--   mostrar un aviso válido de sus derechos de autor en los programas, así como
--   indemnizar, proteger y defender a Microsoft frente a toda reclamación, incluidos los honorarios de abogados, relacionados con el uso o la distribución de sus programas.
+-   a?adir al mismo una funcionalidad principal significativa en sus programas;
+-   Para cualquier C?digo Distribuible con extensi?n de archivo .lib, distribuir ?nicamente los resultados de la ejecuci?n e dicho C?digo Distribuible a trav?s de un vinculador con su programa.
+-   Distribuir el C?digo Distribuible que se incluya en un programa de instalaci?n exclusivamente como parte de dicho programa sin modificaci?n alguna.
+-   exigir a los distribuidores y usuarios finales externos que acepten proteger el software como m?nimo tal y como lo especifica el presente contrato;
+-   mostrar un aviso v?lido de sus derechos de autor en los programas, as? como
+-   indemnizar, proteger y defender a Microsoft frente a toda reclamaci?n, incluidos los honorarios de abogados, relacionados con el uso o la distribuci?n de sus programas.
 
-**c. Restricciones de distribución. Queda prohibido:**
+**c. Restricciones de distribuci?n. Queda prohibido:**
 
--   modificar cualquier aviso de derechos de autor, marca comercial o patente del Código Distribuible;
--   utilizar las marcas comerciales de Microsoft en los nombres de sus programas o sugerir de alguna manera que sus programas son de la familia de Microsoft o están promocionados por Microsoft;
--   distribuir Código Distribuible para ejecutarlo en una plataforma distinta de Windows;
--   incluir Código distribuible en programas maliciosos, engañosos o ilegales; o
--   modificar o distribuir el código fuente de cualquier Código Distribuible de modo que alguna parte del mismo pase a estar sujeta a una Licencia de Exclusión. Una Licencia de Exclusión es aquella que requiere, como condición de uso, modificación o distribución, que:
-    -   el código sea divulgado o distribuido en forma de código fuente, o que
+-   modificar cualquier aviso de derechos de autor, marca comercial o patente del C?digo Distribuible;
+-   utilizar las marcas comerciales de Microsoft en los nombres de sus programas o sugerir de alguna manera que sus programas son de la familia de Microsoft o est?n promocionados por Microsoft;
+-   distribuir C?digo Distribuible para ejecutarlo en una plataforma distinta de Windows;
+-   incluir C?digo distribuible en programas maliciosos, enga?osos o ilegales; o
+-   modificar o distribuir el c?digo fuente de cualquier C?digo Distribuible de modo que alguna parte del mismo pase a estar sujeta a una Licencia de Exclusi?n. Una Licencia de Exclusi?n es aquella que requiere, como condici?n de uso, modificaci?n o distribuci?n, que:
+    -   el c?digo sea divulgado o distribuido en forma de c?digo fuente, o que
     -   otros tengan derecho a modificarlo.
 
-**2. SERVICIOS DE SOPORTE TÉCNICO PARA SUPLEMENTOS.** Microsoft presta servicios de soporte técnico para este software, tal y como se describe en www.support.microsoft.com/common/international.aspx.
+**2. SERVICIOS DE SOPORTE T?CNICO PARA SUPLEMENTOS.** Microsoft presta servicios de soporte t?cnico para este software, tal y como se describe en www.support.microsoft.com/common/international.aspx.

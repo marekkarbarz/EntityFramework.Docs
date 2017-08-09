@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Automatic Detect Changes | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: a8d1488d-9a54-4623-a76b-e81329ff2756
 caps.latest.revision: 3
@@ -51,7 +51,7 @@ using (var context = new BloggingContext())
 }
 ```  
   
-Don’t forget to re-enable detection of changes after the loop — We've used a try/finally to ensure it is always re-enabled even if code in the loop throws an exception.  
+Don?t forget to re-enable detection of changes after the loop ? We've used a try/finally to ensure it is always re-enabled even if code in the loop throws an exception.  
   
 An alternative to disabling and re-enabling is to leave automatic detection of changes turned off at all times and either call context.ChangeTracker.DetectChanges explicitly or use change tracking proxies diligently. Both of these options are advanced and can easily introduce subtle bugs into your application so use them with care.  
   

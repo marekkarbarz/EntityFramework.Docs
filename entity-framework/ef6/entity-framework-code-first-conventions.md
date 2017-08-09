@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Code First Conventions | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: bc644573-c2b2-4ed7-8745-3c37c41058ad
 caps.latest.revision: 4
@@ -79,7 +79,7 @@ modelBuilder.Ignore<Department>();
   
 ## Primary Key Convention  
   
-Code First infers that a property is a primary key if a property on a class is named “ID” (not case sensitive), or the class name followed by "ID". If the type of the primary key property is numeric or GUID it will be configured as an identity column.  
+Code First infers that a property is a primary key if a property on a class is named ?ID? (not case sensitive), or the class name followed by "ID". If the type of the primary key property is numeric or GUID it will be configured as an identity column.  
   
 ```  
 public class Department 

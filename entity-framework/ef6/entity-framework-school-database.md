@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework School Database | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: e83a6a06-e63b-4530-8656-614bf609b12b
 caps.latest.revision: 3
@@ -24,8 +24,8 @@ Here are the steps to create the database.
   
 - Open Visual Studio  
 - **View** -> **Server Explorer**  
-- Right click on **Data Connections** -> **Add Connection…**  
-- If you haven’t connected to a database from Server Explorer before you’ll need to select **Microsoft SQL Server** as the data source  
+- Right click on **Data Connections** -> **Add Connection?**  
+- If you haven?t connected to a database from Server Explorer before you?ll need to select **Microsoft SQL Server** as the data source  
 - Connect to either LocalDb (**(localdb)\v11.0**) or SQL Express (**.\SQLEXPRESS**), depending on which one you have installed  
 - Enter **School** as the database name  
 - Select **OK** and you will be asked if you want to create a new database, select **Yes**  

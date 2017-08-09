@@ -1,23 +1,23 @@
 ---
 title: "Entity Framework Sprocs with Multiple Result Sets | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 1b3797f9-cd3d-4752-a55e-47b84b399dc1
 caps.latest.revision: 3
 ---
 # Entity Framework Sprocs with Multiple Result Sets
-Sometimes when using stored procedures you will need to return more than one result set. This scenario is commonly used to reduce the number of database round trips required to compose a single screen. Prior to EF5, Entity Framework would allow the stored procedure to be called but would only return the first result set to the calling code.
+Sometimes when using stored procedures you will need to return more than one result set. This scenario is commonly used to reduce the number of database round trips required to compose a single screen.?Prior to EF5, Entity Framework would allow the stored procedure to be called but would only return the first result set to the calling code.
 
 This article will show you two ways that you can use to access more than one result set from a stored procedure in Entity Framework. One that uses just code and works with both Code first and the EF Designer and one that only works with the EF Designer. The tooling and API support for this should improve in future versions of Entity Framework.
 
- 
+?
 
 ## Model
 
@@ -26,11 +26,11 @@ The examples in this article use a basic Blog and Posts model where a blog has m
 ```
     CREATE PROCEDURE [dbo].[GetAllBlogsAndPosts]
     AS
-        SELECT * FROM dbo.Blogs
-        SELECT * FROM dbo.Posts
+    ??? SELECT * FROM dbo.Blogs
+    ??? SELECT * FROM dbo.Posts
 ```
 
- 
+?
 
 ## Accessing Multiple Result Sets with Code
 
@@ -99,7 +99,7 @@ Once the two translate methods are called then the Blog and Post entities are tr
 
 > **Note:** That if you have lazy loading enabled, accessing the posts property on one of the blog entities then EF will connect to the database to lazily load all posts, even though we have already loaded them all. This is because EF cannot know whether or not you have loaded all posts or if there are more in the database. If you want to avoid this then you will need to disable lazy loading.
 
- 
+?
 
 ## Multiple Result Sets with Configured in EDMX
 
@@ -137,7 +137,7 @@ Once you have the model opened as XML then you need to do the following steps:
     \</edmx:ConceptualModels>
 ```
 
- 
+?
 
 -   Remove the complex type
 -   Update the function import so that it maps to your entities, in our case it will look like the following:
@@ -149,7 +149,7 @@ Once you have the model opened as XML then you need to do the following steps:
     </FunctionImport>
 ```
 
- 
+?
 
 This tells the model that the stored procedure will return two collections, one of blog entries and one of post entries.
 
@@ -176,11 +176,11 @@ This tells the model that the stored procedure will return two collections, one 
     \</edmx:Mappings>
 ```
 
- 
+?
 
 -   Replace the result mapping with one for each entity being returned, such as the following:
 
- 
+?
 
 ```
     <ResultMapping>
@@ -200,7 +200,7 @@ This tells the model that the stored procedure will return two collections, one 
     </ResultMapping>
 ```
 
- 
+?
 
 It is also possible to map the result sets to complex types, such as the one created by default. To do this you create a new complex type, instead of removing them, and use the complex types everywhere that you had used the entity names in the examples above.
 
@@ -229,7 +229,7 @@ Once these mappings have been changed then you can save the model and execute th
 
 > **Note:** If you manually edit the edmx file for your model it will be overwritten if you ever regenerate the model from the database.
 
- 
+?
 
 ## Summary
 

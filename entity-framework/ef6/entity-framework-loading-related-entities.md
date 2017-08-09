@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Loading Related Entities | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: c8417e18-a2ee-499c-9ce9-2a48cc5b468a
 caps.latest.revision: 3
@@ -101,7 +101,7 @@ public class Blog
   
 ### Turn lazy loading off for serialization  
   
-Lazy loading and serialization don’t mix well, and if you aren’t careful you can end up querying for your entire database just because lazy loading is enabled. Most serializers work by accessing each property on an instance of a type. Property access triggers lazy loading, so more entities get serialized. On those entities properties are accessed, and even more entities are loaded. It’s a good practice to turn lazy loading off before you serialize an entity. The following sections show how to do this.  
+Lazy loading and serialization don?t mix well, and if you aren?t careful you can end up querying for your entire database just because lazy loading is enabled. Most serializers work by accessing each property on an instance of a type. Property access triggers lazy loading, so more entities get serialized. On those entities properties are accessed, and even more entities are loaded. It?s a good practice to turn lazy loading off before you serialize an entity. The following sections show how to do this.  
   
 ### Turning off lazy loading for specific navigation properties  
   
@@ -139,7 +139,7 @@ Loading of related entities can still be achieved using eager loading (see *Eage
   
 ## Explicitly Loading  
   
-Even with lazy loading disabled it is still possible to lazily load related entities, but it must be done with an explicit call. To do so you use the Load method on the related entity’s entry. For example:  
+Even with lazy loading disabled it is still possible to lazily load related entities, but it must be done with an explicit call. To do so you use the Load method on the related entity?s entry. For example:  
   
 ```  
 using (var context = new BloggingContext()) 

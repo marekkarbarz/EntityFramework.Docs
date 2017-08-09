@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Enum Support - Code First (EF5 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 77a42501-27c9-4f4b-96df-26c128021467
 caps.latest.revision: 3
@@ -29,7 +29,7 @@ In Entity Framework, an enumeration can have the following underlying types: **B
 
 You will need to have Visual Studio 2012, Ultimate, Premium, Professional, or Web Express edition installed to complete this walkthrough.
 
- 
+?
 
 ## Set up the Project
 
@@ -61,7 +61,7 @@ public partial class Department
     public decimal Budget { get; set; } 
 }
 ```
- 
+?
 
 ## Define the DbContext Derived Type
 
@@ -72,11 +72,11 @@ An instance of the DbContext derived type manages the entity objects during run 
 The DbContext and DbSet types are defined in the EntityFramework assembly. We will add a reference to this DLL by using the EntityFramework NuGet package.
 
 1.  In Solution Explorer, right-click on the project name.
-2.  Select **Manage NuGet Packages…**
+2.  Select **Manage NuGet Packages?**
 3.  In the Manage NuGet Packages dialog, Select the **Online** tab and choose the **EntityFramework** package.
 4.  Click **Install**
 
-Note, that in addition to the EntityFramework  assembly, references to System.ComponentModel.DataAnnotations and System.Data.Entity assemblies are added as well.
+Note, that in addition to the EntityFramework? assembly, references to System.ComponentModel.DataAnnotations and System.Data.Entity assemblies are added as well.
 
 At the top of the Program.cs file, add the following using statement:
 
@@ -84,7 +84,7 @@ At the top of the Program.cs file, add the following using statement:
 using System.Data.Entity;
 ```
 
-In the Program.cs add the context definition. 
+In the Program.cs add the context definition.?
 
 ```
 public partial class EnumTestContext : DbContext 
@@ -92,7 +92,7 @@ public partial class EnumTestContext : DbContext
     public DbSet<Department> Departments { get; set; } 
 }
 ```
- 
+?
 
 ## Persist and Retrieve Data
 
@@ -121,11 +121,11 @@ Compile and run the application. The program produces the following output:
 ```
 DepartmentID: 1 Name: English
 ```
- 
+?
 
 ## View the Generated Database
 
-When you run the application the first time, the Entity Framework creates a database for you. Because we have Visual Studio 2012 installed, the database will be created on the LocalDB instance. By default, the Entity Framework names the database after the fully qualified name of the derived context (for this example that is **EnumCodeFirst.EnumTestContext**). The subsequent times the existing database will be used.  
+When you run the application the first time, the Entity Framework creates a database for you. Because we have Visual Studio 2012 installed, the database will be created on the LocalDB instance. By default, the Entity Framework names the database after the fully qualified name of the derived context (for this example that is **EnumCodeFirst.EnumTestContext**). The subsequent times the existing database will be used. ?
 
 Note, that if you make any changes to your model after the database has been created, you should use Code First Migrations to update the database schema. See [Code First to a New Database](../ef6/entity-framework-code-first-to-a-new-database.md) for an example of using Migrations.
 
@@ -141,4 +141,4 @@ To view the database and data, do the following:
 
 ## Summary
 
-In this walkthrough we looked at how to use enum types with Entity Framework Code First. 
+In this walkthrough we looked at how to use enum types with Entity Framework Code First.?

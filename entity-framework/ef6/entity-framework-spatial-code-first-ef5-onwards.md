@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Spatial - Code First (EF5 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: d617aed1-15f2-48a9-b187-186991c666e3
 caps.latest.revision: 3
@@ -23,16 +23,16 @@ Spatial type support was introduced in Entity Framework 5. Note that to use the 
 
 To use spatial data types you must also use an Entity Framework provider that has spatial support. See [provider support for spatial types](../ef6/entity-framework-provider-support-for-spatial-types.md) for more information.
 
-There are two main spatial data types: geography and geometry. The geography data type stores ellipsoidal data (for example, GPS latitude and longitude coordinates). The geometry data type represents Euclidean (flat) coordinate system.
+There are two main spatial data types: geography and geometry. The?geography?data type stores ellipsoidal data (for example, GPS latitude and longitude coordinates). The?geometry?data type represents?Euclidean (flat) coordinate system.
 
 [See the video that accompanies this step-by-step walkthrough.](../ef6/entity-framework-spatial-code-first-ef5-onwards-video.md)
- 
+?
 
 ## Pre-Requisites
 
 You will need to have Visual Studio 2012, Ultimate, Premium, Professional, or Web Express edition installed to complete this walkthrough.
 
- 
+?
 
 ## Set up the Project
 
@@ -63,7 +63,7 @@ public class University
     public DbGeography Location { get; set; } 
 }
 ```
- 
+?
 
 ## Define the DbContext Derived Type
 
@@ -74,11 +74,11 @@ An instance of the DbContext derived type manages the entity objects during run 
 The DbContext and DbSet types are defined in the EntityFramework assembly. We will add a reference to this DLL by using the EntityFramework NuGet package.
 
 1.  In Solution Explorer, right-click on the project name.
-2.  Select **Manage NuGet Packages…**
+2.  Select **Manage NuGet Packages?**
 3.  In the Manage NuGet Packages dialog, Select the **Online** tab and choose the **EntityFramework** package.
 4.  Click **Install**
 
-Note, that in addition to the EntityFramework  assembly, a reference to the System.ComponentModel.DataAnnotations assembly is also added.
+Note, that in addition to the EntityFramework? assembly, a reference to the System.ComponentModel.DataAnnotations assembly is also added.
 
 At the top of the Program.cs file, add the following using statement:
 
@@ -86,7 +86,7 @@ At the top of the Program.cs file, add the following using statement:
 using System.Data.Entity;
 ```
 
-In the Program.cs add the context definition. 
+In the Program.cs add the context definition.?
 
 ```
 public partial class UniversityContext : DbContext 
@@ -94,7 +94,7 @@ public partial class UniversityContext : DbContext
     public DbSet<University> Universities { get; set; } 
 }
 ```
- 
+?
 
 ## Persist and Retrieve Data
 
@@ -136,11 +136,11 @@ Compile and run the application. The program produces the following output:
 ```
 The closest University to you is: School of Fine Art.
 ```
- 
+?
 
 ## View the Generated Database
 
-When you run the application the first time, the Entity Framework creates a database for you. Because we have Visual Studio 2012 installed, the database will be created on the LocalDB instance. By default, the Entity Framework names the database after the fully qualified name of the derived context (in this example that is **SpatialCodeFirst.UniversityContext**). The subsequent times the existing database will be used.  
+When you run the application the first time, the Entity Framework creates a database for you. Because we have Visual Studio 2012 installed, the database will be created on the LocalDB instance. By default, the Entity Framework names the database after the fully qualified name of the derived context (in this example that is **SpatialCodeFirst.UniversityContext**). The subsequent times the existing database will be used. ?
 
 Note, that if you make any changes to your model after the database has been created, you should use Code First Migrations to update the database schema. See [Code First to a New Database](../ef6/entity-framework-code-first-to-a-new-database.md) for an example of using Migrations.
 
@@ -155,4 +155,4 @@ To view the database and data, do the following:
 
 ## Summary
 
-In this walkthrough we looked at how to use spatial types with Entity Framework Code First. 
+In this walkthrough we looked at how to use spatial types with Entity Framework Code First.?

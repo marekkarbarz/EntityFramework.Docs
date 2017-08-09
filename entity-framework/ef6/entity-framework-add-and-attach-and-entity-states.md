@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Add and Attach and Entity States | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: acb27f46-3f3a-4179-874a-d6bea5d7120c
 caps.latest.revision: 3
@@ -132,7 +132,7 @@ using (var context = new BloggingContext())
   
 When you change the state to Modified all the properties of the entity will be marked as modified and all the property values will be sent to the database when SaveChanges is called.  
   
-Note that if the entity being attached has references to other entities that are not yet tracked, then these new entities will attached to the context in the Unchanged state—they will not automatically be made Modified. If you have multiple entities that need to be marked Modified you should set the state for each of these entities individually.  
+Note that if the entity being attached has references to other entities that are not yet tracked, then these new entities will attached to the context in the Unchanged state?they will not automatically be made Modified. If you have multiple entities that need to be marked Modified you should set the state for each of these entities individually.  
   
 ## Changing the state of a tracked entity  
   

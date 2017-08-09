@@ -1,13 +1,13 @@
 ---
 title: "Get Entity Framework | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 122c38a2-f9e8-4ecc-9c72-a83bc9af7814
 caps.latest.revision: 4
@@ -27,7 +27,7 @@ The latest version of Entity Framework is available as the [EntityFramework NuGe
 
 ### Installing the EF NuGet Package
 
-You can install the EntityFramework package by right-clicking on the **References** folder of your project and selecting **Manage NuGet Packages…**
+You can install the EntityFramework package by right-clicking on the **References** folder of your project and selecting **Manage NuGet Packages?**
 
 ![ManageNuGetPackages](../ef6/media/managenugetpackages.png)
 

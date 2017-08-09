@@ -1,19 +1,19 @@
 ---
 title: "Entity Framework Code First to a New Database Video | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 78c79d1a-8210-49ee-9578-7b5005655f1f
 caps.latest.revision: 4
 ---
 # Entity Framework Code First to a New Database Video
-This video provides an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn’t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API.
+This video provides an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn?t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API.
 
 [See the step-by-step walkthrough that accompanies this video.](../ef6/entity-framework-code-first-to-a-new-database.md)
 

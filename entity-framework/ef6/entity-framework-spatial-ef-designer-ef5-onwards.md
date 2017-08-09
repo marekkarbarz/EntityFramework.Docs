@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Spatial - EF Designer (EF5 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 06baa6e1-d680-4a95-845b-81305c87a962
 caps.latest.revision: 3
@@ -23,16 +23,16 @@ Spatial type support was introduced in Entity Framework 5. Note that to use the 
 
 To use spatial data types you must also use an Entity Framework provider that has spatial support. See [provider support for spatial types](../ef6/entity-framework-provider-support-for-spatial-types.md) for more information.
 
-There are two main spatial data types: geography and geometry. The geography data type stores ellipsoidal data (for example, GPS latitude and longitude coordinates). The geometry data type represents Euclidean (flat) coordinate system.
+There are two main spatial data types: geography and geometry. The?geography?data type stores ellipsoidal data (for example, GPS latitude and longitude coordinates). The?geometry?data type represents?Euclidean (flat) coordinate system.
 
 [See the video that accompanies this step-by-step walkthrough.](../ef6/entity-framework-spatial-ef-designer-ef5-onwards-video.md)
- 
+?
 
 ## Pre-Requisites
 
 You will need to have Visual Studio 2012, Ultimate, Premium, Professional, or Web Express edition installed to complete this walkthrough.
 
- 
+?
 
 ## Set up the Project
 
@@ -57,7 +57,7 @@ The wizard performs the following actions:
 -   Adds a reference to the following assemblies: EntityFramework, System.ComponentModel.DataAnnotations, and System.Data.Entity.
 -   Creates UniversityModel.tt and UniversityModel.Context.tt files and adds them under the .edmx file. These T4 template files generate the code that defines the DbContext derived type and POCO types that map to the entities in the .edmx model
 
- 
+?
 
 ## Add a New Entity Type
 
@@ -136,8 +136,8 @@ The closest University to you is: School of Fine Art.
 
 To view data in the database, right-click on the database name in SQL Server Object Explorer and select **Refresh**. Then, click the right mouse button on the table and select **View Data**.
 
- 
+?
 
 ## Summary
 
-In this walkthrough we looked at how to map spatial types using the Entity Framework Designer and how to use spatial types in code. 
+In this walkthrough we looked at how to map spatial types using the Entity Framework Designer and how to use spatial types in code.?

@@ -1,11 +1,11 @@
 ---
 title: "ADO.NET Entity Framework Articles | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 020a677b-1a33-4f1e-bc90-8595e4944e11
 caps.latest.revision: 2

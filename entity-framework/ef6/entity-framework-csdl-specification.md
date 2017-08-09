@@ -1,21 +1,21 @@
 ---
 title: "Entity Framework CSDL Specification | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: c54255f4-253f-49eb-bec8-ad7927ac2fa3
 caps.latest.revision: 3
 ---
 # Entity Framework CSDL Specification
-Conceptual schema definition language (CSDL) is an XML-based language that describes the entities, relationships, and functions that make up a conceptual model of a data-driven application. This conceptual model can be used by the Entity Framework or WCF Data Services. The metadata that is described with CSDL is used by the Entity Framework to map entities and relationships that are defined in a conceptual model to a data source. For more information, see [SSDL Specification](../ef6/entity-framework-ssdl-specification.md) and [MSL Specification](../ef6/entity-framework-msl-specification.md).
+Conceptual schema definition language (CSDL) is an XML-based language that describes the entities, relationships, and functions that make up a conceptual model of a data-driven application. This conceptual model can be used by the Entity Framework or WCF Data Services. The metadata that is described with CSDL is used by the Entity Framework?to map entities and relationships that are defined in a conceptual model to a data source. For more information, see [SSDL Specification](../ef6/entity-framework-ssdl-specification.md) and [MSL Specification](../ef6/entity-framework-msl-specification.md).
 
-CSDL is the Entity Framework's implementation of the Entity Data Model.
+CSDL is the Entity Framework's implementation of the?Entity Data Model.
 
 In an Entity Framework application, conceptual model metadata is loaded from a .csdl file (written in CSDL) into an instance of the System.Data.Metadata.Edm.EdmItemCollection and is accessible by using methods in the System.Data.Metadata.Edm.MetadataWorkspace class. The Entity Framework uses conceptual model metadata to translate queries against the conceptual model to data source-specific commands.
 
@@ -29,7 +29,7 @@ Versions of CSDL are differentiated by XML namespaces.
 | CSDL v2 | http://schemas.microsoft.com/ado/2008/09/edm |
 | CSDL v3 | http://schemas.microsoft.com/ado/2009/11/edm |
 
- 
+?
 ## Association Element (CSDL)
 
 An **Association** element defines a relationship between two entity types. An association must specify the entity types that are involved in the relationship and the possible number of entity types at each end of the relationship, which is known as the multiplicity. The multiplicity of an association end can have a value of one (1), zero or one (0..1), or many (\*). This information is specified in two child End elements.
@@ -53,11 +53,11 @@ The table below describes the attributes that can be applied to the **Associatio
 |----------------|-------------|-------|
 | **Name** | Yes | The name of the association. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Association** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -71,7 +71,7 @@ The following example shows an **Association** element that defines the **Custom
    <End Type="ExampleModel.Order" Role="Order" Multiplicity="*" /> 
  </Association> 
 ```
- 
+?
 
 The following example shows an **Association** element that defines the **CustomerOrders** association when foreign keys have been exposed on the **Customer** and **Order** entity types. With foreign keys exposed, the relationship between the entities is managed with a **ReferentialConstraint** element. A corresponding AssociationSetMapping element is not necessary to map this association to the data source.
 
@@ -91,13 +91,13 @@ The following example shows an **Association** element that defines the **Custom
    </ReferentialConstraint> 
  </Association> 
 ```
- 
+?
 
- 
+?
 
 ## AssociationSet Element (CSDL)
 
-The **AssociationSet** element in conceptual schema definition language (CSDL) is a logical container for association instances of the same type. An association set provides a definition for grouping association instances so that they can be mapped to a data source.  
+The **AssociationSet** element in conceptual schema definition language (CSDL) is a logical container for association instances of the same type. An association set provides a definition for grouping association instances so that they can be mapped to a data source. ?
 
 The **AssociationSet** element can have the following child elements (in the order listed):
 
@@ -116,11 +116,11 @@ The table below describes the attributes that can be applied to the **Associatio
 | **Name** | Yes | The name of the entity set. The value of the **Name** attribute cannot be the same as the value of the **Association** attribute. |
 | **Association** | Yes | The fully-qualified name of the association that the association set contains instances of. The association must be in the same namespace as the association set. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **AssociationSet** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -141,9 +141,9 @@ The following example shows an **EntityContainer** element with two **Associatio
    </AssociationSet> 
  </EntityContainer> 
 ```
- 
+?
 
- 
+?
 
 ## CollectionType Element (CSDL)
 
@@ -156,7 +156,7 @@ The **CollectionType** element in conceptual schema definition language (CSDL) s
 
 > **Note**: A model will not validate if the type of a collection is specified with both the **Type** attribute and a child element.
 
- 
+?
 
 ### Applicable Attributes
 
@@ -171,15 +171,15 @@ The following table describes the attributes that can be applied to the **Collec
 | **FixedLength** | No | **True** or **False** depending on whether the property value will be stored as a fixed length string. |
 | **Precision** | No | The precision of the property value. |
 | **Scale** | No | The scale of the property value. |
-| **SRID** | No | Spatial System Reference Identifier. Valid only for properties of spatial types.   For more information, see [SRID](http://en.wikipedia.org/wiki/SRID) and [SRID (SQL Server)](https://msdn.microsoft.com/library/bb964707.aspx) |
+| **SRID** | No | Spatial System Reference Identifier. Valid only for properties of spatial types.?? For more information, see [SRID](http://en.wikipedia.org/wiki/SRID) and [SRID (SQL Server)](https://msdn.microsoft.com/library/bb964707.aspx) |
 | **Unicode** | No | **True** or **False** depending on whether the property value will be stored as a Unicode string. |
 | **Collation** | No | A string that specifies the collating sequence to be used in the data source. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **CollectionType** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -198,7 +198,7 @@ The following example shows a model-defined function that that uses a **Collecti
         </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
 The following example shows a model-defined function that uses a **CollectionType** element to specify that the function returns a collection of rows (as specified in the **RowType** element).
 
@@ -220,7 +220,7 @@ The following example shows a model-defined function that uses a **CollectionTyp
    </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
 The following example shows a model-defined function that uses the **CollectionType** element to specify that the function accepts as a parameter a collection of **Department** entity types.
 
@@ -237,13 +237,13 @@ The following example shows a model-defined function that uses the **CollectionT
        </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## ComplexType Element (CSDL)
 
-A **ComplexType** element defines a data structure composed of **EdmSimpleType** properties or other complex types.  A complex type can be a property of an entity type or another complex type. A complex type is similar to an entity type in that a complex type defines data. However, there are some key differences between complex types and entity types:
+A **ComplexType** element defines a data structure composed of **EdmSimpleType** properties or other complex types.? A complex type can be a property of an entity type or another complex type. A complex type is similar to an entity type in that a complex type defines data. However, there are some key differences between complex types and entity types:
 
 -   Complex types do not have identities (or keys) and therefore cannot exist independently. Complex types can only exist as properties of entity types or other complex types.
 -   Complex types cannot participate in associations. Neither end of an association can be a complex type, and therefore navigation properties cannot be defined for complex types.
@@ -263,11 +263,11 @@ The table below describes the attributes that can be applied to the **ComplexTyp
 | BaseType | No | The name of another complex type that is the base type of the complex type that is being defined. <br/> **Note**: This attribute is not applicable in CSDL v1. Inheritance for complex types is not supported in that version. |
 | Abstract | No | **True** or **False** (the default value) depending on whether the complex type is an abstract type. <br/> **Note**: This attribute is not applicable in CSDL v1. Complex types in that version cannot be abstract types. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **ComplexType** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -282,7 +282,7 @@ The following example shows a complex type, **Address**, with the **EdmSimpleTyp
    <Property Type="String" Name="PostalCode" Nullable="false" /> 
  </ComplexType> 
 ```
- 
+?
 
 To define the complex type **Address** (above) as a property of an entity type, you must declare the property type in the entity type definition. The following example shows the **Address** property as a complex type on an entity type (**Publisher**):
 
@@ -298,17 +298,17 @@ To define the complex type **Address** (above) as a property of an entity type, 
                            FromRole="Publisher" ToRole="Book" /> 
      </EntityType> 
 ```
- 
+?
 
- 
+?
 
 ## DefiningExpression Element (CSDL)
 
-The **DefiningExpression** element in conceptual schema definition language (CSDL) contains an Entity SQL expression that defines a function in the conceptual model.  
+The **DefiningExpression** element in conceptual schema definition language (CSDL) contains an Entity SQL expression that defines a function in the conceptual model. ?
 
 > **Note**: For validation purposes, a **DefiningExpression** element can contain arbitrary content. However, the Entity Framework will throw an exception at runtime if a **DefiningExpression** element does not contain valid Entity SQL.
 
- 
+?
 
 ### Applicable Attributes
 
@@ -326,9 +326,9 @@ The following example uses a **DefiningExpression** element to define a function
        </DefiningExpression> 
      </Function> 
 ```
- 
+?
 
- 
+?
 
 ## Dependent Element (CSDL)
 
@@ -347,11 +347,11 @@ The table below describes the attributes that can be applied to the **Dependent*
 |----------------|-------------|-------|
 | **Role** | Yes | The name of the entity type on the dependent end of the association. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Dependent** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -372,13 +372,13 @@ The following example shows a **ReferentialConstraint** element being used as pa
    </ReferentialConstraint> 
  </Association> 
 ```
- 
+?
 
- 
+?
 
 ## Documentation Element (CSDL)
 
-The **Documentation** element in conceptual schema definition language (CSDL) can be used to provide information about an object that is defined in a parent element. In an .edmx file, when the **Documentation** element is a child of an element that appears as an object on the design surface of the EF Designer  (such as an entity, association, or property), the contents of the **Documentation** element will appear in the Visual Studio **Properties** window for the object.
+The **Documentation** element in conceptual schema definition language (CSDL) can be used to provide information about an object that is defined in a parent element. In an .edmx file, when the **Documentation** element is a child of an element that appears as an object on the design surface of the EF Designer ?(such as an entity, association, or property), the contents of the **Documentation** element will appear in the Visual Studio?**Properties** window for the object.
 
 The **Documentation** element can have the following child elements (in the order listed):
 
@@ -392,7 +392,7 @@ Any number of annotation attributes (custom XML attributes) may be applied to th
 
 ### Example
 
-The following example shows the **Documentation** element as a child element of an EntityType element. If the snippet below were in the CSDL content of an .edmx file, the contents of the **Summary** and **LongDescription** elements would appear in the Visual Studio **Properties** window when you click on the `Customer` entity type.
+The following example shows the **Documentation** element as a child element of an EntityType element. If the snippet below were in the CSDL content of an .edmx file, the contents of the **Summary** and **LongDescription** elements would appear in the Visual Studio?**Properties** window when you click on the `Customer` entity type.
 
 ```
  <EntityType Name="Customer"> 
@@ -407,9 +407,9 @@ The following example shows the **Documentation** element as a child element of 
     <Property Type="String" Name="Name" Nullable="false" /> 
  </EntityType> 
 ```
- 
+?
 
- 
+?
 
 ## End Element (CSDL)
 
@@ -417,7 +417,7 @@ The **End** element in conceptual schema definition language (CSDL) can be a chi
 
 ### End Element as a Child of the Association Element
 
-An **End** element (as a child of the **Association** element) identifies the entity type on one end of an association and the number of entity type instances that can exist at that end of an association. Association ends are defined as part of an association; an association must have exactly two association ends. Entity type instances at one end of an association can be accessed through navigation properties or foreign keys if they are exposed on an entity type.  
+An **End** element (as a child of the **Association** element) identifies the entity type on one end of an association and the number of entity type instances that can exist at that end of an association. Association ends are defined as part of an association; an association must have exactly two association ends. Entity type instances at one end of an association can be accessed through navigation properties or foreign keys if they are exposed on an entity type. ?
 
 An **End** element can have the following child elements (in the order listed):
 
@@ -435,11 +435,11 @@ The following table describes the attributes that can be applied to the **End** 
 | **Role** | No | A name for the association end. If no name is provided, the name of the entity type on the association end will be used. |
 | **Multiplicity** | Yes | **1**, **0..1**, or **\*** depending on the number of entity type instances that can be at the end of the association. <br/> **1** indicates that exactly one entity type instance exists at the association end. <br/> **0..1** indicates that zero or one entity type instances exist at the association end. <br/> **\*** indicates that zero, one, or more entity type instances exist at the association end.
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **End** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 #### Example
 
@@ -453,7 +453,7 @@ The following example shows an **Association** element that defines the **Custom
    </End> 
  </Association> 
 ```
- 
+?
 
 ### End Element as a Child of the AssociationSet Element
 
@@ -466,7 +466,7 @@ An **End** element can have the following child elements (in the order listed):
 
 > **Note**: Annotation elements must appear after all other child elements. Annotation elements are only allowed in CSDL v2 and later.
 
- 
+?
 
 #### Applicable Attributes
 
@@ -477,11 +477,11 @@ The following table describes the attributes that can be applied to the **End** 
 | **EntitySet** | Yes | The name of the **EntitySet** element that defines one end of the parent **AssociationSet** element. The **EntitySet** element must be defined in the same entity container as the parent **AssociationSet** element. |
 | **Role** | No | The name of the association set end. If the **Role** attribute is not used, the name of the association set end will be the name of the entity set. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **End** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 #### Example
 
@@ -502,9 +502,9 @@ The following example shows an **EntityContainer** element with two **Associatio
    </AssociationSet> 
  </EntityContainer> 
 ```
- 
+?
 
- 
+?
 
 ## EntityContainer Element (CSDL)
 
@@ -530,11 +530,11 @@ The table below describes the attributes that can be applied to the **Using** el
 | **Name** | Yes | The name of the entity container. |
 | **Extends** | No | The name of another entity container within the same namespace. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **EntityContainer** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -555,19 +555,19 @@ The following example shows an **EntityContainer** element that defines three en
    </AssociationSet> 
  </EntityContainer> 
 ```
- 
+?
 
- 
+?
 
 ## EntitySet Element (CSDL)
 
-The **EntitySet** element in conceptual schema definition language is a logical container for instances of an entity type and instances of any type that is derived from that entity type. The relationship between an entity type and an entity set is analogous to the relationship between a row and a table in a relational database. Like a row, an entity type defines a set of related data, and, like a table, an entity set contains instances of that definition. An entity set provides a construct for grouping entity type instances so that they can be mapped to related data structures in a data source.  
+The **EntitySet** element in conceptual schema definition language is a logical container for instances of an entity type and instances of any type that is derived from that entity type. The relationship between an entity type and an entity set is analogous to the relationship between a row and a table in a relational database. Like a row, an entity type defines a set of related data, and, like a table, an entity set contains instances of that definition. An entity set provides a construct for grouping entity type instances so that they can be mapped to related data structures in a data source. ?
 
 More than one entity set for a particular entity type may be defined.
 
 > **Note**: The EF Designer does not support conceptual models that contain multiple entity sets per type.
 
- 
+?
 
 The **EntitySet** element can have the following child elements (in the order listed):
 
@@ -583,11 +583,11 @@ The table below describes the attributes that can be applied to the **EntitySet*
 | **Name** | Yes | The name of the entity set. |
 | **EntityType** | Yes | The fully-qualified name of the entity type for which the entity set contains instances. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **EntitySet** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -608,7 +608,7 @@ The following example shows an **EntityContainer** element with three **EntitySe
    </AssociationSet> 
  </EntityContainer> 
 ```
- 
+?
 
 It is possible to define multiple entity sets per type (MEST). The following example defines an entity container with two entity sets for the **Book** entity type:
 
@@ -628,9 +628,9 @@ It is possible to define multiple entity sets per type (MEST). The following exa
    </AssociationSet> 
  </EntityContainer> 
 ```
- 
+?
 
- 
+?
 
 ## EntityType Element (CSDL)
 
@@ -664,11 +664,11 @@ The table below describes the attributes that can be applied to the **EntityType
 | **Abstract** | No | **True** or **False**, depending on whether the entity type is an abstract type. |
 | **OpenType** | No | **True** or **False** depending on whether the entity type is an open entity type. <br/> **Note**: The **OpenType** attribute is only applicable to entity types that are defined in conceptual models that are used with ADO.NET Data Services. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **EntityType** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -688,9 +688,9 @@ The following example shows an **EntityType** element with three **Property** el
                        FromRole="Book" ToRole="Author" /> 
  </EntityType> 
 ```
- 
+?
 
- 
+?
 
 ## EnumType Element (CSDL)
 
@@ -710,32 +710,32 @@ The table below describes the attributes that can be applied to the **EnumType**
 |----------------|-------------|-------|
 | **Name** | Yes | The name of the entity type. |
 | **IsFlags** | No | **True** or **False**, depending on whether the enum type can be used as a set of flags. The default value is **False.**. |
-| **UnderlyingType** | No | **Edm.Byte**, **Edm.Int16**, **Edm.Int32**, **Edm.Int64** or **Edm.SByte** defining the range of values of the type.   The default underlying type of enumeration elements is **Edm.Int32.**. |
+| **UnderlyingType** | No | **Edm.Byte**, **Edm.Int16**, **Edm.Int32**, **Edm.Int64** or **Edm.SByte** defining the range of values of the type. ??The default underlying type of enumeration elements is **Edm.Int32.**. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **EnumType** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
 The following example shows an **EnumType** element with three **Member** elements:
 
 ```
- \<EnumType Name="Color" IsFlags=”false” UnderlyingTyp=”Edm.Byte”> 
+ \<EnumType Name="Color" IsFlags=?false? UnderlyingTyp=?Edm.Byte?> 
    <Member Name="Red" /> 
    <Member Name="Green" /> 
    <Member Name="Blue" /> 
  </EntityType> 
 ```
- 
+?
 
- 
+?
 
 ## Function Element (CSDL)
 
-The **Function** element in conceptual schema definition language (CSDL) is used to define or declare functions in the conceptual model. A function is defined by using a DefiningExpression element.  
+The **Function** element in conceptual schema definition language (CSDL) is used to define or declare functions in the conceptual model. A function is defined by using a DefiningExpression element. ?
 
 A **Function** element can have the following child elements (in the order listed):
 
@@ -756,11 +756,11 @@ The table below describes the attributes that can be applied to the **Function**
 | **Name** | Yes | The name of the function. |
 | **ReturnType** | No | The type returned by the function. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Function** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -774,9 +774,9 @@ The following example uses a **Function** element to define a function that retu
    </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## FunctionImport Element (CSDL)
 
@@ -791,7 +791,7 @@ The **FunctionImport** element can have the following child elements (in the ord
 
 One **Parameter** element should be defined for each parameter that the function accepts.
 
-A return type for a function must be specified with either the **ReturnType** (FunctionImport) element or the **ReturnType** attribute (see below), but not both. The return type value must be a  collection of EdmSimpleType, EntityType, or ComplexType.
+A return type for a function must be specified with either the **ReturnType** (FunctionImport) element or the **ReturnType** attribute (see below), but not both. The return type value must be a ?collection of EdmSimpleType, EntityType, or ComplexType.
 
 ### Applicable Attributes
 
@@ -802,13 +802,13 @@ The table below describes the attributes that can be applied to the **FunctionIm
 | **Name** | Yes | The name of the imported function. |
 | **ReturnType** | No | The type that the function returns. Do not use this attribute if the function does not return a value. Otherwise, the value must be a collection of ComplexType, EntityType, or EDMSimpleType. |
 | **EntitySet** | No | If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used. |
-| **IsComposable** | No | If the value is set to true, the function is composable (Table-valued Function) and can be used in a LINQ query.  The default is **false**. |
+| **IsComposable** | No | If the value is set to true, the function is composable (Table-valued Function) and can be used in a LINQ query.? The default is **false**. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **FunctionImport** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -821,9 +821,9 @@ The following example shows a **FunctionImport** element that accepts one parame
         <Parameter Name="StudentID" Mode="In" Type="Int32" /> 
  </FunctionImport> 
 ```
- 
+?
 
- 
+?
 
 ## Key Element (CSDL)
 
@@ -856,7 +856,7 @@ The example below defines an entity type named **Book**. The entity key is defin
                        FromRole="Book" ToRole="Author" /> 
  </EntityType> 
 ```
- 
+?
 
 The **ISBN** property is a good choice for the entity key because an International Standard Book Number (ISBN) uniquely identifies a book.
 
@@ -874,11 +874,11 @@ The following example shows an entity type (**Author**) that has an entity key t
                        FromRole="Author" ToRole="Book" /> 
  </EntityType> 
 ```
- 
+?
 
 Using **Name** and **Address** for the entity key is a reasonable choice, because two authors of the same name are unlikely to live at the same address. However, this choice for an entity key does not absolutely guarantee unique entity keys in an entity set. Adding a property, such as **AuthorId**, that could be used to uniquely identify an author would be recommended in this case.
 
- 
+?
 
 ## Member Element (CSDL)
 
@@ -893,11 +893,11 @@ The table below describes the attributes that can be applied to the **FunctionIm
 | **Name** | Yes | The name of the member. |
 | **Value** | No | The value of the member. By default, the first member has the value 0, and the value of each successive enumerator is incremented by 1. Multiple members with the same values may exist. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **FunctionImport** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -905,14 +905,14 @@ The following example shows an **EnumType** element with three **Member** elemen
 
 ```
  <EnumType Name="Color"> 
-   \<Member Name="Red" Value=”1”/> 
-   \<Member Name="Green" Value=”3” /> 
-   \<Member Name="Blue" Value=”5”/> 
+   \<Member Name="Red" Value=?1?/> 
+   \<Member Name="Green" Value=?3? /> 
+   \<Member Name="Blue" Value=?5?/> 
  </EntityType> 
 ```
- 
+?
 
- 
+?
 
 ## NavigationProperty Element (CSDL)
 
@@ -938,11 +938,11 @@ The table below describes the attributes that can be applied to the **Navigation
 | **ToRole** | Yes | The end of the association at which navigation ends. The value of the **ToRole** attribute must be the same as the value of one of the **Role** attributes defined on one of the association ends (defined in the AssociationEnd element). |
 | **FromRole** | Yes | The end of the association from which navigation begins. The value of the **FromRole** attribute must be the same as the value of one of the **Role** attributes defined on one of the association ends (defined in the AssociationEnd element). |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **NavigationProperty** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -962,17 +962,17 @@ The following example defines an entity type (**Book**) with two navigation prop
                        FromRole="Book" ToRole="Author" /> 
  </EntityType> 
 ```
- 
+?
 
- 
+?
 
 ## OnDelete Element (CSDL)
 
-The **OnDelete** element in conceptual schema definition language (CSDL) defines behavior that is connected with an association. If the **Action** attribute is set to **Cascade** on one end of an association, related entity types on the other end of the association are deleted when the entity type on the first end is deleted. If the association between two entity types is a primary key-to-primary key relationship, then a loaded dependent object is deleted when the principal object on the other end of the association is deleted regardless of the **OnDelete** specification.  
+The **OnDelete** element in conceptual schema definition language (CSDL) defines behavior that is connected with an association. If the **Action** attribute is set to **Cascade** on one end of an association, related entity types on the other end of the association are deleted when the entity type on the first end is deleted. If the association between two entity types is a primary key-to-primary key relationship, then a loaded dependent object is deleted when the principal object on the other end of the association is deleted regardless of the **OnDelete** specification. ?
 
 > **Note**: The **OnDelete** element only affects the runtime behavior of an application; it does not affect behavior in the data source. The behavior defined in the data source should be the same as the behavior defined in the application.
 
- 
+?
 
 An **OnDelete** element can have the following child elements (in the order listed):
 
@@ -987,11 +987,11 @@ The table below describes the attributes that can be applied to the **OnDelete**
 |----------------|-------------|-------|
 | **Action** | Yes | **Cascade** or **None**. If **Cascade**, dependent entity types will be deleted when the principal entity type is deleted. If **None**, dependent entity types will not be deleted when the principal entity type is deleted. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Association** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1005,9 +1005,9 @@ The following example shows an **Association** element that defines the **Custom
    <End Type="ExampleModel.Order" Role="Order" Multiplicity="*" /> 
  </Association> 
 ```
- 
+?
 
- 
+?
 
 ## Parameter Element (CSDL)
 
@@ -1036,11 +1036,11 @@ The following table describes the attributes that can be applied to the **Parame
 | **Scale** | No | The scale of the parameter. |
 | **SRID** | No | Spatial System Reference Identifier. Valid only for parameters of spatial types. For more information, see [SRID](http://en.wikipedia.org/wiki/SRID) and [SRID (SQL Server)](https://msdn.microsoft.com/library/bb964707.aspx). |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Parameter** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 #### Example
 
@@ -1053,7 +1053,7 @@ The following example shows a **FunctionImport** element with one **Parameter** 
         <Parameter Name="StudentID" Mode="In" Type="Int32" /> 
  </FunctionImport> 
 ```
- 
+?
 
 ### Function Element Application
 
@@ -1068,13 +1068,13 @@ The **Parameter** element can have the following child elements (in the order li
 
 > **Note**: Only one of the **CollectionType**, **ReferenceType**, or **RowType** elements can be a child element of a **Property** element.
 
- 
+?
 
 -   Annotation elements (zero or more elements allowed)
 
 > **Note**: Annotation elements must appear after all other child elements. Annotation elements are only allowed in CSDL v2 and later.
 
- 
+?
 
 #### Applicable Attributes
 
@@ -1094,11 +1094,11 @@ The following table describes the attributes that can be applied to the **Parame
 | **Unicode** | No | **True** or **False** depending on whether the property value will be stored as a Unicode string. |
 | **Collation** | No | A string that specifies the collating sequence to be used in the data source. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Parameter** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 #### Example
 
@@ -1111,9 +1111,9 @@ The following example shows a **Function** element that uses one **Parameter** c
    Year(CurrentDateTime()) - Year(cast(Instructor.HireDate as DateTime)) 
    </DefiningExpression> 
  </Function> 
-``` 
+```?
 
- 
+?
 
 ## Principal Element (CSDL)
 
@@ -1132,11 +1132,11 @@ The table below describes the attributes that can be applied to the **Principal*
 |----------------|-------------|-------|
 | **Role** | Yes | The name of the entity type on the principal end of the association. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Principal** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1157,9 +1157,9 @@ The following example shows a **ReferentialConstraint** element that is part of 
    </ReferentialConstraint> 
  </Association> 
 ```
- 
+?
 
- 
+?
 
 ## Property Element (CSDL)
 
@@ -1178,7 +1178,7 @@ The following facets can be applied to a **Property** element: **Nullable**, **D
 
 > **Note**: Facets can only be applied to properties of type **EDMSimpleType**.
 
- 
+?
 
 #### Applicable Attributes
 
@@ -1199,11 +1199,11 @@ The following table describes the attributes that can be applied to the **Proper
 | **Collation** | No | A string that specifies the collating sequence to be used in the data source. |
 | **ConcurrencyMode** | No | **None** (the default value) or **Fixed**. If the value is set to **Fixed**, the property value will be used in optimistic concurrency checks. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Property** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 #### Example
 
@@ -1223,7 +1223,7 @@ The following example shows an **EntityType** element with three **Property** el
                        FromRole="Book" ToRole="Author" /> 
  </EntityType> 
 ```
- 
+?
 
 The following example shows a **ComplexType** element with five **Property** elements:
 
@@ -1236,11 +1236,11 @@ The following example shows a **ComplexType** element with five **Property** ele
    <Property Type="String" Name="PostalCode" Nullable="false" /> 
  </ComplexType> 
 ```
- 
+?
 
 ### RowType Element Application
 
-**Property** elements (as the children of a **RowType** element) define the shape and characteristics of data that can be passed to or returned from a model-defined function.  
+**Property** elements (as the children of a **RowType** element) define the shape and characteristics of data that can be passed to or returned from a model-defined function. ?
 
 The **Property** element can have exactly one of the following child elements:
 
@@ -1252,7 +1252,7 @@ The **Property** element can have any number child annotation elements.
 
 > **Note**: Annotation elements are only allowed in CSDL v2 and later.
 
- 
+?
 
 #### Applicable Attributes
 
@@ -1272,11 +1272,11 @@ The following table describes the attributes that can be applied to the **Proper
 | **Unicode** | No | **True** or **False** depending on whether the property value will be stored as a Unicode string. |
 | **Collation** | No | A string that specifies the collating sequence to be used in the data source. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Property** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 #### Example
 
@@ -1300,9 +1300,9 @@ The following example shows **Property** elements used to define the shape of th
    </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## PropertyRef Element (CSDL)
 
@@ -1315,7 +1315,7 @@ The **PropertyRef** element can only have annotation elements (zero or more) as 
 
 > **Note**: Annotation elements are only allowed in CSDL v2 and later.
 
- 
+?
 
 ### Applicable Attributes
 
@@ -1325,11 +1325,11 @@ The table below describes the attributes that can be applied to the **PropertyRe
 |----------------|-------------|-------|
 | **Name** | Yes | The name of the referenced property. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **PropertyRef** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1349,7 +1349,7 @@ The example below defines an entity type (**Book**). The entity key is defined b
                        FromRole="Book" ToRole="Author" /> 
  </EntityType> 
 ```
- 
+?
 
 In the next example, two **PropertyRef** elements are used to indicate that two properties (**Id** and **PublisherId**) are the principal and dependent ends of a referential constraint.
 
@@ -1368,9 +1368,9 @@ In the next example, two **PropertyRef** elements are used to indicate that two 
    </ReferentialConstraint> 
  </Association> 
 ```
- 
+?
 
- 
+?
 
 ## ReferenceType Element (CSDL)
 
@@ -1395,11 +1395,11 @@ The table below describes the attributes that can be applied to the **ReferenceT
 |----------------|-------------|-------|
 | **Type** | Yes | The name of the entity type being referenced. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **ReferenceType** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1415,7 +1415,7 @@ The following example shows the **ReferenceType** element used as a child of a *
    </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
 The following example shows the **ReferenceType** element used as a child of a **ReturnType** (Function) element in a model-defined function that returns a reference to a **Person** entity type:
 
@@ -1430,9 +1430,9 @@ The following example shows the **ReferenceType** element used as a child of a *
      </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## ReferentialConstraint Element (CSDL)
 
@@ -1472,9 +1472,9 @@ The following example shows a **ReferentialConstraint** element being used as pa
    </ReferentialConstraint> 
  </Association> 
 ```
- 
+?
 
- 
+?
 
 ## ReturnType (Function) Element (CSDL)
 
@@ -1490,7 +1490,7 @@ The return type of a function can be specified with either the **Type** attribut
 
 > **Note**: A model will not validate if you specify a function return type with both the **Type** attribute of the **ReturnType** (Function) element and one of the child elements.
 
- 
+?
 
 ### Applicable Attributes
 
@@ -1500,11 +1500,11 @@ The following table describes the attributes that can be applied to the **Return
 |----------------|-------------|-------|
 | **ReturnType** | No | The type returned by the function. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **ReturnType** (Function) element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1519,9 +1519,9 @@ The following example uses a **Function** element to define a function that retu
    </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## ReturnType (FunctionImport) Element (CSDL)
 
@@ -1540,11 +1540,11 @@ The following table describes the attributes that can be applied to the **Return
 | **Type** | No | The type that the function returns. The value must be a collection of ComplexType, EntityType, or EDMSimpleType. |
 | **EntitySet** | No | If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **ReturnType** (FunctionImport) element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1552,13 +1552,13 @@ The following example uses a **FunctionImport** that returns books and publisher
 
 ```
  <FunctionImport Name="GetBooksAndPublishers"> 
-   \<ReturnType Type=="Collection(BooksModel.Book )" EntitySet=”Books”> 
-   \<ReturnType Type=="Collection(BooksModel.Publisher)" EntitySet=”Publishers”> 
+   \<ReturnType Type=="Collection(BooksModel.Book )" EntitySet=?Books?> 
+   \<ReturnType Type=="Collection(BooksModel.Publisher)" EntitySet=?Publishers?> 
  </FunctionImport>
 ```
- 
+?
 
- 
+?
 
 ## RowType Element (CSDL)
 
@@ -1601,9 +1601,9 @@ The following example shows a model-defined function that uses a **CollectionTyp
    </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## Schema Element (CSDL)
 
@@ -1623,7 +1623,7 @@ A **Schema** element may contain zero or one Annotation elements.
 
 > **Note**: The **Function** element and annotation elements are only allowed in CSDL v2 and later.
 
- 
+?
 
 The **Schema** element uses the **Namespace** attribute to define the namespace for the entity type, complex type, and association objects in a conceptual model. Within a namespace, no two objects can have the same name. Namespaces can span multiple **Schema** elements and multiple .csdl files.
 
@@ -1638,11 +1638,11 @@ The table below describes the attributes can be applied to the **Schema** elemen
 | **Namespace** | Yes | The namespace of the conceptual model. The value of the **Namespace** attribute is used to form the fully qualified name of a type. For example, if an **EntityType** named *Customer* is in the Simple.Example.Model namespace, then the fully qualified name of the **EntityType** is SimpleExampleModel.Customer. <br/> The following strings cannot be used as the value for the **Namespace** attribute: **System**, **Transient**, or **Edm**. The value for the **Namespace** attribute cannot be the same as the value for the **Namespace** attribute in the SSDL Schema element. |
 | **Alias** | No | An identifier used in place of the namespace name. For example, if an **EntityType** named *Customer* is in the Simple.Example.Model namespace and the value of the **Alias** attribute is *Model*, then you can use Model.Customer as the fully qualified name of the **EntityType.** |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Schema** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1704,9 +1704,9 @@ The following example shows a **Schema** element that contains an **EntityContai
          </Association> 
        </Schema> 
 ```
- 
+?
 
- 
+?
 
 ## TypeRef Element (CSDL)
 
@@ -1734,11 +1734,11 @@ The following table describes the attributes that can be applied to the **TypeRe
 | **Unicode** | No | **True** or **False** depending on whether the property value will be stored as a Unicode string. |
 | **Collation** | No | A string that specifies the collating sequence to be used in the data source. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **CollectionType** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1757,9 +1757,9 @@ The following example shows a model-defined function that uses the **TypeRef** e
        </DefiningExpression> 
  </Function> 
 ```
- 
+?
 
- 
+?
 
 ## Using Element (CSDL)
 
@@ -1767,7 +1767,7 @@ The **Using** element in conceptual schema definition language (CSDL) imports th
 
 > **Note**: The **Using** element in CSDL does not function exactly like a **using** statement in a programming language. By importing a namespace with a **using** statement in a programming language, you do not affect objects in the original namespace. In CSDL, an imported namespace can contain an entity type that is derived from an entity type in the original namespace. This can affect entity sets declared in the original namespace.
 
- 
+?
 
 The **Using** element can have the following child elements:
 
@@ -1783,11 +1783,11 @@ The table below describes the attributes can be applied to the **Using** element
 | **Namespace** | Yes | The name of the imported namespace. |
 | **Alias** | Yes | An identifier used in place of the namespace name. Although this attribute is required, it is not required that it be used in place of the namespace name to qualify object names. |
 
- 
+?
 
 > **Note**: Any number of annotation attributes (custom XML attributes) may be applied to the **Using** element. However, custom attributes may not belong to any XML namespace that is reserved for CSDL. The fully-qualified names for any two custom attributes cannot be the same.
 
- 
+?
 
 ### Example
 
@@ -1816,9 +1816,9 @@ The following example demonstrates the **Using** element being used to import a 
    
  </Schema> 
 ```
- 
+?
 
- 
+?
 
 ## Annotation Attributes (CSDL)
 
@@ -1860,7 +1860,7 @@ The following example shows an **EntityType** element with an annotation attribu
    </EntityType> 
  </Schema> 
 ```
- 
+?
 
 The following code retrieves the metadata in the annotation attribute and writes it to the console:
 
@@ -1878,16 +1878,16 @@ The following code retrieves the metadata in the annotation attribute and writes
      Console.WriteLine(annotationValue.ToString()); 
  } 
 ```
- 
+?
 
 The code above assumes that the `School.csdl` file is in the project's output directory and that you have added the following `Imports` and `Using` statements to your project:
 
 ```
  using System.Data.Metadata.Edm; 
 ```
- 
+?
 
- 
+?
 
 ## Annotation Elements (CSDL)
 
@@ -1930,7 +1930,7 @@ The following example shows an **EntityType** element with an annotation element
    </EntityType> 
  </Schema> 
 ```
- 
+?
 
 The following code retrieves the metadata in the annotation element and writes it to the console:
 
@@ -1948,16 +1948,16 @@ The following code retrieves the metadata in the annotation element and writes i
      Console.WriteLine(annotationValue.ToString()); 
  } 
 ```
- 
+?
 
 The code above assumes that the School.csdl file is in the project's output directory and that you have added the following `Imports` and `Using` statements to your project:
 
 ```
  using System.Data.Metadata.Edm; 
 ```
- 
+?
 
- 
+?
 
 ## Conceptual Model Types (CSDL)
 
@@ -1984,24 +1984,24 @@ The table below lists the primitive data types that are supported by CSDL. The t
 | **Edm.Time** | Contains a time of day. | Precision, Nullable, Default |
 | **Edm.Geography** |   | Nullable, Default, SRID |
 | **Edm.GeographyPoint** |   | Nullable, Default, SRID |
-| **Edm.GeographyLineString** |   | Nullable, Default, SRID |
-| **Edm.GeographyPolygon** |   | Nullable, Default, SRID |
-| **Edm.GeographyMultiPoint** |   | Nullable, Default, SRID |
-| **Edm.GeographyMultiLineString** |   | Nullable, Default, SRID |
-| **Edm.GeographyMultiPolygon** |   | Nullable, Default, SRID |
-| **Edm.GeographyCollection** |   | Nullable, Default, SRID |
-| **Edm.Geometry** |   | Nullable, Default, SRID |
-| **Edm.GeometryPoint** |   | Nullable, Default, SRID |
-| **Edm.GeometryLineString** |   | Nullable, Default, SRID |
-| **Edm.GeometryPolygon** |   | Nullable, Default, SRID |
-| **Edm.GeometryMultiPoint** |   | Nullable, Default, SRID |
-| **Edm.GeometryMultiLineString** |   | Nullable, Default, SRID |
-| **Edm.GeometryMultiPolygon** |   | Nullable, Default, SRID |
-| **Edm.GeometryCollection** |   | Nullable, Default, SRID |
+| **Edm.GeographyLineString** | ? | Nullable, Default, SRID |
+| **Edm.GeographyPolygon** | ? | Nullable, Default, SRID |
+| **Edm.GeographyMultiPoint** | ? | Nullable, Default, SRID |
+| **Edm.GeographyMultiLineString** | ? | Nullable, Default, SRID |
+| **Edm.GeographyMultiPolygon** | ? | Nullable, Default, SRID |
+| **Edm.GeographyCollection** | ? | Nullable, Default, SRID |
+| **Edm.Geometry** | ? | Nullable, Default, SRID |
+| **Edm.GeometryPoint** | ? | Nullable, Default, SRID |
+| **Edm.GeometryLineString** | ? | Nullable, Default, SRID |
+| **Edm.GeometryPolygon** | ? | Nullable, Default, SRID |
+| **Edm.GeometryMultiPoint** | ? | Nullable, Default, SRID |
+| **Edm.GeometryMultiLineString** | ? | Nullable, Default, SRID |
+| **Edm.GeometryMultiPolygon** | ? | Nullable, Default, SRID |
+| **Edm.GeometryCollection** | ? | Nullable, Default, SRID |
 
- 
+?
 
- 
+?
 
 ## Facets (CSDL)
 
@@ -2011,7 +2011,7 @@ Facets in conceptual schema definition language (CSDL) represent constraints on 
 -   TypeRef
 -   Parameter
 
-The following table describes the facets that are supported in CSDL. All facets are optional. Some facets listed below are used by the Entity Framework when generating a database from a conceptual model.
+The following table describes the facets that are supported in CSDL. All facets are optional. Some facets listed below are used by the Entity Framework when?generating a database from a conceptual model.
 
 **Note**:
 For information about data types in a conceptual model, see Conceptual Model Types (CSDL).
@@ -2028,16 +2028,16 @@ For information about data types in a conceptual model, see Conceptual Model Typ
 | **Scale** | Specifies the number of digits to the right of the decimal point for the property value. | **Edm.Decimal** | Yes | No |
 | **SRID** | Specifies the Spatial System Reference System ID. For more information, see [SRID](http://en.wikipedia.org/wiki/SRID) and [SRID (SQL Server)](https://msdn.microsoft.com/library/bb964707.aspx). | **Edm.Geography, Edm.GeographyPoint, Edm.GeographyLineString, Edm.GeographyPolygon, Edm.GeographyMultiPoint, Edm.GeographyMultiLineString, Edm.GeographyMultiPolygon, Edm.GeographyCollection, Edm.Geometry, Edm.GeometryPoint, Edm.GeometryLineString, Edm.GeometryPolygon, Edm.GeometryMultiPoint, Edm.GeometryMultiLineString, Edm.GeometryMultiPolygon, Edm.GeometryCollection** | No | Yes |
 | **Unicode** | Indicates whether the property value is stored as Unicode. | **Edm.String** | Yes | Yes |
- 
- 
- 
- 
- 
- 
- 
- 
+?
+?
+?
+?
+?
+?
+?
+?
 
-> **Note**: When generating a database from a conceptual model, the Generate Database Wizard will recognize the value of the **StoreGeneratedPattern** attribute on a **Property** element if it is in the following namespace: http://schemas.microsoft.com/ado/2009/02/edm/annotation. The supported values for the attribute are **Identity** and **Computed**. A value of **Identity** will produce a database column with an identity value that is generated in the database. A value of **Computed** will produce a column with a value that is computed in the database.
+> **Note**:?When generating a database from a conceptual model, the Generate Database Wizard will recognize the value of the **StoreGeneratedPattern** attribute on a **Property** element if it is in the following namespace: http://schemas.microsoft.com/ado/2009/02/edm/annotation. The supported values for the attribute are **Identity** and **Computed**. A value of **Identity** will produce a database column with an identity value that is generated in the database. A value of **Computed** will produce a column with a value that is computed in the database.
 
 ### Example
 

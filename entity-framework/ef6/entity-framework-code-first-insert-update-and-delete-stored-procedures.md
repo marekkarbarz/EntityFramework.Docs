@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Code First Insert, Update, and Delete Stored Procedures (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 9a7ae7f9-4072-4843-877d-506dd7eef576
 caps.latest.revision: 3
@@ -195,7 +195,7 @@ modelBuilder
     s.Insert(i => i.Parameter(p => p.Blog.BlogId, "blog_id")));
 ```  
   
-If you don’t have a navigation property on the dependent entity (i.e no Post.Blog property) then you can use the Association method to identify the other end of the relationship and then configure the parameters that correspond to each of the key property(s).  
+If you don?t have a navigation property on the dependent entity (i.e no Post.Blog property) then you can use the Association method to identify the other end of the relationship and then configure the parameters that correspond to each of the key property(s).  
   
 ```  
 modelBuilder 
@@ -212,8 +212,8 @@ Update and delete stored procedures may also need to deal with concurrency:
   
 - If the entity contains concurrency tokens, the stored procedure can optionally have an output parameter that returns the number of rows updated/deleted (rows affected). Such a parameter must be configured using the RowsAffectedParameter method.  
 By default EF uses the return value from ExecuteNonQuery to determine how many rows were affected. Specifying a rows affected output parameter is useful if you perform any logic in your sproc that would result in the return value of ExecuteNonQuery being incorrect (from EF's perspective) at the end of execution.  
-- For each concurrency token there will be a parameter named **\<property_name\>_Original** (i.e. Timestamp_Original). This will be passed the original value of this property – the value when queried from the database.  
-    - Concurrency tokens that are computed by the database – such as timestamps – will only have an original value parameter.  
+- For each concurrency token there will be a parameter named **\<property_name\>_Original** (i.e. Timestamp_Original). This will be passed the original value of this property ? the value when queried from the database.  
+    - Concurrency tokens that are computed by the database ? such as timestamps ? will only have an original value parameter.  
     - Non-computed properties that are set as concurrency tokens will also have a parameter for the new value in the update procedure. This uses the naming conventions already discussed for new values. An example of such a token would be using a Blog's URL as a concurrency token, the new value is required because this can be updated to a new value by your code (unlike a Timestamp token which is only updated by the database).  
   
 This is an example class and update stored procedure with a timestamp concurrency token.  
@@ -270,7 +270,7 @@ modelBuilder
     s.Update(u => u.RowsAffectedParameter("rows_affected")));
 ```  
   
-For database computed concurrency tokens – where only the original value is passed – you can just use the standard parameter renaming mechanism to rename the parameter for the original value.  
+For database computed concurrency tokens ? where only the original value is passed ? you can just use the standard parameter renaming mechanism to rename the parameter for the original value.  
   
 ```  
 modelBuilder  
@@ -279,7 +279,7 @@ modelBuilder
     s.Update(u => u.Parameter(b => b.Timestamp, "blog_timestamp")));
 ```  
   
-For non-computed concurrency tokens – where both the original and new value are passed – you can use an overload of Parameter that allows you to supply a name for each parameter.  
+For non-computed concurrency tokens ? where both the original and new value are passed ? you can use an overload of Parameter that allows you to supply a name for each parameter.  
   
 ```  
 modelBuilder 
@@ -289,7 +289,7 @@ modelBuilder
   
 ## Many to Many Relationships  
   
-We’ll use the following classes as an example in this section.  
+We?ll use the following classes as an example in this section.  
   
 ```  
 public class Post  

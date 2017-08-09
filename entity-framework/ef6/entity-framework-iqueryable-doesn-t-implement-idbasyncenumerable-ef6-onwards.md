@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework IQueryable doesn&#39;t implement IDbAsyncEnumerable (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: bcbe5277-7699-46c2-a780-a9e37ca88690
 caps.latest.revision: 3
@@ -17,7 +17,7 @@ caps.latest.revision: 3
   
 Entity Framework 6 introduced a set of extension methods that can be used to asynchronously execute a query. Examples of these methods include ToListAsync, FirstAsync, ForEachAsync, etc.  
   
-Because Entity Framework queries make use of LINQ, the extension methods are defined on IQueryable and IEnumerable. However, because they are only designed to be used with Entity Framework you may receive the following error if you try to use them on a LINQ query that isn’t an Entity Framework query.  
+Because Entity Framework queries make use of LINQ, the extension methods are defined on IQueryable and IEnumerable. However, because they are only designed to be used with Entity Framework you may receive the following error if you try to use them on a LINQ query that isn?t an Entity Framework query.  
   
 > **Note**: The source IQueryable doesn't implement IDbAsyncEnumerable{0}. Only sources that implement IDbAsyncEnumerable can be used for Entity Framework asynchronous operations. For more details see [http://go.microsoft.com/fwlink/?LinkId=287068](http://go.microsoft.com/fwlink/?LinkId=287068).  
   

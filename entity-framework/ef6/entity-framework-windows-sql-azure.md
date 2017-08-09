@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Windows SQL Azure | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: ce0bc4e4-f036-452e-80b3-c483f742631e
 caps.latest.revision: 4
@@ -26,7 +26,7 @@ In order to use spatial data types on Windows Azure you will need to deploy the 
 Install-Package Microsoft.SqlServer.Types
 ```
 
- 
+?
 
 ## Connecting to SQL Azure
 
@@ -60,7 +60,7 @@ The next post, Understanding SQL Azure Federations No-MARS Support and Entity Fr
 
 Here are some general guidelines/considerations for using SQL Azure Federations with Entity Framework:
 
--   The Entity Framework based application needs to be aware and manage the access to the different federation members. What this means is that the application would have to explicitly open the store connection with which the context is associated and issue the “USE FEDERATION” statement to connect to the correct federation member before interacting with the database via the Entity Framework.
--   Any needed database transaction would have to be started after the “USE FEDERATION” statement is issued. This is because federated databases do not support the “USE FEDERATION” statement in a transaction.
+-   The Entity Framework based application needs to be aware and manage the access to the different federation members. What this means is that the application would have to explicitly open the store connection with which the context is associated and issue the ?USE FEDERATION? statement to connect to the correct federation member before interacting with the database via the Entity Framework.
+-   Any needed database transaction would have to be started after the ?USE FEDERATION? statement is issued. This is because federated databases do not support the ?USE FEDERATION? statement in a transaction.
 -   Any connection retries would also need to be handled by the application.
 -   Instances of the context class should not span across federation members. In general, this also means that all changes managed by the context should be associated with a single federation member. This is because at the time SaveChanges is invoked, it would issue the corresponding database data modification operations only to the federation member to which the associated store connection currently points.

@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Enum Support - EF Designer (EF5 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: c6ae6d8f-1ace-47db-ad47-b1718f1ba082
 caps.latest.revision: 3
@@ -24,13 +24,13 @@ Enum support was introduced in Entity Framework 5. To use the new features like 
 In Entity Framework, an enumeration can have the following underlying types: **Byte**, **Int16**, **Int32**, **Int64** , or **SByte**.
 
 [See the video that accompanies this step-by-step walkthrough.](../ef6/entity-framework-enum-support-ef-designer-ef5-onwards-video.md)
- 
+?
 
 ## Pre-Requisites
 
 You will need to have Visual Studio 2012, Ultimate, Premium, Professional, or Web Express edition installed to complete this walkthrough.
 
- 
+?
 
 ## Set up the Project
 
@@ -55,7 +55,7 @@ The wizard performs the following actions:
 -   Adds a reference to the following assemblies: EntityFramework, System.ComponentModel.DataAnnotations, and System.Data.Entity.
 -   Creates EnumTestModel.tt and EnumTestModel.Context.tt files and adds them under the .edmx file. These T4 template files generate the code that defines the DbContext derived type and POCO types that map to the entities in the .edmx model.
 
- 
+?
 
 ## Add a New Entity Type
 
@@ -80,9 +80,9 @@ The wizard performs the following actions:
     
 3.  Press **OK**
 4.  Save the model and build the project
-    **Note:***When you build, warnings about unmapped entities and associations may appear in the Error List. You can ignore these warnings because after we choose to generate the database from the model, the errors will go away. *
+    **Note:***When you build, warnings about unmapped entities and associations may appear in the Error List. You can ignore these warnings because after we choose to generate the database from the model, the errors will go away.?*
 
- 
+?
 
 If you look at the Properties window, you will notice that the type of the Name property was changed to **DepartmentNames** and the newly added enum type was added to the list of types.
 
@@ -90,11 +90,11 @@ If you switch to the Model Browser window, you will see that the type was also a
 
 ![ModelBrowser](../ef6/media/modelbrowser.png)
 
- 
+?
 
 > **Note:** You can also add new enum types from this window by clicking the right mouse button and selecting **Add Enum Type**. Once the type is created it will appear in the list of types and you would be able to associate with a property
 
- 
+?
 
 ## Generate Database from Model
 
@@ -148,8 +148,8 @@ DepartmentID: 1 Name: English
 
 To view data in the database, right-click on the database name in SQL Server Object Explorer and select **Refresh**. Then, click the right mouse button on the table and select **View Data**.
 
- 
+?
 
 ## Summary
 
-In this walkthrough we looked at how to map enum types using the Entity Framework Designer and how to use enums in code. 
+In this walkthrough we looked at how to map enum types using the Entity Framework Designer and how to use enums in code.?

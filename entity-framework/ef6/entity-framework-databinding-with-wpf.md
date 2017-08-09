@@ -1,25 +1,25 @@
 ---
 title: "Entity Framework Databinding with WPF | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: e90d48e6-bea5-47ef-b756-7b89cce4daf0
 caps.latest.revision: 3
 ---
 # Entity Framework Databinding with WPF
-This step-by-step walkthrough shows how to bind POCO types to WPF controls in a “master-detail" form. The application uses the Entity Framework APIs to populate objects with data from the database, track changes, and persist data to the database.
+This step-by-step walkthrough shows how to bind POCO types to WPF controls in a ?master-detail" form. The application uses the Entity Framework APIs to populate objects with data from the database, track changes, and persist data to the database.
 
-The model defines two types that participate in one-to-many relationship: **Category** (principal\\master) and **Product** (dependent\\detail). Then, the Visual Studio tools are used to bind the types defined in the model to the WPF controls. The WPF data-binding framework enables navigation between related objects: selecting rows in the master view causes the detail view to update with the corresponding child data.
+The model defines two types that participate in one-to-many relationship: **Category** (principal\\master) and **Product** (dependent\\detail). Then, the Visual Studio?tools?are used to bind the types defined in the model to the WPF controls. The WPF data-binding framework enables navigation between related objects:?selecting rows in the master view?causes?the detail view to update with the corresponding child data.
 
 The screen shots and code listings in this walkthrough are taken from Visual Studio 2013 but you can complete this walkthrough with Visual Studio 2012 or Visual Studio 2010.
 
- 
+?
 
 ## Use the 'Object' Option for Creating WPF Data Sources
 
@@ -31,35 +31,35 @@ When using the DbContext API surface you should use the **Object** option when c
 
 If needed, you can [revert to ObjectContext based code generation](../ef6/reverting-to-objectcontext-in-entity-framework-designer.md) for models created with the EF Designer.
 
- 
+?
 
 ## Pre-Requisites
 
 You need to have Visual Studio 2013, Visual Studio 2012 or Visual Studio 2010 installed to complete this walkthrough.
 
-If you are using Visual Studio 2010, you also have to install NuGet. For more information, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).  
+If you are using Visual Studio 2010, you also have?to install NuGet. For more information, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). ?
 
- 
+?
 
 ## Create the Application
 
 -   Open Visual Studio
--   **File -&gt; New -&gt; Project….**
--   Select **Windows** in the left pane and **WPFApplication** in the right pane
--   Enter **WPFwithEFSample** as the name
--   Select **OK**
+-   **File -&gt; New -&gt; Project?.**
+-   Select?**Windows**?in the left pane and?**WPFApplication** in the right pane
+-   Enter?**WPFwithEFSample**?as the name
+-   Select?**OK**
 
- 
+?
 
 ## Install the Entity Framework NuGet package
 
 -   In Solution Explorer, right-click on the **WinFormswithEFSample** project
--   Select **Manage NuGet Packages…**
+-   Select **Manage NuGet Packages?**
 -   In the Manage NuGet Packages dialog, Select the **Online** tab and choose the **EntityFramework** package
 -   Click **Install**  
     >**Note**: In addition to the EntityFramework assembly a reference to System.ComponentModel.DataAnnotations is also added. If the project has a reference to System.Data.Entity, then it will be removed when the EntityFramework package is installed. The System.Data.Entity assembly is no longer used for Entity Framework 6 applications.
 
- 
+?
 
 ## Define a Model
 
@@ -71,11 +71,11 @@ This section shows how to create a model and its associated database using Code 
 
 When using Code First development you usually begin by writing .NET Framework classes that define your conceptual (domain) model.
 
--   Add a new class to the **WPFwithEFSample:**
+-   Add a new class to the?**WPFwithEFSample:**
     -   Right-click on the project name
     -   Select **Add**, then **New Item**
-    -   Select **Class** and enter **Product** for the class name
--   Replace the **Product** class definition with the following code:
+    -   Select **Class** and enter?**Product**?for the class name
+-   Replace the?**Product**?class definition with the following code:
 
 ```
     namespace WPFwithEFSample
@@ -147,13 +147,13 @@ The database server that is installed with Visual Studio is different depending 
 -   If you are using Visual Studio 2010 you'll be creating a SQL Express database.
 -   If you are using Visual Studio 2012 then you'll be creating a [LocalDb](https://msdn.microsoft.com/library/hh510202.aspx) database.
 
- 
+?
 
 Let's go ahead and generate the database.
 
 -   **View -&gt; Server Explorer**
--   Right click on **Data Connections -&gt; Add Connection…**
--   If you haven’t connected to a database from Server Explorer before you’ll need to select Microsoft SQL Server as the data source
+-   Right click on **Data Connections -&gt; Add Connection?**
+-   If you haven?t connected to a database from Server Explorer before you?ll need to select Microsoft SQL Server as the data source
     
     ![ChangeDataSource](../ef6/media/changedatasource.png)
     
@@ -191,9 +191,9 @@ Let's go ahead and generate the database.
 
 #### Reverse Engineer Model
 
-We’re going to make use of Entity Framework Designer, which is included as part of Visual Studio, to create our model.
+We?re going to make use of Entity Framework Designer, which is included as part of Visual Studio, to create our model.
 
--   **Project -&gt; Add New Item…**
+-   **Project -&gt; Add New Item?**
 -   Select **Data** from the left menu and then **ADO.NET Entity Data Model**
 -   Enter **ProductModel** as the name and click **OK**
 -   This launches the **Entity Data Model Wizard**
@@ -205,11 +205,11 @@ We’re going to make use of Entity Framework Designer, which is included as par
     
     ![ChooseYourConnection](../ef6/media/chooseyourconnection.png)
     
--   Click the checkbox next to ‘Tables’ to import all tables and click ‘Finish’
+-   Click the checkbox next to ?Tables? to import all tables and click ?Finish?
     
     ![ChooseYourObjects](../ef6/media/chooseyourobjects.png)
 
- 
+?
 
 Once the reverse engineer process completes the new model is added to your project and opened up for you to view in the Entity Framework Designer. An App.config file has also been added to your project with the connection details for the database.
 
@@ -217,7 +217,7 @@ Once the reverse engineer process completes the new model is added to your proje
 
 If you are working in Visual Studio 2010 then you will need to update the EF designer to use EF6 code generation.
 
--   Right-click on an empty spot of your model in the EF Designer and select **Add Code Generation Item…**
+-   Right-click on an empty spot of your model in the EF Designer and select **Add Code Generation Item?**
 -   Select **Online Templates** from the left menu and search for **DbContext**
 -   Select the **EF 6.x DbContext Generator for C\#,** enter **ProductsModel** as the name and click Add
 
@@ -231,18 +231,18 @@ EF generates code from your model using T4 templates. The templates shipped with
     ![WpfProductModelTemplate](../ef6/media/wpfproductmodeltemplate.png)
     
 -   Double-click on the ProductModel.tt file to open it in the Visual Studio editor
--   Find and replace the two occurrences of “**ICollection**” with “**ObservableCollection**”. These are located approximately at lines 296 and 484.
--   Find and replace the first occurrence of “**HashSet**” with “**ObservableCollection**”. This occurrence is located approximately at line 50. **Do not** replace the second occurrence of HashSet found later in the code.
--   Find and replace the only occurrence of “**System.Collections.Generic**” with “**System.Collections.ObjectModel**”. This is located approximately at line 424.
--   Save the ProductModel.tt file. This should cause the code for entities to be regenerated. If the code does not regenerate automatically, then right click on ProductModel.tt and choose “Run Custom Tool”.
+-   Find and replace the two occurrences of ?**ICollection**? with ?**ObservableCollection**?. These are located approximately at lines 296 and 484.
+-   Find and replace the first occurrence of ?**HashSet**? with ?**ObservableCollection**?. This occurrence is located approximately at line 50. **Do not** replace the second occurrence of HashSet found later in the code.
+-   Find and replace the only occurrence of ?**System.Collections.Generic**? with ?**System.Collections.ObjectModel**?. This is located approximately at line 424.
+-   Save the ProductModel.tt file. This should cause the code for entities to be regenerated. If the code does not regenerate automatically, then right click on ProductModel.tt and choose ?Run Custom Tool?.
 
 If you now open the Category.cs file (which is nested under ProductModel.tt) then you should see that the Products collection has the type **ObservableCollection&lt;Product&gt;**.
 
 Compile the project.
 
- 
+?
 
- 
+?
 
 ## Lazy Loading
 
@@ -252,18 +252,18 @@ EF gives you an option of loading related entities from the database automatical
 
 When using POCO entity types, EF achieves lazy loading by creating instances of derived proxy types during runtime and then overriding virtual properties in your classes to add the loading hook. To get lazy loading of related objects, you must declare navigation property getters as **public** and **virtual** (**Overridable** in Visual Basic), and you class must not be **sealed** (**NotOverridable** in Visual Basic). When using Database First navigation properties are automatically made virtual to enable lazy loading. In the Code First section we chose to make the navigation properties virtual for the same reason
 
- 
+?
 
 ## Bind Object to Controls
 
 Add the classes that are defined in the model as data sources for this WPF application.
 
 -   Double-click **MainWindow.xaml** in Solution Explorer to open the main form
--   From the main menu, select **Project -&gt; Add New Data Source …**
-    (in Visual Studio 2010, you need to select **Data -&gt; Add New Data Source…**)
+-   From the main menu, select **Project -&gt; Add New Data Source ?**
+    (in Visual Studio 2010, you need to select **Data -&gt; Add New Data Source?**)
 -   In the Choose a Data Source Typewindow, select **Object** and click **Next**
--   In the Select the Data Objects dialog, unfold the **WPFwithEFSample** two times and select **Category**  
-    *There is no need to select the **Product** data source, because we will get to it through the **Product**’s property on the **Category** data source*  
+-   In the Select the Data Objects dialog, unfold the **WPFwithEFSample**?two times and select **Category**  
+    *There is no need to select the **Product** data source, because we will get to it through the **Product**?s property on the **Category** data source*  
     
     ![SelectDataObjects](../ef6/media/selectdataobjects.png)
     
@@ -274,12 +274,12 @@ Add the classes that are defined in the model as data sources for this WPF appli
     
     ![DataSources](../ef6/media/datasources.png)
     
--   Select the **Category **data source and drag it on the form.
+-   Select the?**Category?**data source and drag it on the form.
 
 The following happened when we dragged this source:
 
--   The **categoryViewSource** resource and the** categoryDataGrid** control were added to XAML. For more information about DataViewSources, see http://bea.stollnitz.com/blog/?p=387.
--   The DataContext property on the parent Grid element was set to "{StaticResource **categoryViewSource** }".  The **categoryViewSource** resource serves as a binding source for the outer\\parent Grid element. The inner Grid elements then inherit the DataContext value from the parent Grid (the categoryDataGrid’s ItemsSource property is set to "{Binding}"). 
+-   The **categoryViewSource** resource?and the**?categoryDataGrid** control were added to XAML. For more information about DataViewSources, see?http://bea.stollnitz.com/blog/?p=387.
+-   The DataContext property on the parent Grid element was set to "{StaticResource **categoryViewSource** }".? The **categoryViewSource** resource serves as a binding source for the outer\\parent Grid element. The inner Grid elements then inherit the DataContext value from the parent Grid (the categoryDataGrid?s ItemsSource property is set to "{Binding}").?
 
 ```
     \<Window.Resources>
@@ -300,13 +300,13 @@ The following happened when we dragged this source:
     </Grid>
 ```
 
- 
+?
 
 ## Adding a Details Grid
 
 Now that we have a grid to display Categories let's add a details grid to display the associated Products.
 
--   Select the **Products **property from under the **Category **data source and drag it on the form.
+-   Select the?**Products?**property from under the?**Category?**data source and drag it on the form.
     -   The **categoryProductsViewSource** resource and **productDataGrid** grid are added to XAML
     -   The binding path for this resource is set to Products
     -   WPF data-binding framework ensures that only Products related to the selected Category show up in **productDataGrid**
@@ -314,9 +314,9 @@ Now that we have a grid to display Categories let's add a details grid to displa
 
 The form should look similar to this:
 
-![Designer](../ef6/media/designer.png) 
+![Designer](../ef6/media/designer.png)?
 
- 
+?
 
 ## Add Code that Handles Data Interaction
 
@@ -327,11 +327,11 @@ It's time to add some event handlers to the main window.
     
     ![MainWindowProperties](../ef6/media/mainwindowproperties.png)
     
--   Also add the **Click** event for the **Save** button by double-clicking the Save button in the designer. 
+-   Also add the **Click** event for the **Save** button by double-clicking the Save button in the designer.?
 
 This brings you to the code behind for the form, we'll now edit the code to use the ProductContext to perform data access. Update the code for the MainWindow as shown below.
 
-The code declares a long-running instance of **ProductContext**. The **ProductContext** object is used to query and save data to the database. The **Dispose**() on the **ProductContext** instance is then called from the overridden **OnClosing** method. The code comments provide details about what the code does.
+The code declares a long-running instance of **ProductContext**. The **ProductContext** object is used to query and save data to the database. The **Dispose**() on the **ProductContext** instance is then called from the overridden **OnClosing** method.?The code comments provide details about what the code does.
 
 ```
     using System.Data.Entity;
@@ -369,7 +369,7 @@ The code declares a long-running instance of **ProductContext**. The **ProductCo
             private void buttonSave_Click(object sender, RoutedEventArgs e)
             {
                 // When you delete an object from the related entities collection 
-                // (in this case Products), the Entity Framework doesn’t mark 
+                // (in this case Products), the Entity Framework doesn?t mark 
                 // these child entities as deleted.
                 // Instead, it removes the relationship between the parent and the child
                 // by setting the parent reference to null.
@@ -407,7 +407,7 @@ The code declares a long-running instance of **ProductContext**. The **ProductCo
     }
 ```
 
- 
+?
 
 ## Test the WPF Application
 
@@ -421,6 +421,6 @@ The code declares a long-running instance of **ProductContext**. The **ProductCo
     
 -   Press the **Save** button to save the data to the database
 
-After the call to DbContext’s **SaveChanges**(), the IDs are populated with the database generated values. Because we called **Refresh**() after **SaveChanges**() the **DataGrid** controls are updated with the new values as well.
+After the call to DbContext?s **SaveChanges**(), the IDs are populated with the database generated values. Because we called **Refresh**() after **SaveChanges**() the **DataGrid** controls are updated with the new values as well.
 
 ![Screen2](../ef6/media/screen2.png)

@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Limitations with Retrying Execution Strategies (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 2751cc3a-b099-4016-9faf-453dbf4af617
 caps.latest.revision: 3
@@ -37,11 +37,11 @@ Streaming is not supported when a retrying execution strategy is registered. Thi
   
 When you have configured an execution strategy that results in retries, there are some limitations around the use of transactions.  
   
-### What’s Supported: EF’s Default Transaction Behavior  
+### What?s Supported: EF?s Default Transaction Behavior  
   
-By default, EF will perform any database updates within a transaction. You don’t need to do anything to enable this, EF always does this automatically.  
+By default, EF will perform any database updates within a transaction. You don?t need to do anything to enable this, EF always does this automatically.  
   
-For example, in the following code SaveChanges is automatically performed within a transaction. If SaveChanges were to fail after inserting one of the new Site’s then the transaction would be rolled back and no changes applied to the database. The context is also left in a state that allows SaveChanges to be called again to retry applying the changes.  
+For example, in the following code SaveChanges is automatically performed within a transaction. If SaveChanges were to fail after inserting one of the new Site?s then the transaction would be rolled back and no changes applied to the database. The context is also left in a state that allows SaveChanges to be called again to retry applying the changes.  
   
 ```  
 using (var db = new BloggingContext()) 
@@ -52,7 +52,7 @@ using (var db = new BloggingContext())
 }
 ```  
   
-### What’s Not Supported: User Transactions  
+### What?s Not Supported: User Transactions  
   
 When not using a retrying execution strategy you can wrap multiple operations in a single transaction. For example, the following code wraps two SaveChanges calls in a single transaction. If any part of either operation fails then none of the changes are applied.  
   
@@ -73,7 +73,7 @@ using (var db = new BloggingContext())
 }
 ```  
   
-This is not supported when using a retrying execution strategy because EF isn’t aware of any previous operations and how to retry them. For example, if the second SaveChanges failed then EF no longer has the required information to retry the first SaveChanges call.  
+This is not supported when using a retrying execution strategy because EF isn?t aware of any previous operations and how to retry them. For example, if the second SaveChanges failed then EF no longer has the required information to retry the first SaveChanges call.  
   
 ### Possbile workarounds  
   

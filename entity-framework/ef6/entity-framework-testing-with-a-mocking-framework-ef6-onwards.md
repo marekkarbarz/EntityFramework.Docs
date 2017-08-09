@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Testing with a Mocking Framework (EF6 onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: bd66a638-d245-44d4-8e71-b9c6cb335cc7
 caps.latest.revision: 3
@@ -15,14 +15,14 @@ caps.latest.revision: 3
 # Entity Framework Testing with a Mocking Framework (EF6 onwards)
 > **EF6 Onwards Only** - The features, APIs, etc. discussed in this page were introduced in Entity Framework 6. If you are using an earlier version, some or all of the information does not apply.  
   
-When writing tests for your application it is often desirable to avoid hitting the database.  Entity Framework allows you to achieve this by creating a context – with behavior defined by your tests – that makes use of in-memory data.  
+When writing tests for your application it is often desirable to avoid hitting the database.  Entity Framework allows you to achieve this by creating a context ? with behavior defined by your tests ? that makes use of in-memory data.  
   
 ## Options for creating test doubles  
   
 There are two different approaches that can be used to create an in-memory version of your context.  
   
-- **Create your own test doubles** – This approach involves writing your own in-memory implementation of your context and DbSets. This gives you a lot of control over how the classes behave but can involve writing and owning a reasonable amount of code.  
-- **Use a mocking framework to create test doubles** – Using a mocking framework (such as Moq) you can have the in-memory implementations of you context and sets created dynamically at runtime for you.  
+- **Create your own test doubles** ? This approach involves writing your own in-memory implementation of your context and DbSets. This gives you a lot of control over how the classes behave but can involve writing and owning a reasonable amount of code.  
+- **Use a mocking framework to create test doubles** ? Using a mocking framework (such as Moq) you can have the in-memory implementations of you context and sets created dynamically at runtime for you.  
   
 This article will deal with using a mocking framework. For creating your own test doubles see [Testing with Your Own Test Doubles (EF6 onwards)](../ef6/entity-framework-testing-with-your-own-test-doubles-ef6-onwards.md).  
   
@@ -34,7 +34,7 @@ The scenario shown in this article is dependent on some changes we made to DbSet
   
 ## Limitations of EF in-memory test doubles  
   
-In-memory test doubles can be a good way to provide unit test level coverage of bits of your application that use EF. However, when doing this you are using LINQ to Objects to execute queries against in-memory data. This can result in different behavior than using EF’s LINQ provider (LINQ to Entities) to translate queries into SQL that is run against your database.  
+In-memory test doubles can be a good way to provide unit test level coverage of bits of your application that use EF. However, when doing this you are using LINQ to Objects to execute queries against in-memory data. This can result in different behavior than using EF?s LINQ provider (LINQ to Entities) to translate queries into SQL that is run against your database.  
   
 One example of such a difference is loading related data. If you create a series of Blogs that each have related Posts, then when using in-memory data the related Posts will always be loaded for each Blog. However, when running against a database the data will only be loaded if you use the Include method.  
   
@@ -85,7 +85,7 @@ namespace TestingDemo
   
 Note that the DbSet properties on the context are marked as virtual. This will allow the mocking framework to derive from our context and overriding these properties with a mocked implementation.  
   
-If you are using Code First then you can edit your classes directly. If you are using the EF Designer then you’ll need to edit the T4 template that generates your context. Open up the \<model_name\>.Context.tt file that is nested under you edmx file, find the following fragment of code and add in the virtual keyword as shown.  
+If you are using Code First then you can edit your classes directly. If you are using the EF Designer then you?ll need to edit the T4 template that generates your context. Open up the \<model_name\>.Context.tt file that is nested under you edmx file, find the following fragment of code and add in the virtual keyword as shown.  
   
 ```  
 public string DbSet(EntitySet entitySet) 
@@ -101,7 +101,7 @@ public string DbSet(EntitySet entitySet)
   
 ## Service to be tested  
   
-To demonstrate testing with in-memory test doubles we are going to be writing a couple of tests for a BlogService. The service is capable of creating new blogs (AddBlog) and returning all Blogs ordered by name (GetAllBlogs). In addition to GetAllBlogs, we’ve also provided a method that will asynchronously get all blogs ordered by name (GetAllBlogsAsync).  
+To demonstrate testing with in-memory test doubles we are going to be writing a couple of tests for a BlogService. The service is capable of creating new blogs (AddBlog) and returning all Blogs ordered by name (GetAllBlogs). In addition to GetAllBlogs, we?ve also provided a method that will asynchronously get all blogs ordered by name (GetAllBlogsAsync).  
   
 ```  
 using System.Collections.Generic; 
@@ -151,7 +151,7 @@ namespace TestingDemo
   
 ## Testing non-query scenarios  
   
-That’s all we need to do to start testing non-query methods. The following test uses Moq to create a context. It then creates a DbSet\<Blog\> and wires it up to be returned from the context’s Blogs property. Next, the context is used to create a new BlogService which is then used to create a new blog – using the AddBlog method. Finally, the test verifies that the service added a new Blog and called SaveChanges on the context.  
+That?s all we need to do to start testing non-query methods. The following test uses Moq to create a context. It then creates a DbSet\<Blog\> and wires it up to be returned from the context?s Blogs property. Next, the context is used to create a new BlogService which is then used to create a new blog ? using the AddBlog method. Finally, the test verifies that the service added a new Blog and called SaveChanges on the context.  
   
 ```  
 using Microsoft.VisualStudio.TestTools.UnitTesting; 
@@ -183,7 +183,7 @@ namespace TestingDemo
   
 ## Testing query scenarios  
   
-In order to be able to execute queries against our DbSet test double we need to setup an implementation of IQueryable. The first step is to create some in-memory data – we’re using a List\<Blog\>. Next, we create a context and DBSet\<Blog\> then wire up the IQueryable implementation for the DbSet – they’re just delegating to the LINQ to Objects provider that works with List\<T\>.  
+In order to be able to execute queries against our DbSet test double we need to setup an implementation of IQueryable. The first step is to create some in-memory data ? we?re using a List\<Blog\>. Next, we create a context and DBSet\<Blog\> then wire up the IQueryable implementation for the DbSet ? they?re just delegating to the LINQ to Objects provider that works with List\<T\>.  
   
 We can then create a BlogService based on our test doubles and ensure that the data we get back from GetAllBlogs is ordered by name.  
   

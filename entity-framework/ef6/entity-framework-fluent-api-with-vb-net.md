@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Fluent API with VB.NET | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 763dc6a2-764a-4600-896c-f6f13abf56ec
 caps.latest.revision: 3
@@ -20,7 +20,7 @@ This page assumes you have a basic understanding of Code First. Check out the fo
 -   [Code First to a New Database](../ef6/entity-framework-code-first-to-a-new-database.md)
 -   [Code First to an Existing Database](../ef6/entity-framework-code-first-to-an-existing-database.md)
 
- 
+?
 
 ## Pre-Requisites
 
@@ -28,19 +28,19 @@ You will need to have Visual Studio 2010 or Visual Studio 2012 installed to comp
 
 If you are using Visual Studio 2010, you will also need to have [NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) installed
 
- 
+?
 
 ## Create the Application
 
-To keep things simple we’re going to build a basic console application that uses Code First to perform data access.
+To keep things simple we?re going to build a basic console application that uses Code First to perform data access.
 
 -   Open Visual Studio
--   **File -&gt; New -&gt; Project…**
+-   **File -&gt; New -&gt; Project?**
 -   Select **Windows** from the left menu and **Console Application**
 -   Enter **CodeFirstVBSample** as the name
 -   Select **OK**
 
- 
+?
 
 ## Define the Model
 
@@ -141,19 +141,19 @@ In this step you will define VB.NET POCO entity types that represent the concept
     End Class
 ```
 
- 
+?
 
 ## Define a Derived Context
 
-We’re about to start to using types from the Entity Framework so we need to add the EntityFramework NuGet package.
+We?re about to start to using types from the Entity Framework so we need to add the EntityFramework NuGet package.
 
--   **Project –&gt; Manage NuGet Packages…**
-    Note: If you don’t have the **Manage NuGet Packages…** option you should install the [latest version of NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)
+-   **Project ?&gt; Manage NuGet Packages?**
+    Note: If you don?t have the **Manage NuGet Packages?** option you should install the [latest version of NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)
 -   Select the **Online** tab
 -   Select the **EntityFramework** package
 -   Click **Install**
 
-Now it’s time to define a derived context, which represents a session with the database, allowing us to query and save data. We define a context that derives from System.Data.Entity.DbContext and exposes a typed DbSet&lt;TEntity&gt; for each class in our model.
+Now it?s time to define a derived context, which represents a session with the database, allowing us to query and save data. We define a context that derives from System.Data.Entity.DbContext and exposes a typed DbSet&lt;TEntity&gt; for each class in our model.
 
 -   Add a new class to the project, enter **SchoolContext** for the class name
 -   Replace the contents of the new class with the following code
@@ -178,7 +178,7 @@ Now it’s time to define a derived context, which represents a session with the
     End Class
 ```
 
- 
+?
 
 ## Configuring with the Fluent API
 
@@ -223,7 +223,7 @@ This section demonstrates how to use the fluent APIs to configure types to table
         ' TPH is the default strategy for the types that 
         ' participate in the inheritance hierarchy. 
         ' By default, the discriminator column is added 
-        ' to the table with the name “Discriminator” 
+        ' to the table with the name ?Discriminator? 
         ' and the CLR type name of each type in the hierarchy 
         ' is used for the discriminator values. 
         ' You can modify the default behavior by using the fluent API.
@@ -247,8 +247,8 @@ This section demonstrates how to use the fluent APIs to configure types to table
 
         ' Configuring a Primary Key
 
-        ' If your class defines a property whose name is “ID” or “Id”, 
-        ' or a class name followed by “ID” or “Id”, 
+        ' If your class defines a property whose name is ?ID? or ?Id?, 
+        ' or a class name followed by ?ID? or ?Id?, 
         ' the Entity Framework treats this property as a primary key by convention. 
         ' If your property name does not follow this pattern, use the HasKey method 
         ' to configure the primary key for the entity. 
@@ -375,7 +375,7 @@ This section demonstrates how to use the fluent APIs to configure types to table
             WillCascadeOnDelete(False)
 ```
 
- 
+?
 
 ## Using the Model
 
@@ -422,7 +422,7 @@ Let's perform some data access using the **SchoolContext** to see out model in a
     End Module
 ```
 
- 
+?
 
 You can now run the application and test it out.
 

@@ -1,22 +1,22 @@
 ---
 title: "Entity Framework Code First to a New Database | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 2df6cb0a-7d8b-4e28-9d05-e2b9a90125af
 caps.latest.revision: 3
 ---
 # Entity Framework Code First to a New Database
-This video and step-by-step walkthrough provide an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn’t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C\# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API.
+This video and step-by-step walkthrough provide an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn?t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C\# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API.
 
 [See the video that accompanies this step-by-step walkthrough.](../ef6/entity-framework-code-first-to-a-new-database-video.md)
- 
+?
 
 ## Pre-Requisites
 
@@ -24,23 +24,23 @@ You will need to have Visual Studio 2010 or Visual Studio 2012 installed to comp
 
 If you are using Visual Studio 2010, you will also need to have [NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) installed.
 
- 
+?
 
 ## 1. Create the Application
 
-To keep things simple we’re going to build a basic console application that uses Code First to perform data access.
+To keep things simple we?re going to build a basic console application that uses Code First to perform data access.
 
 -   Open Visual Studio
--   **File -&gt; New -&gt; Project…**
+-   **File -&gt; New -&gt; Project?**
 -   Select **Windows** from the left menu and **Console Application**
 -   Enter **CodeFirstNewDatabaseSample** as the name
 -   Select **OK**
 
- 
+?
 
 ## 2. Create the Model
 
-Let’s define a very simple model using classes. We’re just defining them in the Program.cs file but in a real world application you would split your classes out into separate files and potentially a separate project.
+Let?s define a very simple model using classes. We?re just defining them in the Program.cs file but in a real world application you would split your classes out into separate files and potentially a separate project.
 
 Below the Program class definition in Program.cs add the following two classes.
 
@@ -64,18 +64,18 @@ public class Post
 }
 ```
 
-You’ll notice that we’re making the two navigation properties (Blog.Posts and Post.Blog) virtual. This enables the Lazy Loading feature of Entity Framework. Lazy Loading means that the contents of these properties will be automatically loaded from the database when you try to access them.
+You?ll notice that we?re making the two navigation properties (Blog.Posts and Post.Blog) virtual. This enables the Lazy Loading feature of Entity Framework. Lazy Loading means that the contents of these properties will be automatically loaded from the database when you try to access them.
 
- 
+?
 
 ## 3. Create a Context
 
-Now it’s time to define a derived context, which represents a session with the database, allowing us to query and save data. We define a context that derives from System.Data.Entity.DbContext and exposes a typed DbSet&lt;TEntity&gt; for each class in our model.
+Now it?s time to define a derived context, which represents a session with the database, allowing us to query and save data. We define a context that derives from System.Data.Entity.DbContext and exposes a typed DbSet&lt;TEntity&gt; for each class in our model.
 
-We’re now starting to use types from the Entity Framework so we need to add the EntityFramework NuGet package.
+We?re now starting to use types from the Entity Framework so we need to add the EntityFramework NuGet package.
 
--   **Project –&gt; Manage NuGet Packages…**
-    Note: If you don’t have the **Manage NuGet Packages…** option you should install the [latest version of NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)
+-   **Project ?&gt; Manage NuGet Packages?**
+    Note: If you don?t have the **Manage NuGet Packages?** option you should install the [latest version of NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)
 -   Select the **Online** tab
 -   Select the **EntityFramework** package
 -   Click **Install**
@@ -141,9 +141,9 @@ namespace CodeFirstNewDatabaseSample
 }
 ```
 
-That is all the code we need to start storing and retrieving data. Obviously there is quite a bit going on behind the scenes and we’ll take a look at that in a moment but first let’s see it in action.
+That is all the code we need to start storing and retrieving data. Obviously there is quite a bit going on behind the scenes and we?ll take a look at that in a moment but first let?s see it in action.
 
- 
+?
 
 ## 4. Reading & Writing Data
 
@@ -190,25 +190,25 @@ All blogs in the database:
 ADO.NET Blog
 Press any key to exit...
 ```
- 
+?
 
-### Where’s My Data?
+### Where?s My Data?
 
 By convention DbContext has created a database for you.
 
 -   If a local SQL Express instance is available (installed by default with Visual Studio 2010) then Code First has created the database on that instance
--   If SQL Express isn’t available then Code First will try and use [LocalDb](https://msdn.microsoft.com/library/hh510202(v=sql.110).aspx) (installed by default with Visual Studio 2012)
+-   If SQL Express isn?t available then Code First will try and use [LocalDb](https://msdn.microsoft.com/library/hh510202(v=sql.110).aspx) (installed by default with Visual Studio 2012)
 -   The database is named after the fully qualified name of the derived context, in our case that is **CodeFirstNewDatabaseSample.BloggingContext**
 
 These are just the default conventions and there are various ways to change the database that Code First uses, more information is available in the **How DbContext Discovers the Model and Database Connection** topic.
 
- 
+?
 
 You can connect to this database using Server Explorer in Visual Studio
 
 -   **View -&gt; Server Explorer**
--   Right click on **Data Connections** and select **Add Connection…**
--   If you haven’t connected to a database from Server Explorer before you’ll need to select Microsoft SQL Server as the data source
+-   Right click on **Data Connections** and select **Add Connection?**
+-   If you haven?t connected to a database from Server Explorer before you?ll need to select Microsoft SQL Server as the data source
     
     ![SelectDataSource](../ef6/media/selectdatasource.png)
     
@@ -218,31 +218,31 @@ You can connect to this database using Server Explorer in Visual Studio
     
     ![SqlExpressConnectionCFN](../ef6/media/sqlexpressconnectioncfn.png)
 
- 
+?
 
 We can now inspect the schema that Code First created.
 
 ![SchemaInitial](../ef6/media/schemainitial.png)
 
-DbContext worked out what classes to include in the model by looking at the DbSet properties that we defined. It then uses the default set of Code First conventions to determine table and column names, determine data types, find primary keys, etc. Later in this walkthrough we’ll look at how you can override these conventions.
+DbContext worked out what classes to include in the model by looking at the DbSet properties that we defined. It then uses the default set of Code First conventions to determine table and column names, determine data types, find primary keys, etc. Later in this walkthrough we?ll look at how you can override these conventions.
 
- 
+?
 
 ## 5. Dealing with Model Changes
 
-Now it’s time to make some changes to our model, when we make these changes we also need to update the database schema. To do this we are going to use a feature called Code First Migrations, or Migrations for short.
+Now it?s time to make some changes to our model, when we make these changes we also need to update the database schema. To do this we are going to use a feature called Code First Migrations, or Migrations for short.
 
-Migrations allows us to have an ordered set of steps that describe how to upgrade (and downgrade) our database schema. Each of these steps, known as a migration, contains some code that describes the changes to be applied. 
+Migrations allows us to have an ordered set of steps that describe how to upgrade (and downgrade) our database schema. Each of these steps, known as a migration, contains some code that describes the changes to be applied.?
 
 The first step is to enable Code First Migrations for our BloggingContext.
 
 -   **Tools -&gt; Library Package Manager -&gt; Package Manager Console**
 -   Run the **Enable-Migrations** command in Package Manager Console
 -   A new Migrations folder has been added to our project that contains two items:
-    -   **Configuration.cs** – This file contains the settings that Migrations will use for migrating BloggingContext. We don’t need to change anything for this walkthrough, but here is where you can specify seed data, register providers for other databases, changes the namespace that migrations are generated in etc.
-    -   **&lt;timestamp&gt;\_InitialCreate.cs** – This is your first migration, it represents the changes that have already been applied to the database to take it from being an empty database to one that includes the Blogs and Posts tables. Although we let Code First automatically create these tables for us, now that we have opted in to Migrations they have been converted into a Migration. Code First has also recorded in our local database that this Migration has already been applied. The timestamp on the filename is used for ordering purposes.
+    -   **Configuration.cs** ? This file contains the settings that Migrations will use for migrating BloggingContext. We don?t need to change anything for this walkthrough, but here is where you can specify seed data, register providers for other databases, changes the namespace that migrations are generated in etc.
+    -   **&lt;timestamp&gt;\_InitialCreate.cs** ? This is your first migration, it represents the changes that have already been applied to the database to take it from being an empty database to one that includes the Blogs and Posts tables. Although we let Code First automatically create these tables for us, now that we have opted in to Migrations they have been converted into a Migration. Code First has also recorded in our local database that this Migration has already been applied. The timestamp on the filename is used for ordering purposes.
 
-    Now let’s make a change to our model, add a Url property to the Blog class:
+    Now let?s make a change to our model, add a Url property to the Blog class:
 
 ```
 public class Blog 
@@ -256,8 +256,8 @@ public class Blog
 ```
 
 -   Run the **Add-Migration AddUrl** command in Package Manager Console.
-    The Add-Migration command checks for changes since your last migration and scaffolds a new migration with any changes that are found. We can give migrations a name; in this case we are calling the migration ‘AddUrl’.
-    The scaffolded code is saying that we need to add a Url column, that can hold string data, to the dbo.Blogs table. If needed, we could edit the scaffolded code but that’s not required in this case.
+    The Add-Migration command checks for changes since your last migration and scaffolds a new migration with any changes that are found. We can give migrations a name; in this case we are calling the migration ?AddUrl?.
+    The scaffolded code is saying that we need to add a Url column, that can hold string data, to the dbo.Blogs table. If needed, we could edit the scaffolded code but that?s not required in this case.
 
 ```
 namespace CodeFirstNewDatabaseSample.Migrations 
@@ -281,9 +281,9 @@ namespace CodeFirstNewDatabaseSample.Migrations
 ```
 
 -   Run the **Update-Database** command in Package Manager Console. This command will apply any pending migrations to the database. Our InitialCreate migration has already been applied so migrations will just apply our new AddUrl migration.
-    Tip: You can use the **–Verbose** switch when calling Update-Database to see the SQL that is being executed against the database.
+    Tip: You can use the **?Verbose** switch when calling Update-Database to see the SQL that is being executed against the database.
 
- 
+?
 
 The new Url column is now added to the Blogs table in the database:
 
@@ -291,9 +291,9 @@ The new Url column is now added to the Blogs table in the database:
 
 ## 6. Data Annotations
 
-So far we’ve just let EF discover the model using its default conventions, but there are going to be times when our classes don’t follow the conventions and we need to be able to perform further configuration. There are two options for this; we’ll look at Data Annotations in this section and then the fluent API in the next section.
+So far we?ve just let EF discover the model using its default conventions, but there are going to be times when our classes don?t follow the conventions and we need to be able to perform further configuration. There are two options for this; we?ll look at Data Annotations in this section and then the fluent API in the next section.
 
--   Let’s add a User class to our model
+-   Let?s add a User class to our model
 
 ```
 public class User 
@@ -314,8 +314,8 @@ public class BloggingContext : DbContext
 }
 ```
 
--   If we tried to add a migration we’d get an error saying “*EntityType ‘User’ has no key defined. Define the key for this EntityType.”* because EF has no way of knowing that Username should be the primary key for User.
--   We’re going to use Data Annotations now so we need to add a using statement at the top of Program.cs
+-   If we tried to add a migration we?d get an error saying ?*EntityType ?User? has no key defined. Define the key for this EntityType.?* because EF has no way of knowing that Username should be the primary key for User.
+-   We?re going to use Data Annotations now so we need to add a using statement at the top of Program.cs
 
 ```
 using System.ComponentModel.DataAnnotations;
@@ -339,7 +339,7 @@ The new table is now added to the database:
 
 ![SchemaWithUsers](../ef6/media/schemawithusers.png)
 
- 
+?
 
 The full list of annotations supported by EF is:
 
@@ -357,7 +357,7 @@ The full list of annotations supported by EF is:
 -   [DatabaseGeneratedAttribute](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute)
 -   [NotMappedAttribute](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.notmappedattribute)
 
- 
+?
 
 ## 7. Fluent API
 
@@ -365,7 +365,7 @@ In the previous section we looked at using Data Annotations to supplement or ove
 
 Most model configuration can be done using simple data annotations. The fluent API is a more advanced way of specifying model configuration that covers everything that data annotations can do in addition to some more advanced configuration not possible with data annotations. Data annotations and the fluent API can be used together.
 
-To access the fluent API you override the OnModelCreating method in DbContext. Let’s say we wanted to rename the column that User.DisplayName is stored in to display\_name.
+To access the fluent API you override the OnModelCreating method in DbContext. Let?s say we wanted to rename the column that User.DisplayName is stored in to display\_name.
 
 -   Override the OnModelCreating method on BloggingContext with the following code
 
@@ -388,7 +388,7 @@ public class BloggingContext : DbContext
 -   Use the **Add-Migration ChangeDisplayName** command to scaffold a migration to apply these changes to the database.
 -   Run the **Update-Database** command to apply the new migration to the database.
 
- 
+?
 
 The DisplayName column is now renamed to display\_name:
 

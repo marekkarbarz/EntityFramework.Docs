@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Handling of Transaction Commit Failures (EF6.1 Onwards) | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 5b1f7a7d-1b24-4645-95ec-5608a31ef577
 caps.latest.revision: 3
@@ -45,5 +45,5 @@ public class MyConfiguration : DbConfiguration
   
 When the feature is enabled, EF will automatically add a new table to the database called **__Transactions**. A new row is inserted in this table every time a transaction is created by EF and that row is checked for existence if a transaction failure occurs during commit.  
   
-Although EF will do a best effort to prune rows from the table when they aren’t needed anymore, the table can grow if the application exits prematurely and for that reason you may need to purge the table manually in some cases.  
+Although EF will do a best effort to prune rows from the table when they aren?t needed anymore, the table can grow if the application exits prematurely and for that reason you may need to purge the table manually in some cases.  
   

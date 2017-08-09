@@ -1,13 +1,13 @@
 ---
 title: "Entity Framework Code First to an Existing Database | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: a7e60b74-973d-4480-868f-500a3899932e
 caps.latest.revision: 3
@@ -16,7 +16,7 @@ caps.latest.revision: 3
 This video and step-by-step walkthrough provide an introduction to Code First development targeting an existing database. Code First allows you to define your model using C\# or VB.Net classes. Optionally additional configuration can be performed using attributes on your classes and properties or by using a fluent API.
 
 [See the video that accompanies this step-by-step walkthrough.](http://channel9.msdn.com/blogs/ef/code-first-to-existing-database-ef6-1-onwards-)
- 
+?
 
 ## Pre-Requisites
 
@@ -32,8 +32,8 @@ Let's go ahead and generate the database.
 
 -   Open Visual Studio
 -   **View -&gt; Server Explorer**
--   Right click on **Data Connections -&gt; Add Connection…**
--   If you haven’t connected to a database from **Server Explorer** before you’ll need to select **Microsoft SQL Server** as the data source
+-   Right click on **Data Connections -&gt; Add Connection?**
+-   If you haven?t connected to a database from **Server Explorer** before you?ll need to select **Microsoft SQL Server** as the data source
     
     ![SelectDataSource](../ef6/media/selectdatasource.png)
     
@@ -74,21 +74,21 @@ VALUES ('.NET Framework Blog', 'http://blogs.msdn.com/dotnet/')
 
 ## 2. Create the Application
 
-To keep things simple we’re going to build a basic console application that uses Code First to perform data access:
+To keep things simple we?re going to build a basic console application that uses Code First to perform data access:
 
 -   Open Visual Studio
--   **File -&gt; New -&gt; Project…**
+-   **File -&gt; New -&gt; Project?**
 -   Select **Windows** from the left menu and **Console Application**
 -   Enter **CodeFirstExistingDatabaseSample** as the name
 -   Select **OK**
 
- 
+?
 
 ## 3. Reverse Engineer Model
 
-We’re going to make use of the Entity Framework Tools for Visual Studio to help us generate some initial code to map to the database. These tools are just generating code that you could also type by hand if you prefer.
+We?re going to make use of the Entity Framework Tools for Visual Studio to help us generate some initial code to map to the database. These tools are just generating code that you could also type by hand if you prefer.
 
--   **Project -&gt; Add New Item…**
+-   **Project -&gt; Add New Item?**
 -   Select **Data** from the left menu and then **ADO.NET Entity Data Model**
 -   Enter **BloggingContext** as the name and click **OK**
 -   This launches the **Entity Data Model Wizard**
@@ -119,12 +119,12 @@ An App.config file has been added to the project, this file contains the connect
 </connectionStrings>
 ```
 
-*You’ll notice some other settings in the configuration file too, these are default EF settings that tell Code First where to create databases. Since we are mapping to an existing database these setting will be ignored in our application.*
+*You?ll notice some other settings in the configuration file too, these are default EF settings that tell Code First where to create databases. Since we are mapping to an existing database these setting will be ignored in our application.*
 
 ### Derived Context
 
 A **BloggingContext** class has been added to the project. The context represents a session with the database, allowing us to query and save data.
-The context exposes a **DbSet&lt;TEntity&gt;** for each type in our model. You’ll also notice that the default constructor calls a base constructor using the **name=** syntax. This tells Code First that the connection string to use for this context should be loaded from the configuration file.
+The context exposes a **DbSet&lt;TEntity&gt;** for each type in our model. You?ll also notice that the default constructor calls a base constructor using the **name=** syntax. This tells Code First that the connection string to use for this context should be loaded from the configuration file.
 
 ```
 public partial class BloggingContext : DbContext 
@@ -171,7 +171,7 @@ public partial class Blog
 
 ## 4. Reading & Writing Data
 
-Now that we have a model it’s time to use it to access some data. Implement the **Main** method in **Program.cs** as shown below. This code creates a new instance of our context and then uses it to insert a new **Blog**. Then it uses a LINQ query to retrieve all **Blogs** from the database ordered alphabetically by **Title**.
+Now that we have a model it?s time to use it to access some data. Implement the **Main** method in **Program.cs** as shown below. This code creates a new instance of our context and then uses it to insert a new **Blog**. Then it uses a LINQ query to retrieve all **Blogs** from the database ordered alphabetically by **Title**.
 
 ```
 class Program 
@@ -216,25 +216,25 @@ ADO.NET Blog
 The Visual Studio Blog
 Press any key to exit...
 ```
- 
+?
 
 ## Customizing the Scaffolded Code
 
 For information on customizing the code that is generated by the wizard, see [Customizing Code First to an Existing Database](../ef6/customizing-code-first-to-an-existing-database.md).
 
- 
+?
 
 ## What if My Database Changes?
 
 The Code First to Database wizard is designed to generate a starting point set of classes that you can then tweak and modify. If your database schema changes you can either manually edit the classes or perform another reverse engineer to overwrite the classes.
 
- 
+?
 
 ## Using Code First Migrations with an Existing Database
 
 If you want to use Code First Migrations with your existing database, see [Code First Migrations with an existing database](../ef6/entity-framework-code-first-migrations-with-an-existing-database.md).
 
- 
+?
 
 ## Summary
 

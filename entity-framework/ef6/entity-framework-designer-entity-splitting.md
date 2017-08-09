@@ -1,31 +1,31 @@
 ---
 title: "Entity Framework Designer Entity Splitting | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: aa2dd48a-1f0e-49dd-863d-d6b4f5834832
 caps.latest.revision: 3
 ---
 # Entity Framework Designer Entity Splitting
-This walkthrough shows how to map an entity type to two tables by modifying a model with the Entity Framework Designer (EF Designer). You can map an entity to multiple tables when the tables share a common key. The concepts that apply to mapping an entity type to two tables are easily extended to mapping an entity type to more than two tables.
+This walkthrough shows how to map an entity type to two tables by modifying a model with the?Entity Framework Designer (EF Designer). You can map an entity to multiple tables when the tables share a common key. The concepts that apply?to mapping an entity type to two tables are easily extended to mapping an entity type to more than two tables.
 
 The following image shows the main windows that are used when working with the EF Designer.
 
 ![EFDesigner](../ef6/media/efdesigner.png)
 
- 
+?
 
 ## Prerequisites
 
 Visual Studio 2012 or Visual Studio 2010, Ultimate, Premium, Professional, or Web Express edition.
 
- 
+?
 
 ## Create the Database
 
@@ -38,8 +38,8 @@ First we'll create a database with two tables that we are going to combine into 
 
 -   Open Visual Studio
 -   **View -&gt; Server Explorer**
--   Right click on **Data Connections -&gt; Add Connection…**
--   If you haven’t connected to a database from Server Explorer before you’ll need to select **Microsoft SQL Server** as the data source
+-   Right click on **Data Connections -&gt; Add Connection?**
+-   If you haven?t connected to a database from Server Explorer before you?ll need to select **Microsoft SQL Server** as the data source
 -   Connect to either LocalDb (**(localdb)\\v11.0**) or SQL Express (**.\\SQLEXPRESS**), depending on which one you have installed
 -   Enter **EntitySplitting** as the database name
 -   Select **OK** and you will be asked if you want to create a new database, select **Yes**
@@ -70,7 +70,7 @@ CONSTRAINT [FK_Person_PersonInfo] FOREIGN KEY ([PersonId]) REFERENCES [dbo].[Per
 );
 ```
 
- 
+?
 
 ## Create the Project
 
@@ -79,45 +79,45 @@ CONSTRAINT [FK_Person_PersonInfo] FOREIGN KEY ([PersonId]) REFERENCES [dbo].[Per
 -   Enter **MapEntityToTablesSample** as the name of the project and click **OK**.
 -   Click **No** if prompted to save the SQL query created in the first section.
 
- 
+?
 
 ## Create a Model based on the Database
 
 -   Right-click the project name in Solution Explorer, point to **Add**, and then click **New Item**.
 -   Select **Data** from the left menu and then select **ADO.NET Entity Data Model** in the Templates pane.
 -   Enter **MapEntityToTablesModel.edmx** for the file name, and then click **Add**.
--   In the Choose Model Contents dialog box, select **Generate from database**, and then click **Next.**
+-   In the?Choose Model Contents?dialog box, select?**Generate from database**, and then click?**Next.**
 -   Select the **EntitySplitting** connection from the drop down and click **Next**.
--   In the Choose Your Database Objects dialog box, check the box next to the **Tables** node.
+-   In the?Choose Your Database Objects?dialog box, check the box next to the **Tables**?node.
     This will add all the tables from the **EntitySplitting** database to the model.
--   Click **Finish**.
+-   Click?**Finish**.
 
 The Entity Designer, which provides a design surface for editing your model, is displayed.
 
- 
+?
 
 ## Map an Entity to Two Tables
 
 In this step we will update the **Person** entity type to combine data from the **Person** and **PersonInfo** tables.
 
--   Select the **Email** and **Phone** properties of the **PersonInfo **entity and press **Ctrl+X** keys.
--   Select the **Person **entity and press **Ctrl+V** keys.
--   On the design surface, select the **PersonInfo** entity and press **Delete** button on the keyboard.
+-   Select the?**Email**?and **Phone** properties of the?**PersonInfo?**entity and press **Ctrl+X** keys.
+-   Select the?**Person?**entity and press **Ctrl+V** keys.
+-   On the design surface, select the?**PersonInfo**?entity and press **Delete** button on the keyboard.
 -   Click **No** when asked if you want to remove the **PersonInfo** table from the model, we are about to map it to the **Person** entity.
     
     ![DeleteTables](../ef6/media/deletetables.png)
 
-The next steps require the **Mapping Details** window. If you cannot see this window, right-click the design surface and select **Mapping Details**.
+The next steps require the?**Mapping Details**?window. If you cannot see this window, right-click the design surface and select **Mapping Details**.
 
--   Select the **Person** entity type and click **&lt;Add a Table or View&gt;** in the **Mapping Details** window.
--   Select **PersonInfo ** from the drop-down list.
-    The **Mapping Details** window is updated with default column mappings, these are fine for our scenario.
+-   Select the?**Person**?entity type and click?**&lt;Add a Table or View&gt;**?in the?**Mapping Details**?window.
+-   Select?**PersonInfo?**?from the drop-down list.
+    The?**Mapping Details**?window is updated with default column mappings, these are fine for our scenario.
 
-The **Person** entity type is now mapped to the **Person** and **PersonInfo** tables.
+The?**Person**?entity type is now mapped to the?**Person**?and?**PersonInfo**?tables.
 
 ![Mapping2](../ef6/media/mapping2.png)
 
- 
+?
 
 ## Use the Model
 
@@ -144,11 +144,11 @@ The **Person** entity type is now mapped to the **Person** and **PersonInfo
     }
 ```
 
- 
+?
 
 -   Compile and run the application.
 
-The following T-SQL statements were executed against the database as a result of running this application. 
+The following T-SQL statements were executed against the database as a result of running this application.?
 
 -   The following two **INSERT** statements were executed as a result of executing context.SaveChanges(). They take the data from the **Person** entity and split it between the **Person** and **PersonInfo** tables.
     

@@ -1,7 +1,9 @@
 ---
 title: Entity Framework 6.x | Microsoft Docs
-author: rowanmiller
+author: divega
+manager: ajcvickers
 ms.author: divega
+ms.manager: avickers
 ms.date: 10/27/2016
 ms.assetid: d16eb5be-7e94-477a-84cd-e6dce25df12a
 ms.technology: entity-framework-6

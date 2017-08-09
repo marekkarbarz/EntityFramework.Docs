@@ -1,13 +1,13 @@
 ---
 title: "Past Versions of Entity Framework | Microsoft Docs"
-ms.custom: ""
+author: divega
 ms.date: "2016-10-23"
 ms.prod: "visual-studio-2013"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "visual-studio-sdk"
-ms.tgt_pltfrm: ""
+ms.author: divega
+ms.manager: avickers
+ 
+
+ms.technology: entity-framework-6
 ms.topic: "article"
 ms.assetid: 1060bb99-765f-4f32-aaeb-d6635d3dbd3e
 caps.latest.revision: 4
@@ -15,7 +15,7 @@ caps.latest.revision: 4
 # Past Versions of Entity Framework
 We highly recommend that you use the latest version of Entity Framework to ensure you get the latest features and bug fixes. Check out the [Getting Started](../ef6/entity-framework-ef-documentation.md) section for documentation that applies to the latest version.
 
-We realize that you may need to use a previous version so this page serves as an archive of documentation for past releases. We’ll move outdated content here as new versions of Entity Framework are released.
+We realize that you may need to use a previous version so this page serves as an archive of documentation for past releases. We?ll move outdated content here as new versions of Entity Framework are released.
 
 Some of the content we built for previous versions is still relevant to the latest release, so you may find some links are shown on both this page and the [Getting Started](../ef6/entity-framework-ef-documentation.md) page.
 
@@ -141,7 +141,7 @@ Run the following command in the [Package Manager Console](http://docs.nuget.org
 Install-Package EntityFramework -Version 4.1.10715
 ```
 
-You’ll notice that the strange ‘10715’ patch version of the package. We used to use date based patch versions before we decided to adopt the \<http://semver.org> standard for semantic versioning. Think of this version as patch 1 (i.e. 4.1.1). There is also 4.1.10331 version of the package which should really have been 4.1. In addition there is a 4.1.10311 version which should have been 4.1.0-rc (the ‘rc’ stands for ‘release candidate’).
+You?ll notice that the strange ?10715? patch version of the package. We used to use date based patch versions before we decided to adopt the \<http://semver.org> standard for semantic versioning. Think of this version as patch 1 (i.e. 4.1.1). There is also 4.1.10331 version of the package which should really have been 4.1. In addition there is a 4.1.10311 version which should have been 4.1.0-rc (the ?rc? stands for ?release candidate?).
 
 Here is a useful list of content we put together for the 4.1 release. Much of it still applies to later releases of the Entity Framework:
 
