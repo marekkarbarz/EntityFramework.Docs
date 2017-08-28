@@ -2,7 +2,7 @@
 title: "Entity Framework Handling of Transaction Commit Failures (EF6.1 Onwards) | Microsoft Docs"
 author: divega
 ms.date: "2016-10-23"
-ms.prod: "visual-studio-2013"
+ms.prod: "entity-framework"
 ms.author: divega
 ms.manager: avickers
  

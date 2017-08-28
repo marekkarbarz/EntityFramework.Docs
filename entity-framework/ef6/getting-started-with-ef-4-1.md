@@ -2,7 +2,7 @@
 title: "Getting Started with EF 4.1 | Microsoft Docs"
 author: divega
 ms.date: "2016-10-23"
-ms.prod: "visual-studio-2013"
+ms.prod: "entity-framework"
 ms.author: divega
 ms.manager: avickers
 ms.technology: entity-framework-6

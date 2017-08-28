@@ -2,7 +2,7 @@
 title: "LocalDb Bug in MVC4 Beta 1 Code First Applications | Microsoft Docs"
 author: divega
 ms.date: "2016-10-23"
-ms.prod: "visual-studio-2013"
+ms.prod: "entity-framework"
 ms.author: divega
 ms.manager: avickers
 ms.technology: entity-framework-6
