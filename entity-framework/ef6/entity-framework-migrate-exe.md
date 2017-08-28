@@ -5,7 +5,7 @@ ms.date: "2016-10-23"
 ms.prod: "entity-framework"
 ms.author: divega
 ms.manager: avickers
- 
+
 
 ms.technology: entity-framework-6
 ms.topic: "article"
@@ -31,7 +31,8 @@ If your application targets .NET 4, and not 4.5, then you will need to copy the 
 |----------|----------|
 | ![Net45Files](../ef6/media/net45files.png) | ![Net40Files](../ef6/media/net40files.png) |
 
-***Note:** migrate.exe currently doesn't support x64 assemblies.*
+> [!NOTE]
+> migrate.exe doesn't support x64 assemblies.
 
 ?
 
